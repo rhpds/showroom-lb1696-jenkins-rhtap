@@ -1,0 +1,6 @@
+== Workshop Overview - {lab_name}
+
+Through this workshop, we delve into the transformative capabilities of the Red Hat Developer Hub (RHDH). This workshop is designed to provide you with a comprehensive understanding and hands-on experience of how RHDH revolutionizes cloud-native development. From exploring the innovative features of RHDH, including its powerful Golden Path Templates, to practical demonstrations of its application in real-world scenarios, we're set to guide you through the nuances of modern software development. 
+
+Join us in this journey to master the art of efficient, streamlined development practices that RHDH offers, setting new benchmarks in the realm of developer experience and productivity.
+

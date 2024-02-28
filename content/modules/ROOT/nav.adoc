@@ -1,0 +1,9 @@
+* xref:00-agenda.adoc[1. Agenda]
+
+* xref:01-introduction.adoc[2. Workshop Introduction]
+
+* xref:02-rhdh_core_features.adoc[3. Red Hat Developer Hub Core Features]
+
+* xref:03-golden_path_templates.adoc[4. How Golden Path Templates Simplify the Developer Experience]
+
+* xref:04-craft_your_first_gpt.adoc[5. Craft your first Golden Path Template]
