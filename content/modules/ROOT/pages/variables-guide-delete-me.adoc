@@ -4,7 +4,7 @@
 
 This page lists the variables you can use when making instructions.
 
-IMPORTANT: Once the showroom guide is created, please delete the file.
+IMPORTANT: Once the showroom guide is created, please delete the file and remove the *xref:variable-guide-delete-me.adoc[Variable Guide (Delete Me)]*  line from *content/modules/ROOT/nav.adoc* file. 
 
 
 
