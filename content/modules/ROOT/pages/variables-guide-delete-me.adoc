@@ -1,1 +1,44 @@
 = Variables Guide
+
+
+
+This page lists the variables you can use when making instructions.
+
+IMPORTANT: Once the showroom guide is created, please delete the file.
+
+
+
+== List of Variables
+
+.Variables from Tap Development Cluster
+[%autowidth,cols="^.^,^.^a,^.^a",options="header"]
+|===
+|SR No.| Variable Name| Variable Value
+|{counter:node} |novnc_user_password | {novnc_user_password}
+|{counter:node} |novnc_web_url | {novnc_web_url }
+|{counter:node} |rhdh_id_provider | {rhdh_id_provider}
+|{counter:node} |rhdh_url | {hdh_url}
+|{counter:node} |rhdh_user | {rhdh_user}
+|{counter:node} |rhdh_user_password | {rhdh_user_password}
+|===
+
+
+.Variables from Tap QA Cluster
+[%autowidth,cols="^.^,^.^a,^.^a",options="header"]
+|===
+|SR No.| Variable Name| Variable Value
+|{counter:nodea} | acs_portal_password | {acs_portal_password}
+|{counter:nodea} |acs_portal_username | {acs_portal_username}
+|{counter:nodea} |acs_route | {acs_route}
+|{counter:nodea} |api_url | {api_url}
+|{counter:nodea} |bastion_public_hostname | {bastion_public_hostname}
+|{counter:nodea} |bastion_ssh_password | {bastion_ssh_password}
+|{counter:nodea} |bastion_ssh_user_name | {bastion_ssh_user_name}
+|{counter:nodea} |openshift_cluster_admin_password | {openshift_cluster_admin_password}
+|{counter:nodea} |openshift_cluster_admin_username | {openshift_cluster_admin_username}
+|{counter:nodea} |web_console_url | {web_console_url}
+|===
+
+== How to Use
+
+To utilize variables, enclose them within curly brackets. For instance, use *{variable_name}* to incorporate variables into your instructions.
