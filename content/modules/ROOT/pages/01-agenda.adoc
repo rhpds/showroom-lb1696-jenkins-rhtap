@@ -1,0 +1,7 @@
+= {lab_name}
+:toc:
+:toc-placement: preamble
+:sectnums:
+:icons: font
+
+
