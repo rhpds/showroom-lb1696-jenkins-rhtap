@@ -14,15 +14,15 @@ IMPORTANT: Once the showroom guide is created, please delete the file and remove
 [%autowidth,cols="^.^,^.^a,^.^a",options="header"]
 |===
 |SR No.| Variable Name| Variable Value
-|{counter:node} | __developer_cluster_novnc_user_password | {__developer_cluster_novnc_user_password}
-|{counter:node} | __developer_cluster_novnc_web_url | {__developer_cluster_novnc_web_url }
-|{counter:node} |__developer_cluster_rhdh_id_provider | {__developer_cluster_rhdh_id_provider}
-|{counter:node} |__developer_cluster_rhdh_url | {__developer_cluster_rhdh_url}
-|{counter:node} |__developer_cluster_rhdh_user | {__developer_cluster_rhdh_user}
-|{counter:node} |__developer_cluster_rhdh_user_password | {__developer_cluster_rhdh_user_password}
-|{counter:nodea} |__developer_cluster_bastion_public_hostname | {__developer_cluster_bastion_public_hostname}
-|{counter:nodea} |__developer_cluster_bastion_ssh_password | {__developer_cluster_bastion_ssh_password}
-|{counter:nodea} |__developer_cluster_bastion_ssh_user_name | {__developer_cluster_bastion_ssh_user_name}
+|{counter:node} | developer_cluster_novnc_user_password | {developer_cluster_novnc_user_password}
+|{counter:node} | developer_cluster_novnc_web_url | {developer_cluster_novnc_web_url }
+|{counter:node} |developer_cluster_rhdh_id_provider | {developer_cluster_rhdh_id_provider}
+|{counter:node} |developer_cluster_rhdh_url | {developer_cluster_rhdh_url}
+|{counter:node} |developer_cluster_rhdh_user | {developer_cluster_rhdh_user}
+|{counter:node} |developer_cluster_rhdh_user_password | {developer_cluster_rhdh_user_password}
+|{counter:nodea} |developer_cluster_bastion_public_hostname | {developer_cluster_bastion_public_hostname}
+|{counter:nodea} |developer_cluster_bastion_ssh_password | {developer_cluster_bastion_ssh_password}
+|{counter:nodea} |developer_cluster_bastion_ssh_user_name | {developer_cluster_bastion_ssh_user_name}
 |===
 
 
@@ -30,16 +30,16 @@ IMPORTANT: Once the showroom guide is created, please delete the file and remove
 [%autowidth,cols="^.^,^.^a,^.^a",options="header"]
 |===
 |SR No.| Variable Name| Variable Value
-|{counter:nodea} | __qa_cluster_acs_portal_password | {__qa_cluster_acs_portal_password}
-|{counter:nodea} |__qa_cluster_acs_portal_username | {__qa_cluster_acs_portal_username}
-|{counter:nodea} |__qa_cluster_acs_route | {__qa_cluster_acs_route}
-|{counter:nodea} |__qa_cluster_api_url | {__qa_cluster_api_url}
-|{counter:nodea} |__qa_cluster_bastion_public_hostname | {__qa_cluster_bastion_public_hostname}
-|{counter:nodea} |__qa_cluster_bastion_ssh_password | {__qa_cluster_bastion_ssh_password}
-|{counter:nodea} |__qa_cluster_bastion_ssh_user_name | {__qa_cluster_bastion_ssh_user_name}
-|{counter:nodea} |__qa_cluster_openshift_cluster_admin_password | {__qa_cluster_openshift_cluster_admin_password}
-|{counter:nodea} |__qa_cluster_openshift_cluster_admin_username | {__qa_cluster_openshift_cluster_admin_username}
-|{counter:nodea} |__qa_cluster_web_console_url | {__qa_cluster_web_console_url}
+|{counter:nodea} | qa_cluster_acs_portal_password | {qa_cluster_acs_portal_password}
+|{counter:nodea} |qa_cluster_acs_portal_username | {qa_cluster_acs_portal_username}
+|{counter:nodea} |qa_cluster_acs_route | {qa_cluster_acs_route}
+|{counter:nodea} |qa_cluster_api_url | {qa_cluster_api_url}
+|{counter:nodea} |qa_cluster_bastion_public_hostname | {qa_cluster_bastion_public_hostname}
+|{counter:nodea} |qa_cluster_bastion_ssh_password | {qa_cluster_bastion_ssh_password}
+|{counter:nodea} |qa_cluster_bastion_ssh_user_name | {qa_cluster_bastion_ssh_user_name}
+|{counter:nodea} |qa_cluster_openshift_cluster_admin_password | {qa_cluster_openshift_cluster_admin_password}
+|{counter:nodea} |qa_cluster_openshift_cluster_admin_username | {qa_cluster_openshift_cluster_admin_username}
+|{counter:nodea} |qa_cluster_web_console_url | {qa_cluster_web_console_url}
 |===
 
 == How to Use
