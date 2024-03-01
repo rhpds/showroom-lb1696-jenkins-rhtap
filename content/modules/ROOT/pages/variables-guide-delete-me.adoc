@@ -45,3 +45,9 @@ IMPORTANT: Once the showroom guide is created, please delete the file and remove
 == How to Use
 
 To utilize variables, enclose them within curly brackets. For instance, use *{variable_name}* to incorporate variables into your instructions.
+
+== AsciiDoc References
+
+. https://powerman.name/doc/asciidoc[AsciiDoc cheatsheet, window=_blank]
+. https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/[AsciiDoc Syntax Quick Reference, window=_blank]
+. https://docs.antora.org/antora/latest/asciidoc/asciidoc/[Antora AsciiDoc, window=_blank]
