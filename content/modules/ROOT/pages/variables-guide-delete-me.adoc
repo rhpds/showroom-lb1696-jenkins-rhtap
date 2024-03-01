@@ -9,6 +9,7 @@ IMPORTANT: Once the showroom guide is created, please delete the file and remove
 
 
 == List of Variables
+****
 
 .Variables from Tap Development Cluster
 [%autowidth,cols="^.^,^.^a,^.^a",options="header"]
@@ -24,8 +25,9 @@ IMPORTANT: Once the showroom guide is created, please delete the file and remove
 |{counter:nodea} |developer_cluster_bastion_ssh_password | {developer_cluster_bastion_ssh_password}
 |{counter:nodea} |developer_cluster_bastion_ssh_user_name | {developer_cluster_bastion_ssh_user_name}
 |===
+****
 
-
+****
 .Variables from Tap QA Cluster
 [%autowidth,cols="^.^,^.^a,^.^a",options="header"]
 |===
@@ -41,6 +43,8 @@ IMPORTANT: Once the showroom guide is created, please delete the file and remove
 |{counter:nodea} |qa_cluster_openshift_cluster_admin_username | {qa_cluster_openshift_cluster_admin_username}
 |{counter:nodea} |qa_cluster_web_console_url | {qa_cluster_web_console_url}
 |===
+****
+
 
 == How to Use
 
