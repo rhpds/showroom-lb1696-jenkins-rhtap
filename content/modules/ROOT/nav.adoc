@@ -3,4 +3,4 @@
 * xref:01-introduction.adoc[2. Workshop Introduction]
 
 
-* xref:variable-guide-delete-me.adoc[Variable Guide (Delete Me)]
+* xref:variables-guide-delete-me.adoc[Variable Guide (Delete Me)]
