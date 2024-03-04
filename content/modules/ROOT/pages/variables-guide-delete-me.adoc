@@ -21,9 +21,9 @@ IMPORTANT: Once the showroom guide is created, please delete the file and remove
 |{counter:node} |developer_cluster_rhdh_url | {developer_cluster_rhdh_url}
 |{counter:node} |developer_cluster_rhdh_user | {developer_cluster_rhdh_user}
 |{counter:node} |developer_cluster_rhdh_user_password | {developer_cluster_rhdh_user_password}
-|{counter:nodea} |developer_cluster_bastion_public_hostname | {developer_cluster_bastion_public_hostname}
-|{counter:nodea} |developer_cluster_bastion_ssh_password | {developer_cluster_bastion_ssh_password}
-|{counter:nodea} |developer_cluster_bastion_ssh_user_name | {developer_cluster_bastion_ssh_user_name}
+|{counter:node} |developer_cluster_bastion_public_hostname | {developer_cluster_bastion_public_hostname}
+|{counter:node} |developer_cluster_bastion_ssh_password | {developer_cluster_bastion_ssh_password}
+|{counter:node} |developer_cluster_bastion_ssh_user_name | {developer_cluster_bastion_ssh_user_name}
 |===
 ****
 
