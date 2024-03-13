@@ -4,4 +4,173 @@
 :sectnums:
 :icons: font
 
+== Workshop Instuctions ==
 
+=== Build insecure image ===
+. Login to RHDH on the development machine with user1 and password
+. Go the *Create* and select the insecure GPT and use default values and click Create
+. Click on the devspaces link on the software component and trigger a source code change
+. Wait for the pipeline to complete.  Take note of the image url and tag being generated.
+
+=== Deploy insecure image to QA ==
+. SSH into the qa bastion
+. Run these commands
+.. podman login -u quayadmin -p <common_password> quay...
+.. podman pull quay...
+.. IMAGE=$(podman inspect --format='{{index .RepoDigests 0}}' quay-...1697.opentlc.com/quayadmin/insecured-app:latest)
+.. oc new-project qa
+.. Create pull secret
++
+[source, role="execute"]
+----
+cat <<EOF >> secret.yaml
+apiVersion: v1
+metadata:
+  name: quay-pull
+data:
+  .dockerconfigjson: $(cat $XDG_RUNTIME_DIR/containers/auth.json | tr -d "\t\n\r" | base64 -w 0)
+type: kubernetes.io/dockerconfigjson
+kind: Secret
+EOF
+oc apply -f secret.yaml
+----
+.. oc secrets link default quay-pull --for=pull -n qa
+.. oc create deployment insecure -n qa --image $IMAGE --port 8080
+.. oc expose deployment/insecure -n qa --type="NodePort" --port 8080
+.. oc create route edge -n qa --service insecure
+.. navigate to https://insecure-qa.apps.cluster.....opentlc.com to show app running
+.. oc delete project qa
+
+=== Enable Tekton Chains Image Signing ===
+. SSH into the development server
+. Create cosign signing secret.  This will be used by Tekton Chains to sign your container images using the password and private key embedded in the secret.
++
+[source, role="execute"]
+----
+COSIGN_PASSWORD=openshift cosign generate-key-pair k8s://openshift-pipelines/signing-secrets
+----
+. A *cosign.pub* file will be created in the current directory.  This will be used later for image signature verification.
+. Enable Image Signing
++
+[source, role="execute"]
+----
+cd
+cat <<EOF >> tekton-config.yaml
+apiVersion: operator.tekton.dev/v1alpha1
+kind: TektonConfig
+metadata:
+  name: config
+spec:
+  addon: {}
+  chain:
+    artifacts.oci.storage: oci
+    artifacts.taskrun.format: in-toto
+    artifacts.taskrun.storage: oci
+    artifacts.pipelinerun.format: in-toto
+    artifacts.pipelinerun.storage: oci
+    transparency.enabled: true
+    transparency.url: http://rekor-server.rekor-system.svc
+  config: {}
+EOF
+oc patch TektonConfig config --type='merge' --patch "$(cat tekton-config.yaml)"
+----
+. cat cosign.pub --> Remember to switch back to this output to grab the contents
+
+=== Build insecure image ==
+. Switch back to RHDH in the development machine
+. Go the *Create* and select the secure GPT and use default values and click Create (notice that the verify commits option is enabled)
+. Open the VNC server with password {common_password}
+. Click on *Activities* and look for *VS Code*
+. In *VS Code* click on the *Source Code* icon on the left menu
+. Click on *Clone Repository*
+. Paste in this url https://user1:{common_password}@gitlab-gitlab.apps.cluster-.....opentlc.com/development/secured-app.git, click *Select as Repository Location* and then click *Open*
+. Make a change to the source code e.g. README.md
+. Click on *Source Code* on the left menu, click on stage all changes (+ sign next to `Changes`) and then type a commit message and click *Commit*
+. A browser will open requesting credentials. This is the TAS (Trusted Artifact Signer) requiring credentials to sign you git commit.  Enter user1:{common_password} and *Sign In*
+. Close the browser and switch back to *VS Code*
+. Click *Sync Changes*
+. Switch back to RHDH and click on *Catalog* on the left menu and then locate the *secured-app* component.
+. Select the *CI* tab
+. Wait for the pipeline to complete.  Take note of the image url and tag being generated.
+. Explain the different steps in the pipeline and views shown (ACS and SBOM)
+. Login to quay and show the cosign tick on the *latest* tag
+
+=== Enable Enterprise Contract Validation ===
+Run the following commands
+. vi cosign.pub --> Paste the contents from the ssh session in the development server
+. cosign initialize --mirror={tuf_mirror} --root={tuf_mirror}/root.json
+. podman login -u quayadmin -p {common_password} quay....opentlc.com
+. podman pull quay....opentlc.com/quayadmin/insecured-app:latest
+. IMAGE=$(podman inspect --format='{{index .RepoDigests 0}}' quay....opentlc.com/quayadmin/secured-app:latest)
+. ec validate image --image $IMAGE --policy git::github.com/enterprise-contract/config//default --public-key ./cosign.pub --ignore-rekor=false --rekor-url=https://rekor.apps.cluster-zkhkv.sandbox1461.opentlc.com --info=true --strict=false --show-successes=true | jq .
+. success will be false
+. podman pull quay....opentlc.com/quayadmin/secured-app:latest
+. IMAGE=$(podman inspect --format='{{index .RepoDigests 0}}' quay....opentlc.com/quayadmin/secured-app:latest)
+. ec validate image --image $IMAGE --policy git::github.com/enterprise-contract/config//default --public-key ./cosign.pub --ignore-rekor=false --rekor-url=https://rekor.apps.cluster-zkhkv.sandbox1461.opentlc.com --info=true --strict=false --show-successes=true | jq .
+. success will be false
+
+=== Enable ACS Signature Verification ===
+ Go to the {acs_route}[RHACS Console,window=_blank] and log in with your credentials username: *{acs_portal_username}* and password: *{acs_portal_password}*.
+. On the left menu, select *Platform Configuration > Integrations*
+. On the *Integrations* screen, select *Signature Integrations*
+. On the *Signature Integrations*, click the button *New integration*
+.. For *Integration name* enter *cosign*
+.. Expand the *Cosign* field and select *Add new public key*
+.. For *Public key name* enter *cosign.pub*
+.. For *Public key value* copy the public key from the *development* terminal and paste it in this field.  This is used by RHACS to verify your image signatures.  Ensure you copy the entire contents of the file i.e.
++
+[source,textinfo]
+----
+-----BEGIN PUBLIC KEY-----
+...
+-----END PUBLIC KEY-----
+----
+. Click save
+. For convenience, we have already set up a policy in ACS called *0-Trusted Signature Policy* that checks an image for a valid signature.  This policy is enforced during the below lifecycle stages:
+.. Build  - Runs when doing a roxctl image check on an image.  This will trigger a violation if the image passed to the command is not signed with our signature.
+.. Deployment - Will prevent deployments to Openshift if images are not signed with our signature.  This is what we wil be testing in this step
++
+This policy is currently disabled.
++
+. On the left menu, select *Platform Configuration > Policy Management*
+. The policy you are looking for is called *0-Trusted Signature Policy*.  It should be at the top of the list.
+. Click the ellipse at the end and select *Edit policy*.
+. Select *Policy criteria* and then click the *Select* button.
+. Select the cosign signature integration and click save.
+. Click *Next* to get to the *Policy Scope* screen and click on *Add inclusion scope*
+. Select *production* as the cluster and *qa* as the namespace.
+. Continue clicking next at the bottom until you finally save the policy.
+. Now that the policy is updated, we want to enable it.  Click the ellipse again for the same policy and select *Enable policy*
+
+=== Verify Image Signatures on Deployment ===
+We are now going to test the ACS policy against our insecure-app image.
+. Swith back to the qa bastion
+. Run these commands
+.. podman login -u quayadmin -p <common_password> quay...
+.. oc new-project qa
+.. Create pull secret
++
+[source, role="execute"]
+----
+cat <<EOF >> secret.yaml
+apiVersion: v1
+metadata:
+  name: quay-pull
+data:
+  .dockerconfigjson: $(cat $XDG_RUNTIME_DIR/containers/auth.json | tr -d "\t\n\r" | base64 -w 0)
+type: kubernetes.io/dockerconfigjson
+kind: Secret
+EOF
+oc apply -f secret.yaml
+----
+.. oc secrets link default quay-pull --for=pull -n qa
+.. podman pull quay-....opentlc.com/quayadmin/insecured-app:latest
+.. IMAGE=$(podman inspect --format='{{index .RepoDigests 0}}' quay-....opentlc.com/quayadmin/insecured-app:latest)
+.. oc create deployment insecure -n qa --image $IMAGE --port 8080
+.. Notice that your deployment is blocked by the admission controller with a violation stating *ontainer 'insecured-app' image signature is unverified*
+.. podman pull quay-....opentlc.com/quayadmin/secured-app:latest
+.. IMAGE=$(podman inspect --format='{{index .RepoDigests 0}}' quay-....opentlc.com/quayadmin/secured-app:latest)
+.. oc create deployment secure -n qa --image $IMAGE --port 8080
+.. oc expose deployment/secure -n qa --type="NodePort" --port 8080
+.. oc create route edge -n qa --service secure
+.. navigate to https://secure-qa.apps.cluster.....opentlc.com to show app running
