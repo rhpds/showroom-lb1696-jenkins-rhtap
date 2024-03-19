@@ -72,8 +72,7 @@ oc patch TektonConfig config --type='merge' --patch "$(cat tekton-config.yaml)"
 . Login to quay and show the cosign tick on the *latest* tag
 
 === Enable Enterprise Contract Validation ===
-Run the following commands
-+
+. Run the following commands
 . vi cosign.pub --> Paste the contents from the ssh session in the development server
 . cosign initialize --mirror={tuf_mirror} --root={tuf_mirror}/root.json
 . sh validate-insecured.sh
@@ -114,8 +113,7 @@ This policy is currently disabled.
 . Now that the policy is updated, we want to enable it.  Click the ellipse again for the same policy and select *Enable policy*
 
 === Deploy both images ===
-We are now going to test the ACS policy against our insecure-app image.
-+
+. We are now going to test the ACS policy against our insecure-app image.
 . Swith back to the qa bastion
 . Run these commands
 .. sh deploy-insecured.sh
