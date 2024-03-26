@@ -18,17 +18,17 @@
 image::1_Authenticate.png[]
 
 * Now, it's time to enter your username and password as detailed below:
-
-Username: {developer_cluster_rhdh_user}
-Password: {developer_cluster_rhdh_user_password}
+** *Username*: {developer_cluster_rhdh_user}
+** *Password*: {developer_cluster_rhdh_user_password}
+* After inputting your credentials, you click the *Sign in* button.
 
 image::2_Gitlab_Authenticate.png[]
 
-* After inputting your credentials, you click on the *Authorize* button. 
+* You then click on the *Authorize* button to authorize *Keycloak* to access you account.
 
 image::3_Authorize.png[]
 
-Moments later, you're welcomed by the *RHDH* landing page
+Moments later, you're welcomed by the *RHDH* landing page.
 
 image::4_RHDH_Landing_Page.png[]
 
@@ -44,15 +44,15 @@ NOTE: link:https://www.redhat.com/en/blog/designing-golden-paths[*Golden Path Te
 image::5_Click_Create.png[]
 
 * Among the options, you spot the *GPT* titled *Insecured Quarkus Service Software Supply Chain* 
-* Feeling a mix of excitement and curiosity, you click the *Choose* button.
+* Feeling a mix of excitement and curiosity, you click the *CHOOSE* button.
 
-Note: This lab has been pre-configured with two Golden Template Paths (GPTs), a non-secure GPT and a secure GPT. However, lets pretend that our developer only sees the insecure GPT at this point.
+NOTE: This lab has been pre-configured with two Golden Template Paths (GPTs), a non-secure GPT and a secure GPT. However, lets pretend that our developer only sees the insecure GPT at this point and the naming of the GPT does not hint at the forthcoming challenges associated with running an insecure software supply pipeline
 
 image::6_Choose_Insecure_GPT.png[]
 
 * As the form for the Golden Path Template (GPT) appears, you're pleasantly surprised. 
 * Unlike other complicated ticketing systems you've used before, this form is refreshingly simple and seems tailor-made for your particular task. 
-* You click *Next*.
+* You click *NEXT*.
 
 image::7_First_Step_Form.png[]
 
@@ -60,18 +60,18 @@ image::7_First_Step_Form.png[]
 * You're pleased to find all the input fields are already pre-populated for you.
 
 
-* Now, you hit the "Review" button for a final look at the Form inputs. 
+* Now, you hit the *REVIEW* button for a final look at the Form inputs. 
 
-TIP: All these wizard forms and steps are customizable by your organization. In fact, a Golden Path Template is just another set of files in your git repository.
+TIP: All these wizard forms and steps are customizable by your organization. In fact, a Golden Path Template is just another set of files in your git repository. Feel free to explore this link:{gitlab_url}/development/my-quarkus-app[GPT YAML,window=_blank].
 
 image::9_Click_Review_Form.png[]
 
-* Everything checks out, so you confidently click on the *Create* button.
+* Everything checks out, so you confidently click on the *CREATE* button.
 
 image::10_Review_Form.png[]
 
 * In just a few seconds, the Golden Path Template kicks into action, setting up everything you need for your *Quarkus* application.
-* You click on the *Open Component in Catalog* link.
+* You click on the *OPEN COMPONENT IN CATALOG* link.
 
 image::11_Executed_GPT.png[]
 
@@ -82,7 +82,7 @@ image::12_Dashboard.png[]
 * The first thing you decide to do is dive into coding on your project. 
 * Your team is big on using *OpenShift Dev Spaces*, so you find and click on the *OpenShift Dev Spaces (VSCode)* link conveniently located in your Dashboard.
 
-NOTE: link:https://developers.redhat.com/products/openshift-dev-spaces/overview[*OpenShift Dev Spaces*,window=_blank] is a Kubernetes native workspace and IDE capability that is part of the OpenShift platform. This tool allows your platform team to offer a full fledged IDE that requires zero configuration and effort by your app developers.
+NOTE: link:https://developers.redhat.com/products/openshift-dev-spaces/overview[*OpenShift Dev Spaces*,window=_blank] is a Kubernetes native workspace and IDE that is part of the OpenShift platform. This tool allows your platform team to offer a full fledged IDE that requires zero configuration and effort by your app developers.
 
 image::13_Click_OpenShift_DevSpaces.png[]
 
@@ -91,9 +91,8 @@ image::13_Click_OpenShift_DevSpaces.png[]
 image::14_Login_With_OpenShift.png[]
 
 * Then, you choose the Single Sign-On option by clicking the *rhsso* button and entering your username and password as follows:
-
-Username: {developer_cluster_rhdh_user}
-Password: {developer_cluster_rhdh_user_password}
+** *Username*: {developer_cluster_rhdh_user}
+** *Password*: {developer_cluster_rhdh_user_password}
 
 image::15_Login_RHSSO.png[]
 
@@ -101,7 +100,7 @@ image::15_Login_RHSSO.png[]
 
 image::16_Allow_Selected_Permissions.png[]
 
-* Subsequently, you grant *OpenShift Dev Spaces* access to your GitLab account.
+* Subsequently, you grant *OpenShift Dev Spaces* access to your *GitLab* account.
 
 image::17_Authorize_Gitlab.png[]
 
@@ -112,43 +111,42 @@ NOTE: A link:https://devfile.io/[*Devfile*,window=_blank] is a YAML configuratio
 image::18_DevSpaces_Process_Devfile.png[]
 
 * After waiting a few minutes for *OpenShift Dev Spaces* to finish setting up your workspace, you're greeted with a fully fledged IDE accessible from your browser. 
-
-You click the button *Yes, I trust the authors.*
+* You click the button *Yes, I trust the authors.*
 
 image::19_Trust_Authors.png[]
 
 * To accomplish your task, you decide to:
 
 . Update the hello method in the ExampleResource.java class.
-. Refresh the JUnit test verifying this method's output.
+. Update the JUnit test verifying this method's output.
 . Amend the documentation to reflect your changes.
 
 NOTE: The JUnit test for the Hello method needs updating; otherwise, the Build step in the CI/CD pipeline would fail due to discrepancies between the code and its test.
 
-* In your my-quarkus-app workspace, you expand the folders src -> main -> java, and then open the ExampleResource.java file. 
+* In your my-quarkus-app workspace, you expand the folders *src -> main -> java*, and then open the *ExampleResource.java *file. 
 * On line 14, you replace the return message of the hello method from "Hello RESTEasy" to "Hello from RHDH".
 
 image::20_Modify_ExampleResource.png[]
 
 * Next, you update the JUnit test for this method. 
-* You expand the folders src -> main -> test, and open the ExampleResourceTest.java file. 
+* You expand the folders *src -> main -> test*, and open the *ExampleResourceTest.java* file. 
 * On line 18, you change the expected text from "Hello RESTEasy" to "Hello from RHDH".
 
 image::21_Modify_ExampleResourceTest.png[]
 
 * You recall your team's explanation that the documentation coexists with the code, nestled in the same git repository as a markdown file.
-* You expand the docs folder and open the markdoown file Index.md.
+* You expand the docs folder and open the markdown file *Index.md*.
 * At the document's end, you add: "Release 1.0: Update to ExampleResource.hello() method to return 'Hello from RHDH'."
 
 image::22_Index_File.png[]
 
 * Having completed your task, you're ready to commit your changes.
-* You click on the Source Control icon located in the left menu.
-* Then, you enter the commit message “My First Commit," and click on the Commit button to finalize your changes.
+* You click on the *Source Control* icon located in the left menu.
+* Then, you enter the commit message “My First Commit," and click on the *Commit* button to finalize your changes.
 
 image::23_My_First_Commit.png[]
 
-* In the pop-up window that follows, you click Yes to stage your changes.
+* In the pop-up window that follows, you click *Yes* to stage your changes.
 
 image::24_Stage_Changes.png[]
 
@@ -156,12 +154,13 @@ image::24_Stage_Changes.png[]
 
 image::25_SYNC_Changes.png[]
 
-* In the pop-up that follows, you click OK to push your changes and complete the process. 
+* In the pop-up that follows, you click *OK* to push your changes and complete the process. 
 
 image::26_OK_To_Push_Changes.png[]
 
-* You've successfully implemented your change and updated the documentation in one commit, following the "docs as code" approach. 
-* This commit will trigger the build pipeline for your *Quarkus* application.
+* You've successfully implemented your change and updated the documentation in one commit, following the "docs as code" methodology where documentation is treated with the same level of care and under the same processes as source code. 
+* You are delighted by knowing that following this methodology ensures that your documentation is as current as your code itself.
+* Your commit triggers the build pipeline for your *Quarkus* application.
 * You switch back to the *RHDH Dashboard* tab in your browser and select the CI tab from the top menu, ready to see your committed changes come to life.
 
 image::27_Click_on_CI_Tab.png[]
