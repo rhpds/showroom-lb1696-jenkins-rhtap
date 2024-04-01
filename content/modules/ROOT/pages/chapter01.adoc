@@ -28,7 +28,7 @@ image::2_Gitlab_Authenticate.png[]
 
 image::3_Authorize.png[]
 
-Moments later, you're welcomed by the *RHDH* landing page.
+* Moments later, you're welcomed by the *RHDH* landing page.
 
 image::4_RHDH_Landing_Page.png[]
 
@@ -46,7 +46,7 @@ image::5_Click_Create.png[]
 * Among the options, you spot the *GPT* titled *Insecured Quarkus Service Software Supply Chain* 
 * Feeling a mix of excitement and curiosity, you click the *CHOOSE* button.
 
-NOTE: This lab has been pre-configured with two Golden Template Paths (GPTs), a non-secure GPT and a secure GPT. However, lets pretend that our developer only sees the insecure GPT at this point and the naming of the GPT does not hint at the forthcoming challenges associated with running an insecure software supply pipeline
+NOTE: This lab has been pre-configured with two Golden Template Paths (GPTs), a non-secure GPT and a secure GPT. However, lets pretend that our developer only sees the insecure GPT at this point and the naming of the GPT does not hint at the forthcoming challenges associated with running an insecure software supply pipeline.
 
 image::6_Choose_Insecure_GPT.png[]
 
@@ -56,22 +56,23 @@ image::6_Choose_Insecure_GPT.png[]
 
 image::7_First_Step_Form.png[]
 
-* You click *Next* on the following form as well.
 * You're pleased to find all the input fields are already pre-populated for you.
+* You click *Next* on the following form as well.
 
+image::7_Second_Step_Form.png[]
 
-* Now, you hit the *REVIEW* button for a final look at the Form inputs. 
+* Now, you hit the *Review* button for a final look at the Form inputs. 
 
-TIP: All these wizard forms and steps are customizable by your organization. In fact, a Golden Path Template is just another set of files in your git repository. Feel free to explore this link:{gitlab_url}/development/my-quarkus-app[GPT YAML,window=_blank].
+TIP: All these wizard forms and steps are customizable by your organization. In fact, a Golden Path Template is just another set of files in your git repository. Feel free to explore this link:{gitlab_url}/rhdh/tap-workshop-templates/-/blob/main/scaffolder-templates/quarkus-insecure-template/template.yaml[GPT YAML,window=_blank].
 
 image::9_Click_Review_Form.png[]
 
-* Everything checks out, so you confidently click on the *CREATE* button.
+* Everything checks out, so you confidently click on the *Create* button.
 
 image::10_Review_Form.png[]
 
 * In just a few seconds, the Golden Path Template kicks into action, setting up everything you need for your *Quarkus* application.
-* You click on the *OPEN COMPONENT IN CATALOG* link.
+* You click on the *Open Component in Catalog* link.
 
 image::11_Executed_GPT.png[]
 
@@ -93,6 +94,7 @@ image::14_Login_With_OpenShift.png[]
 * Then, you choose the Single Sign-On option by clicking the *rhsso* button and entering your username and password as follows:
 ** *Username*: {developer_cluster_rhdh_user}
 ** *Password*: {developer_cluster_rhdh_user_password}
+* After inputting your credentials, you click the *Sign in* button.
 
 image::15_Login_RHSSO.png[]
 
@@ -100,22 +102,22 @@ image::15_Login_RHSSO.png[]
 
 image::16_Allow_Selected_Permissions.png[]
 
-* Subsequently, you grant *OpenShift Dev Spaces* access to your *GitLab* account.
+* Subsequently, you click *Authorize* to grant *OpenShift Dev Spaces* access to your *GitLab* account.
 
 image::17_Authorize_Gitlab.png[]
 
-* *OpenShift Dev Spaces* then begins creating your workspace, processing a Devfile containing all the configuration needed to set up your development environment.
+* *OpenShift Dev Spaces* then begins creating your workspace, processing a *Devfile* containing all the configuration needed to set up your development environment.
 
 NOTE: A link:https://devfile.io/[*Devfile*,window=_blank] is a YAML configuration file that serves as a portable definition for a development environment. It is designed to be a universal format that can describe any type of development environment, making it easier for developers to code, build, test, and run applications across different tools and platforms without the need to manually configure each environment.
 
 image::18_DevSpaces_Process_Devfile.png[]
 
-* After waiting a few minutes for *OpenShift Dev Spaces* to finish setting up your workspace, you're greeted with a fully fledged IDE accessible from your browser. 
-* You click the button *Yes, I trust the authors.*
+* After waiting a few minutes for *OpenShift Dev Spaces* to finish setting up your workspace, you're presented with a fully fledged IDE accessible from your browser. 
+* You click the button *Yes, I trust the authors*.
 
 image::19_Trust_Authors.png[]
 
-* To accomplish your task, you decide to:
+* To accomplish your task, you need to:
 
 . Update the hello method in the ExampleResource.java class.
 . Update the JUnit test verifying this method's output.
@@ -123,7 +125,7 @@ image::19_Trust_Authors.png[]
 
 NOTE: The JUnit test for the Hello method needs updating; otherwise, the Build step in the CI/CD pipeline would fail due to discrepancies between the code and its test.
 
-* In your my-quarkus-app workspace, you expand the folders *src -> main -> java*, and then open the *ExampleResource.java *file. 
+* In your *insecured-app* workspace, you expand the folders *src -> main -> java*, and then open the *ExampleResource.java *file. 
 * On line 14, you replace the return message of the hello method from "Hello RESTEasy" to "Hello from RHDH".
 
 image::20_Modify_ExampleResource.png[]
@@ -142,7 +144,7 @@ image::22_Index_File.png[]
 
 * Having completed your task, you're ready to commit your changes.
 * You click on the *Source Control* icon located in the left menu.
-* Then, you enter the commit message “My First Commit," and click on the *Commit* button to finalize your changes.
+* Then, you enter the commit message “My First Commit" and click on the *Commit* button to finalize your changes.
 
 image::23_My_First_Commit.png[]
 
@@ -161,7 +163,7 @@ image::26_OK_To_Push_Changes.png[]
 * You've successfully implemented your change and updated the documentation in one commit, following the "docs as code" methodology where documentation is treated with the same level of care and under the same processes as source code. 
 * You are delighted by knowing that following this methodology ensures that your documentation is as current as your code itself.
 * Your commit triggers the build pipeline for your *Quarkus* application.
-* You switch back to the *RHDH Dashboard* tab in your browser and select the CI tab from the top menu, ready to see your committed changes come to life.
+* You switch back to the *RHDH Dashboard* tab in your browser and select the *CI tab* from the top menu, ready to see your committed changes come to life.
 
 image::27_Click_on_CI_Tab.png[]
 
@@ -185,17 +187,15 @@ image::28_Expand_Pipeline_View.png[]
 * Your first action is to deploy the image, built by the developer, to the QA environment. 
 * Your experience as a QA engineer has equipped you with a toolkit of scripts, designed to automate such tasks.
 * You open your QA terminal, and type the command:
-
++
 [source, role="execute"]
 ----
-. sh deploy-insecured.sh
+sh deploy-insecured.sh
 ----
-
-image::29_Deploy_Insecure_Application.png[]
 
 * As soon as the script completes its run and the application is deployed, you proceed to copy the application's URL and paste it in your browser, eager to start testing the application.
 
-image::30_Copy_Application_URL.png[]
+image::29_Deploy_Insecure_Application.png[]
 
 * But, oh no! 
 * To your disbelief, the application has been compromised, now infected with a ransomware virus. 
@@ -210,7 +210,7 @@ image::31_Ransomeware.png[]
 
 === Chapter 1 - Summary
 
-Our story unfolds with a bright-eyed developer starting his new role, welcomed by the innovative environment of the Red Hat Developer Hub (RHDH). This Internal Developer Portal (IDP), with its Golden Path Templates (GPTs) streamlined and automated his onboarding process. These GPTs facilitated a self-service approach to project initiation, enabling the developer to quickly engage with his work.
+Our story unfolds with a bright-eyed developer starting his new role, welcomed by the innovative environment of the Red Hat Developer Hub (RHDH). This Internal Developer Portal (IDP), with its Golden Path Templates (GPTs) streamlined and automated his onboarding process. These GPTs facilitated a self-service approach to project initiation, enabling our developer to quickly engage with his work.
 
 However, as the baton passed to the QA engineer for testing, the narrative took a dramatic turn. The deployed application, instead of showcasing the fruits of their labor, revealed a critical vulnerability, it was infected with ransomware. This revelation abruptly interrupted the testing process and cast a shadow over the software supply chain's security, sparking concerns about vulnerability and exposure.
 

@@ -2,4 +2,6 @@
 
 * xref:chapter01.adoc[Chapter 1]
 
+* xref:chapter02.adoc[Chapter 2]
+
 * xref:variables-guide-delete-me.adoc[Variable Guide (Delete Me)]
