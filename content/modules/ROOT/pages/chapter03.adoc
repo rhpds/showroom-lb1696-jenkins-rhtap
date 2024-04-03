@@ -33,7 +33,7 @@ image::36_Create_Second_GPT.png[]
 
 * Next, you switch back to your VSCode running on the remote RHEL VM as you say: "To trigger our secure build pipeline, let's open VSCode and make a small change to the documentation."
 
-NOTE: If you your VNC session timed out, simply login again by and provide this password {noVNC Password} and click on the *Send Credentials* button just like you did before.
+NOTE: If you your VNC session timed out, simply login again by and provide this password {developer_cluster_novnc_user_password} and click on the *Send Credentials* button just like you did before.
 
 * You tell the team: "We are now going to clone our secured app git repo," you click on File in the top menu, then select *New Window*.
 * In the new instance of VSCode, you click on the *Source Control* icon in the left menu.

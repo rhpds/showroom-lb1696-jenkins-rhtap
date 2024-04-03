@@ -92,8 +92,8 @@ image::11_Executed_GPT.png[]
 image::12_Dashboard.png[]
 
 * The first thing you decide to do is dive into coding on your project. 
-* You access your Virtual Network Computer (VNC) interface using the link:{noVNC_url}[*link*,window=_blank].
-* When prompted, you enter your password: {noVNC_password}, and then click on the *Send Credentials* button.
+* You access your Virtual Network Computer (VNC) interface using the link:{developer_cluster_novnc_web_url}[*link*,window=_blank].
+* When prompted, you enter your password: {developer_cluster_novnc_user_password}, and then click on the *Send Credentials* button.
 
 NOTE: Normally, developers would use *VSCode* on their local laptops. However, to simplify the setup process, we've setup *VSCode* on a remote RHEL server accessible via a *VNC*. 
 
