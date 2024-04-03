@@ -1,18 +1,22 @@
-== Introduction
+== Chapter 1: A Day in the Life of a New Developer
 
 === Your First Steps to Your Digital Kingdom
 
 * Imagine this: You're a newly minted developer within our organization, your spirit burning bright with the desire to craft and create.
-* The keys to your new digital kingdom — your laptop, email, and access credentials — have just been handed over to you.
-* Amid the excitement, you receive a welcome email with a link to access the Red Hat Developer Hub (RHDH), your organization's Internal Developer Portal (IDP). 
-* With these resources at your disposal, you're now ready to start working on your new project.
+* The keys to your new digital kingdom — your laptop and access credentials — have just been handed over to you.
+* Amid the excitement, you receive a welcome email with a link to access the Red Hat Developer Hub (RHDH), your organization's Internal Developer Portal (IDP).
+* Included in the welcome email are some useful links to provide more details on the technologies you'll be engaging with in your new role.
+** You click link:glossary.adoc#idp[here,window=_blank] to read more about IDPs. 
+** then you click link:glossary.adoc#rhdh[here,window=_blank] to learn more about the Red Hat Developer Hub (RHDH).
+* "It looks like this handy glossary is going to be a useful companion through my journey," you think to yourself.
+* With these resources at your fingertips, you're now ready to start working on your new project.
 
 '''
 
 === Logging into Red Hat Developer Hub (RHDH)
 
-* You quickly follow the instructions from your welcome email to log into *RHDH*.
-* You use this URL to access *RHDH*: {developer_cluster_rhdh_url}
+* Eager to check out the *RHDH*, you quickly follow the instructions from your welcome email.
+* You use this link:{developer_cluster_rhdh_url}[*URL*, ,window=_blank] to log into *RHDH*.
 * Next, you click on the *GitLab* button to start the authentication process. 
 
 image::1_Authenticate.png[]
@@ -24,7 +28,7 @@ image::1_Authenticate.png[]
 
 image::2_Gitlab_Authenticate.png[]
 
-* You then click on the *Authorize* button to authorize *Keycloak* to access you account.
+* You then click on the *Authorize* button to authorize link:glossary.adoc#keycloak[*Keycloak*,window=_blank] to access you account.
 
 image::3_Authorize.png[]
 
@@ -36,10 +40,8 @@ image::4_RHDH_Landing_Page.png[]
 
 === Running your first Golden Path Template (GPT)
 
-* Eager as you are, you immediately want to explore the Golden Path Templates (GPT) you've heard so much about from your colleagues.
+* Eager as you are, you immediately want to explore the link:glossary.adoc#gpt[Golden Path Templates (GPT),window=_blank] you've heard so much about from your colleagues.
 * You find and click the *Create* button in the left menu. 
-
-NOTE: link:https://www.redhat.com/en/blog/designing-golden-paths[*Golden Path Templates*,window=_blank] help developers create new components with ease, in an automated and self-service manner, while ensuring compliance with organizational policies and best practices.
 
 image::5_Click_Create.png[]
 
@@ -50,20 +52,20 @@ NOTE: This lab has been pre-configured with two Golden Template Paths (GPTs), a 
 
 image::6_Choose_Insecure_GPT.png[]
 
-* As the form for the Golden Path Template (GPT) appears, you're pleasantly surprised. 
+* As the form for the *Golden Path Template (GPT)* appears, you're pleasantly surprised. 
 * Unlike other complicated ticketing systems you've used before, this form is refreshingly simple and seems tailor-made for your particular task. 
+* "Ah, so my team has opted to use link:glossary.adoc#quarkus[*Quarkus*,window=_blank] for this project. That's a great framework for developing Kubernetes-native applications," excitement sparking within you. 
 * You click *NEXT*.
 
 image::7_First_Step_Form.png[]
 
 * You're pleased to find all the input fields are already pre-populated for you.
-* You click *Next* on the following form as well.
+* You also note that your organization is using link:glossary.adoc#quay[*Red Hat Quay*,window=_blank] as the image registry.
+* You click *Next* on the this form as well.
 
 image::7_Second_Step_Form.png[]
 
-* Now, you hit the *Review* button for a final look at the Form inputs. 
-
-TIP: All these wizard forms and steps are customizable by your organization. In fact, a Golden Path Template is just another set of files in your git repository. Feel free to explore this link:{gitlab_url}/rhdh/tap-workshop-templates/-/blob/main/scaffolder-templates/quarkus-insecure-template/template.yaml[GPT YAML,window=_blank].
+* Now, you hit the *Review* button for a final look at the form inputs. 
 
 image::9_Click_Review_Form.png[]
 
@@ -71,7 +73,16 @@ image::9_Click_Review_Form.png[]
 
 image::10_Review_Form.png[]
 
-* In just a few seconds, the Golden Path Template kicks into action, setting up everything you need for your *Quarkus* application.
+* In just a few seconds, the *Golden Path Template (GPT)* kicks into action, setting up everything you need for your *Quarkus* application.
+* The *GPT* has done quiet a bit of heavy lifting on your behalf here:
+.. It created two repositories in Gitlab: one for the application source code and the other for link:glossary.adoc#gitops[*OpenShift GitOps*,window=_blank] manifests.
+.. It instructed *OpenShift GitOps* to create an application and all the specified resources in the manifests in the target *OpenShift* cluster.
+.. *OpenShift GitOps* then processed the Helm charts in the manifests git repo to deploy a CI pipeline in link:glossary.adoc#pipeline[*OpenShift Pipelines*,window=_blank] to build your application and push it to *Red Hat Quay*.
+
+NOTE: You might be wondering, what if my organization uses tools other than OpenShift GitOps or OpenShift Pipelines? What if you've invested in Azure DevOps, for example? The great news is that every step in a Golden Path Template is fully customizable, and we can swap out any tool used in a step with one of your choice. This flexibility is made possible through an extensible ecosystem of plugins. These plugins enable you to select your preferred tools from the existing plugins marketplace or even develop your custom plugins. So, in a nutshell, a GPT adapts to your organization's workflow, not the other way around.
+
+image::73_GPT_Flow.png[]
+
 * You click on the *Open Component in Catalog* link.
 
 image::11_Executed_GPT.png[]
@@ -81,39 +92,41 @@ image::11_Executed_GPT.png[]
 image::12_Dashboard.png[]
 
 * The first thing you decide to do is dive into coding on your project. 
-* Your team is big on using *OpenShift Dev Spaces*, so you find and click on the *OpenShift Dev Spaces (VSCode)* link conveniently located in your Dashboard.
+* You access your Virtual Network Computer (VNC) interface using the link:{noVNC_url}[*link*,window=_blank].
+* When prompted, you enter your password: {noVNC_password}, and then click on the *Send Credentials* button.
 
-NOTE: link:https://developers.redhat.com/products/openshift-dev-spaces/overview[*OpenShift Dev Spaces*,window=_blank] is a Kubernetes native workspace and IDE that is part of the OpenShift platform. This tool allows your platform team to offer a full fledged IDE that requires zero configuration and effort by your app developers.
+NOTE: Normally, developers would use *VSCode* on their local laptops. However, to simplify the setup process, we've setup *VSCode* on a remote RHEL server accessible via a *VNC*. 
 
-image::13_Click_OpenShift_DevSpaces.png[]
+image::38_Send_Credentials.png[]
 
-* You log in using your OpenShift credentials by clicking the *Log in with OpenShift* button. 
+* Once the RHEL server welcome screen appears, you click on *Activities* at the top left of your screen and enter "*VSCode*" in the search bar.
+* You then launch *VSCode* by clicking on it's icon.
 
-image::14_Login_With_OpenShift.png[]
+image::39_Search_For_VSCode.png[]
 
-* Then, you choose the Single Sign-On option by clicking the *rhsso* button and entering your username and password as follows:
-** *Username*: {developer_cluster_rhdh_user}
-** *Password*: {developer_cluster_rhdh_user_password}
-* After inputting your credentials, you click the *Sign in* button.
+* "Alright, now I am ready to clone my project's git repo," you tell yourself.
+* You open the *No VNC* clipboard, then you paste the link to your project repo into it.
 
-image::15_Login_RHSSO.png[]
+image::68_NoVNC_Clipboard.png[]
 
-* You authorize *OpenShift Dev Spaces* to access your account by clicking the *Allow selected permissions* button. 
+image::69_NoVNC_Clipboard_with_URL.png[]
 
-image::16_Allow_Selected_Permissions.png[]
+* You copy the link from the clipboard as you prepare to use it in *VSCode*.
+* You click on the *Source Control* icon in the left menu, then on the *Clone Repository* button, and paste the link you just copied from the clipboard.
 
-* Subsequently, you click *Authorize* to grant *OpenShift Dev Spaces* access to your *GitLab* account.
+NOTE: To copy & paste between your laptop and the remote Linux VM, you need to use the VNC clipboard.
 
-image::17_Authorize_Gitlab.png[]
+image::70_Clone_Repo_In_VSCode.png[]
 
-* *OpenShift Dev Spaces* then begins creating your workspace, processing a *Devfile* containing all the configuration needed to set up your development environment.
+* You select the current location as the repository destination by clicking on the *Select as Repository Destination* button.
 
-NOTE: A link:https://devfile.io/[*Devfile*,window=_blank] is a YAML configuration file that serves as a portable definition for a development environment. It is designed to be a universal format that can describe any type of development environment, making it easier for developers to code, build, test, and run applications across different tools and platforms without the need to manually configure each environment.
+image::41_Choose_Folder.png[]
 
-image::18_DevSpaces_Process_Devfile.png[]
+* You load the cloned repository in *VSCode* by clicking *Open* in the pop-up window that follows.
 
-* After waiting a few minutes for *OpenShift Dev Spaces* to finish setting up your workspace, you're presented with a fully fledged IDE accessible from your browser. 
-* You click the button *Yes, I trust the authors*.
+image::42_Open_Cloned_Repo.png[]
+
+* After choosing to trust the authors, you are ready to start working on your task.
 
 image::19_Trust_Authors.png[]
 
@@ -123,9 +136,7 @@ image::19_Trust_Authors.png[]
 . Update the JUnit test verifying this method's output.
 . Amend the documentation to reflect your changes.
 
-NOTE: The JUnit test for the Hello method needs updating; otherwise, the Build step in the CI/CD pipeline would fail due to discrepancies between the code and its test.
-
-* In your *insecured-app* workspace, you expand the folders *src -> main -> java*, and then open the *ExampleResource.java *file. 
+* In your *insecured-app* workspace, you expand the folders *src -> main -> java*, and then open the *ExampleResource.java* file. 
 * On line 14, you replace the return message of the hello method from "Hello RESTEasy" to "Hello from RHDH".
 
 image::20_Modify_ExampleResource.png[]
@@ -134,21 +145,34 @@ image::20_Modify_ExampleResource.png[]
 * You expand the folders *src -> main -> test*, and open the *ExampleResourceTest.java* file. 
 * On line 18, you change the expected text from "Hello RESTEasy" to "Hello from RHDH".
 
+NOTE: The JUnit test for the Hello method needs updating to be the exactly the same as in the *ExampleResource.java**; otherwise, the Build step in the CI/CD pipeline would fail due to discrepancies between the code and its test.
+
 image::21_Modify_ExampleResourceTest.png[]
 
 * You recall your team's explanation that the documentation coexists with the code, nestled in the same git repository as a markdown file.
 * You expand the docs folder and open the markdown file *Index.md*.
-* At the document's end, you add: "Release 1.0: Update to ExampleResource.hello() method to return 'Hello from RHDH'."
+* At the document's end, you add: "Release 1.0: Code update."
 
-image::22_Index_File.png[]
+image::71_Update_Documentation.png[]
 
 * Having completed your task, you're ready to commit your changes.
+* You open the file menu and choose to *Save All* your changes.
 * You click on the *Source Control* icon located in the left menu.
 * Then, you enter the commit message “My First Commit" and click on the *Commit* button to finalize your changes.
 
-image::23_My_First_Commit.png[]
+image::72_Commit_Changes.png[]
 
 * In the pop-up window that follows, you click *Yes* to stage your changes.
+
+* A form appears in your browser, prompting you for your credentials. You fill in the details as follows:
+** Username: {developer_cluster_rhdh_user}
+** Password: {developer_cluster_rhdh_user_password}
+
+NOTE: You learn more about the importance of this step in the third chapter of this workshop.
+
+image::45_Sigstore_Signin.png[]
+
+* You close the browser and switch back to *VSCode*
 
 image::24_Stage_Changes.png[]
 
@@ -178,43 +202,11 @@ image::28_Expand_Pipeline_View.png[]
 
 '''
 
-=== Testing the Insecure Application
-
-* As our story unfolds, you find yourself donning the hat of a QA engineer. 
-* The moment you receive an email from the *Quarkus* Developer announcing the completion of his task, the baton is passed to you. 
-* It's now in your hands to validate the integrity and quality of the code delivered.
-
-* Your first action is to deploy the image, built by the developer, to the QA environment. 
-* Your experience as a QA engineer has equipped you with a toolkit of scripts, designed to automate such tasks.
-* You open your QA terminal, and type the command:
-+
-[source, role="execute"]
-----
-sh deploy-insecured.sh
-----
-
-* As soon as the script completes its run and the application is deployed, you proceed to copy the application's URL and paste it in your browser, eager to start testing the application.
-
-image::29_Deploy_Insecure_Application.png[]
-
-* But, oh no! 
-* To your disbelief, the application has been compromised, now infected with a ransomware virus. 
-* How could this have possibly happened?
-
-image::31_Ransomeware.png[]
-
-* Without wasting a moment, you recognize the severity of the situation and know exactly what needs to be done. 
-* You quickly report the issue to your organization's security team, urging them to launch an investigation into this critical breach.
-
-'''
-
 === Chapter 1 - Summary
 
-Our story unfolds with a bright-eyed developer starting his new role, welcomed by the innovative environment of the Red Hat Developer Hub (RHDH). This Internal Developer Portal (IDP), with its Golden Path Templates (GPTs) streamlined and automated his onboarding process. These GPTs facilitated a self-service approach to project initiation, enabling our developer to quickly engage with his work.
+Our story unfolds with a bright-eyed developer starting his new role, welcomed by the innovative environment of the Red Hat Developer Hub (RHDH). This Internal Developer Portal (IDP), with its Golden Path Templates (GPTs) streamlined and automated his onboarding process. The GPT offered a self-service approach to project initiation, enabling our developer to quickly dive into his task, without the overhead of configuring the underlying technology of the development environment.
 
-However, as the baton passed to the QA engineer for testing, the narrative took a dramatic turn. The deployed application, instead of showcasing the fruits of their labor, revealed a critical vulnerability, it was infected with ransomware. This revelation abruptly interrupted the testing process and cast a shadow over the software supply chain's security, sparking concerns about vulnerability and exposure.
-
-The next chapter of our story will delve into the arsenal of Red Hat's security tools and practices. We will explore how integrating these tools into the build and deployment pipelines can safeguard our software supply chain against the ever-present specter of cyber threats. 
+The next chapter of our story uncovers the risks associated with providing developers with the tools to create great code without the necessary security guard rails that are crucial for safeguarding the organization against security threats. 
 
 
 

@@ -1,0 +1,11 @@
+== Introduction
+This workshop will take you on a journey through the Software Development Lifecycle (SDLC). Throughout this journey, you will assume different roles to comprehend the challenges faced by personas like developers, quality assurance engineers, and security engineers in this process, and how our solution, the Red Hat Trusted Application Pipeline, helps address those challenges. Our story unfolds over three chapters.
+
+== Chapter 1: A Day in the Life of a New Developer
+You will begin by stepping into the shoes of a new developer, eager to start writing great code. You will understand the value of Internal Developer Portals (IDPs), such as the Red Hat Developer Hub (RHDH), in streamlining the onboarding process for new developers, making it not just efficient but also enjoyable. RHDH significantly reduces cognitive overload for developers, enabling them to focus on what matters most—writing great code.
+
+== Chapter 2: Tightrope Walking without a Net
+The story progresses as you don the hat of a Quality Assurance Engineer, uncovering the risks associated with providing developers with the tools to create great code without the necessary security guard rails that are vital for safeguarding the organization against security threats.
+
+== Chapter 3: Red Hat Trusted Application Pipeline to the Rescue
+In our story's final part, you play a Red Hat Consultant tasked with addressing a critical question: How can you meet the security team's requirements for delivering secure applications while not overwhelming developers with security concerns? The answer, of course, lies in the Red Hat Trusted Application Pipeline (RHTAP). Here, you'll demonstrate the solution's capabilities to the team, showcasing how it can meet their security challenges.

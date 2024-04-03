@@ -1,7 +1,11 @@
-* xref:01-agenda.adoc[1. Agenda]
+* xref:agenda.adoc[Agenda]
 
-* xref:chapter01.adoc[Chapter 1]
+* xref:introduction.adoc[Workshop Introduction]
 
-* xref:chapter02.adoc[Chapter 2]
+* xref:chapter01.adoc[Chapter 1: A Day in the Life of a New Developer]
 
-* xref:variables-guide-delete-me.adoc[Variable Guide (Delete Me)]
+* xref:chapter02.adoc[Chapter 2: Tightrope Walking without a Net]
+
+* xref:chapter03.adoc[Chapter 3: Red Hat Trusted Application Pipeline to the Rescue]
+
+* xref:glossary.adoc[Glossary]

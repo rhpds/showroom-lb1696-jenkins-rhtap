@@ -1,0 +1,67 @@
+== Glossary
+
+
+[id='gpt']
+* *Golden Path Template (GPT)*: Is a pre-configured template that provides a standardized approach to common development tasks within an organization. GPTs help developers create new components with ease, in an automated and self-service manner, while ensuring compliance with organizational policies and best practices. For a more in-depth explanation, check out the blog Raffaele Spazzoli: https://www.redhat.com/en/blog/designing-golden-paths
+
+[id='idp']
+* *Internal Developer Portal (IDP)*: Is a centralized platform within a company that provides developers with tools, resources, and information they need to build and deploy applications. Think of it as a one-stop shop for internal developers, streamlining access to APIs, documentation, and development environments. You can further learn about IDPs through this URL: https://internaldeveloperplatform.org/what-is-an-internal-developer-platform/.
+
+[id='keycloak']
+* *Keycloak*: Is an open-source identity and access management (IAM) tool from Red Hat. It centralizes user authentication, authorization, and single sign-on (SSO) for applications and services. Explore the Keycloak documentation for a deeper dive: https://www.keycloak.org/.
+
+[id='rhdh']
+* *Red Hat Developer Hub (RHDH)*: Is an open-source developer portal platform built by Red Hat. It streamlines development workflows by providing a unified environment with access to essential tools and resources. *RHDH* helps development teams collaborate more effectively and accelerate application delivery. Explore Red Hat Developer Hub documentation to learn more: https://developers.redhat.com/rhdh/overview.
+
+[id='quarkus']
+* *Quarkus*: Is a Kubernetes-native Java framework from Red Hat, designed for building cloud-native applications. It emphasizes speed, efficiency, and minimal resource consumption. Compared to traditional Java frameworks, Quarkus offers:
+** Faster startup times and smaller application footprints
+** Optimized for containers and serverless environments
+** Offers a fantastic developer experience through capabilities like link:https://quarkus.io/developer-joy/[Live Coding,window=_blank].
+* Explore the official Quarkus website for a deeper dive: https://quarkus.io/
+
+[id='quay']
+* *Red Hat Quay*: Is a container image registry offered by Red Hat for storing, managing, and securely distributing containerized applications. It acts as a central repository for developers to build, share, and deploy container images. Explore Red Hat Quay documentation to learn more about its features: https://access.redhat.com/products/red-hat-quay/.
+
+[id='gitops']
+* *Red Hat OpenShift GitOps*: Is an operator offered by Red Hat that simplifies the deployment and management of Argo CD for GitOps workflows on OpenShift. Learn more about OpenShift GitOps: https://www.redhat.com/en/technologies/cloud-computing/openshift/gitops
+
+[id='pipeline']
+* *Red Hat OpenShift Pipelines*: Is a cloud-native continuous integration and continuous delivery (CI/CD) solution built on Red Hat OpenShift. It utilizes Tekton, a Kubernetes-native framework, to automate deployments across various platforms (Kubernetes, serverless, VMs, etc.). You can read more about *Red Hat OpenShift Pipelines* through this blog: https://www.redhat.com/en/blog/introducing-openshift-pipelines 
+
+[id='rhtas']
+* *Red Hat Trusted Artifact Signer (RHTAS)*: Is a self-managed, on-premise solution from Red Hat for cryptographically signing and verifying software artifacts throughout the software supply chain. Built on the open-source *Sigstore* project, RHTAS enhances the security and integrity of your software development process by verifying the authenticity and integrity of signed artifacts, ensuring they haven't been tampered with during the supply chain. Read more about *RHTAS* in this blog: https://developers.redhat.com/blog/2023/11/15/announcing-red-hat-trusted-artifact-signer-rhtas-tech-preview#what_is_it_and_why_should_i_care_
+
+[id='slsa']
+* *Supply Chain Levels for Software Artifacts (SLSA)*: Is an open-source security framework developed by the Open Source Security Foundation (OpenSSF) to improve the integrity and security of software artifacts throughout the supply chain. Check out the official website for more details: https://slsa.dev/
+
+[id='rhtap']
+* *Red Hat Trusted Application Pipeline (RHTAP)*: Is a hosted and managed service from Red Hat designed to securely build, assemble, and deploy next-generation cloud-native applications. RHTAP emphasizes security throughout the software development lifecycle (SDLC) to deliver trust and integrity within your application supply chain. Learn more about *RHTAP* in this blog: https://developers.redhat.com/articles/2023/07/18/introduction-red-hat-trusted-application-pipeline#the_solution__red_hat_trusted_application_pipeline
+
+[id='sigstore']
+* *SigStore*: Is an open-source project under the Linux Foundation, backed by organizations like Google, Red Hat, and Chainguard. It aims to revolutionize software supply chain security by providing a standardized approach to signing, verifying, and storing cryptographic evidence throughout the development lifecycle. SigStore offers a suite of tools and services that work together to create a verifiable chain of trust for software artifacts. Here is a quick overview of those tools:
+** *Rekor*: A public, tamper-proof transparency log. Rekor acts as a central repository for storing signing information, including timestamps, signing certificates, and cryptographic proofs. This log allows anyone to verify the validity of signatures and the identity of the signer.
+** *Fulcio*: A certificate authority (CA) that empowers developers to obtain short-lived certificates for keyless signing. This eliminates the need for complex GPG key management, simplifying the signing process.
+** *Cosign*: A command-line tool for signing and verifying software artifacts like container images and blobs.
+** *GitSign*: A tool that facilitates keyless signing of Git commits using developer identities from OIDC providers like GitHub or Google.
+* Learn more about how Red Hat leverage the *Sigstore* project in this blog: https://www.redhat.com/en/blog/red-hat-openshift-and-sigstore.
+
+[id='ec']
+* *Enterprise Contract (EC)*: Is a suite of tools designed to maintain software supply chain security. It focuses on container images and offers functionalities for:
+** Policy enforcement: Define and enforce policies related to how container images are built and tested.
+** Verification: Validate the integrity and security of container images using tools like Cosign and Sigstore.
+** SLSA compliance: Supports adherence to Supply chain Levels for Software Artifacts (SLSA) best practices for secure software development.
+Read more about Enterprise Contacts on the official website: https://enterprisecontract.dev/
+
+[id='gitsign']
+* *GitSign*: Is a tool that implements keyless signing for Git commits using the *Sigstore* project's infrastructure. It allows developers to sign their commits with a valid OpenID Connect (OIDC) identity, eliminating the need for traditional GPG keys and complex key management. Read more about GitSign in this blog: https://medium.com/sigstore/introducing-gitsign-9fd3f1b682aa
+
+[id='cosign']
+* *Cosign*: Is a command-line tool developed by the *Sigstore* project that facilitates secure signing and verification of software artifacts, particularly container images and blobs used in software development pipelines. It offers a flexible and robust approach to securing the software supply chain. Read more about signing containers with Cosign here: https://docs.sigstore.dev/signing/signing_with_containers/
+
+[id='tektonchains']
+* *Tekton Chains*: Is a Kubernetes Custom Resource Definition (CRD) controller designed to manage security within the Tekton continuous integration and continuous delivery (CI/CD) framework. It plays a crucial role in securing the software supply chain by focusing on provenance, which refers to the detailed record of an artifact's creation and history. *Tekton Chains* offers some powerful capabilities: 
+** *Signing and Attestation*: Allows users to configure signing of the captured provenance with cryptographic keys. This signature acts as a digital seal, guaranteeing the authenticity and integrity of the provenance data. 
+** *Provenance Capture*: Observes executions (TaskRuns and PipelineRuns) within your Tekton environment. When a run is complete, Tekton Chains takes a snapshot of the execution details, capturing information about the build process, used resources, and configuration.
+** *Provenance Transformation*: Converts the captured snapshot into one or more standardized payload formats, such as in-toto or SLSA (Supply chain Levels for Software Artifacts). These formats provide a structured and machine-readable representation of the provenance data.
+

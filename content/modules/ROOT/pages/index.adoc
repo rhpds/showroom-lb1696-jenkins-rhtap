@@ -1,6 +1,11 @@
 == Workshop Overview - {lab_name}
 
-Through this workshop, we delve into the transformative capabilities of the Red Hat Developer Hub (RHDH). This workshop is designed to provide you with a comprehensive understanding and hands-on experience of how RHDH revolutionizes cloud-native development. From exploring the innovative features of RHDH, including its powerful Golden Path Templates, to practical demonstrations of its application in real-world scenarios, we're set to guide you through the nuances of modern software development. 
+Welcome to the world of Hybrid Cloud! A utopian world where you can deploy and run applications anywhere you choose, be it on-premise or across any public cloud provider. However, this utopia does come at a cost. Developers find themselves managing a mix of traditional and cloud-native workloads, navigating through both legacy and modern runtimes and frameworks, all while under constant pressure to deliver projects quickly. This balancing act can easily overwhelm developers, leading to what’s known as *cognitive overload*.
 
-Join us in this journey to master the art of efficient, streamlined development practices that RHDH offers, setting new benchmarks in the realm of developer experience and productivity.
+Moreover, developers are often unaware of potential risks lurking within their code or, more critically, within external libraries. Remember the Log4j link:https://en.wikipedia.org/wiki/Log4Shell[*Log4Shell*,window=_blank] mess?
+
+This workshop introduces the *Red Hat Trusted Application Pipeline (RHTAP)*, designed to help organizations create and deploy secure applications, while at the same time offering a seamless experience that minimizes cognitive load for developers.
+
+Join us in this engaging workshop to learn more about the *Red Hat Trusted Application Pipeline (RHTAP)* and how it can revolutionize your Software Development Lifecycle (SDLC).
+
 

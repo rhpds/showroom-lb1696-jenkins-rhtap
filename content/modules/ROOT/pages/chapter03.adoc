@@ -1,0 +1,212 @@
+== Chapter 3:  Red Hat Trusted Application Pipeline to the Rescue
+
+* In the final chapter of our story, you demonstrate to the team how the Red Hat Trusted Application Pipeline (RHTAP) and Red Hat security tools can effectively tackle their security concerns, equipping the organization with a Secure Software Supply Chain.
+
+
+'''
+
+=== Demonstrating the Secure Build Process
+
+* You switch to the Red Hat Developer Hub Dashboard, ready to demonstrate the new GPT with the security enhancements.
+
+==== Running the Secure GPT
+
+* You click *Create* in the left menu and then select the *Choose* button for the *Secured Quarkus Service Software Supply Chain GPT*.
+
+image::34_Run_Secure_GPT.png[]
+
+* You keep the default values and click the *Next* button on the first two forms.
+* Before you click the *Review* button on the third form, you show the team that *Review Commits* is set to *enabled* in this form.
+* This is because this GPT is using the *Trusted Artifacts Signer* to verify that the code commits are signed.
+
+image::35_Review_Commits_Enabled.png[]
+
+* You click the *Review* button. 
+* After quickly reviewing the summary and seeing that everything looks great, you proceed to click the *Create* button.
+
+image::36_Create_Second_GPT.png[]
+
+* The secure GPT executes successfully, you seize this moment to explain the value of using GPTs in this scenario. 
+* "This environment," you explain, "is created with all the security guardrails we discussed. What's fantastic about Golden Path Templates is that the enhancements in the security pipeline are entirely transparent to our developer. This means they won't impact how he codes or builds applications."
+
+==== Code Commit 
+
+* Next, you switch back to your VSCode running on the remote RHEL VM as you say: "To trigger our secure build pipeline, let's open VSCode and make a small change to the documentation."
+
+NOTE: If you your VNC session timed out, simply login again by and provide this password {noVNC Password} and click on the *Send Credentials* button just like you did before.
+
+* You tell the team: "We are now going to clone our secured app git repo," you click on File in the top menu, then select *New Window*.
+* In the new instance of VSCode, you click on the *Source Control* icon in the left menu.
+* Then on the *Clone Repository* button and  paste the link to the Source Code Repository: {clone_secure_url}
+
+NOTE: Remember to use the VNC clipboard to copy and paste.
+
+image::40_Click_On_Source_Control.png[]
+
+* You explain to the team: "I'll select the current location as the Repository Destination on our remote VM." 
+
+image::41_Choose_Folder.png[]
+
+* You load the cloned repository in *VSCode* by clicking *Open* in the pop-up window that follows.
+
+image::42_Open_Cloned_Repo.png[]
+
+* After choosing to trust the authors, you affirm, "And now, we're set to trigger the new secure build process."
+
+image::43_Trust_Authors.png[]
+
+* "For the purpose of this demo, updating the documentation will be enough to trigger the new build pipeline" you explain.
+* You expand the docs folder and open the markdown file *Index.md*.
+* At the document's end, you add: "Build pipeline integrated with security tools."
+* You press CTRL+S to save your changes, then you click on the *Source Control* icon located in the left menu.
+* You enter the commit message “Doc Update" and click on the *Commit* button to finalize your changes.
+
+image::44_Commit_Changes.png[]
+
+* You turn to the team and explain, "This is where the Trusted Artifact Signer kicks in, requiring you to sign in so that we know that the person who commits this code change is trusted."
+* A form appears in your browser, prompting you for your credentials. You fill in the details as follows:
+** Username: {developer_cluster_rhdh_user}
+** Password: {developer_cluster_rhdh_user_password}
+
+image::45_Sigstore_Signin.png[]
+
+image::46_SigStore_Authentication_Complete.png[]
+
+* After providing your credentials and completing the authentication process, you return to VSCode and click the *Sync Changes* button. 
+
+image::47_Sync_Change.png[]
+
+* This action sets the build pipeline into motion.
+* You navigate back to the *RHDH Dashboard* tab in your browser and click on the *Open Component in Catalog* link.
+
+image::48_Open_Component_In_Catalog.png[]
+
+* You then select the *CI tab* from the top menu, and expand the pipeline view to show the team that pipeline execution is in progress.
+
+image::49_Expand_Secure_Pipeline.png[]
+
+* You wait a few minutes until the build pipeline execution is complete, before you start explaining the security enhancements made to the build pipeline.
+* "Remember the build process we used for the insecure application? We’ve now added six new tasks to the pipeline, incorporating the security recommendations I outlined earlier."
+
+image::50_Secure_Build_Pipeline.png[]
+
+==== Task 1: Verify Commit
+
+* "The first task after cloning our git repo, is ensuring the source code modifications were made by a trusted source.", you explain.
+* "This task will only succeed if it can verify a trusted signature on the last commit that triggered the pipeline. This is the signature we provided using the *GitSign* when we committed the code from *VSCode*."
+* You then click on the task *verify-commit* and pull up the logs.
+
+image::51_Click_On_Verify_Commit.png[]
+
+* "Here in the log, you can see the user we used and the comment we provided when we made the last code change.” 
+* "The *verify-commit* task executes the command link:https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work[*git verify-commit*,window=_blank] to verify that the signature is valid, before the pipeline moves to the next task." you point out.
+
+image::52_Verify_Commit_Log.png[]
+
+==== Task 2: Scan Source
+
+* "After we package the code, running a static analysis to detect any potential bugs or code style violations is a good idea."
+* I've setup a task called *scan-source* task, we utilize a tool called link:https://www.sonarsource.com/products/sonarqube[*SonarQube*,window=_blank] to analyze the source code and provide reports based on its quality.
+
+image::53_Scan_Source_Task.png[]
+
+* "We can view the scan results from the pipeline logs as we did before, or we could log in to SonarQube to get an in-depth report."
+* "Let's look at the *SonarQube* report this time," you decide.
+* To access *SonarQube*, you use the following link:
+** SonarQube URL: {SonarQube_url}
+* You click on the project link in the *SonarQube* Dashboard. 
+
+image::54_SonarQube_Dashboard.png[]
+
+* "Our application has passed the validation test by *SonarQube*, with a few minor issues," you observe.
+* "I do recommend that you look into those issues nevertheless."
+
+image::55_SonarQube_Report.png[]
+
+=== Task 3: Build and Sign Image
+
+* "Similar to your original pipeline, the *build-sign-image* task is responsible for building a container image based on our source code.
+* "However, it also employs a tool called link:https://anchore.com/opensource[*Syft*,window=_blank] to generate the *Software Bill of Materials (SBOM)* we discussed earlier."
+* "This *SBOM* is then pushed to our Red Hat Quay registry upon successful completion of this task," you explain.
+
+image::56_Build_Sign_Image.png[]
+
+* "As I explained before, we 've also configured Tekton Chains to automatically sign the container image, attest to it, and apply the SLSA Provenance to it."
+* All of these additional artifacts are then stored in the image registry, alongside your container image.”
+* "This brings a higher degree of trust and verification to our processes, the shield you see in the pipeline view indicates that Tekton Chains has done its job and successfully signed the our artifacts.” you explain.
+
+image::58_Signed_Pipeline_Run.png[]
+
+* You then switch to the image registry tab and point to the screen, showing that the generated attestation, signature, and SBOM files are sitting side-by-side with the resulting container image produced by the pipeline in the registry.
+
+image::59_Generated_Artifacts_Registery.png[]
+
+=== Task 4: Image Scan
+
+* "Let's switch back to our pipeline view in *RHDH*, and look at the tasks performed by Red Hat’s Advanced Cluster Security (ACS)" you suggest. 
+* "The *acs-image-scan* task performs an image scan to identify known vulnerabilities within the container image. It compares the image components against known vulnerability databases, uncovering any CVEs (Common Vulnerabilities and Exposures) that might compromise the container."
+
+image::60_ACS_Image_Scan_Task.png[]
+
+* "We can review the report generated by *ACS*." you note, as you click on the *Output* icon under *ACTIONS*.
+
+image::61_Click_Output.png[]
+
+* "Here you can see that we have 3 critical vulnerabilities, but what's great is that we also receive recommendations to upgrade to the version where those vulnerabilities are addressed."
+
+image::62_Image_Scan_Result.png[]
+
+=== Task 5: ACS Image Check
+
+* You switch back to the pipeline view as you explain: "*ACS* doesn't stop at scanning; it can also assess whether the image adheres to predefined rules by performing an image check". 
+* "The *image-scan-check* task evaluates the container image against policies and compliance standards. This includes not running as root, using approved base images, or avoiding prohibited software packages, for example."
+
+image::63_ACS_Image_Check_Task.png[]
+
+* "Once again, we can view the analysis results.", you say, clicking on the *Output* icon under *ACTIONS* and then selecting the *Image Check* tab.
+* "In this report, you can see all the violations that *ACS* detected and the recommended remediation actions."
+
+image::64_Image_Check_Result.png[]
+
+=== Task 6: Export SBOM
+
+image::65_Scan_Export_SBOM_Task.png[]
+
+
+* You then demonstrate how to access the generated *SBOM* by clicking the link that's readily available in your pipeline view.
+
+image::57_SBOM_Link.png[]
+
+* After you click you immediately see the generated SBOM.
+
+image::66_SBOM.png[]
+
+=== Demonstrating the Secure Deploy Process
+
+* Addressing the QA engineer, you begin, “Now, I'm going to show you how to validate that an image is signed before deploying it for testing.”
+* “You'll use the Enterprise Contract CLI (ec) along with *Cosign* to first check the original image from the insecure application. I've prepared a script specifically for this purpose.” 
+* You execute the command:
++
+[source, role="execute"]
+----
+sh validate-insecured.sh
+----
+
+image::67_Validate_Insecure_Image.png[]
+
+* “As expected, the validation of this image failed. Now, let’s validate the secure image that we just built in the same way,” you indicate, and then you run the following command:
++
+[source, role="execute"]
+----
+sh validate-secured.sh
+----
+
+"Obviously, the validation is successful with the secure image.” you conclude, pointing at the success result in the terminal.
+
+image::79_EC_Validation_Success.png[]
+
+
+
+
+
+
