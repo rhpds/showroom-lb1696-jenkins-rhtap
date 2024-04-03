@@ -16,7 +16,7 @@ IMPORTANT: Once the showroom guide is created, please delete the file and remove
 |===
 |SR No.| Variable Name| Variable Value
 |{counter:node} | developer_cluster_novnc_user_password | {developer_cluster_novnc_user_password}
-|{counter:node} | developer_cluster_novnc_web_url | {developer_cluster_novnc_web_url }
+|{counter:node} | developer_cluster_novnc_web_url | {developer_cluster_novnc_web_url}
 |{counter:node} |developer_cluster_rhdh_id_provider | {developer_cluster_rhdh_id_provider}
 |{counter:node} |developer_cluster_rhdh_url | {developer_cluster_rhdh_url}
 |{counter:node} |developer_cluster_rhdh_user | {developer_cluster_rhdh_user}
