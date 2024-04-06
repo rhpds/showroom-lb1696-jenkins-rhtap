@@ -16,8 +16,8 @@
 image::34_Run_Secure_GPT.png[]
 
 * You keep the default values and click the *Next* button on the first two forms.
-* Before you click the *Review* button on the third form, you show the team that *Review Commits* is set to *enabled* in this form.
-* This is because this GPT is using the *Trusted Artifacts Signer* to verify that the code commits are signed.
+* Before you click the *Review* button on the third form, you show the team that *verify Commits* is set to *enabled* in this form.
+* This is because this GPT is using the *Trusted Artifacts Signer* to verify that code commits are signed.
 
 image::35_Review_Commits_Enabled.png[]
 
@@ -92,8 +92,8 @@ image::50_Secure_Build_Pipeline.png[]
 
 ==== Task 1: Verify Commit
 
-* "The first task after cloning our git repo, is ensuring the source code modifications were made by a trusted source.", you explain.
-* "This task will only succeed if it can verify a trusted signature on the last commit that triggered the pipeline. This is the signature we provided using the *GitSign* when we committed the code from *VSCode*."
+* "The first task after cloning our git repo, is ensuring the source code modifications were made by a trusted sourc," you explain.
+* "This task will only succeed if it can verify a trusted signature on the last commit that triggered the pipeline. This is the signature we provided using *GitSign* when we committed the code from *VSCode*."
 * You then click on the task *verify-commit* and pull up the logs.
 
 image::51_Click_On_Verify_Commit.png[]
@@ -110,7 +110,7 @@ image::52_Verify_Commit_Log.png[]
 
 image::53_Scan_Source_Task.png[]
 
-* "We can view the scan results from the pipeline logs as we did before, or we could log in to SonarQube to get an in-depth report."
+* "We can view the scan results from the pipeline logs as we did before, or we could log in to *SonarQube* to get an in-depth report."
 * "Let's look at the *SonarQube* report this time," you decide.
 * To access *SonarQube*, you use the following link:
 ** SonarQube URL: {SonarQube_url}
@@ -125,15 +125,14 @@ image::55_SonarQube_Report.png[]
 
 === Task 3: Build and Sign Image
 
-* "Similar to your original pipeline, the *build-sign-image* task is responsible for building a container image based on our source code.
-* "However, it also employs a tool called link:https://anchore.com/opensource[*Syft*,window=_blank] to generate the *Software Bill of Materials (SBOM)* we discussed earlier."
-* "This *SBOM* is then pushed to our Red Hat Quay registry upon successful completion of this task," you explain.
+* "Similar to your original pipeline, the *build-sign-image* task is responsible for building a container image based on your verified source code. It then generates the *Software Bill of Materials (SBOM)* we discussed earlier."
+* "This *SBOM* is then pushed to our *Red Hat Quay* registry upon successful completion of this task," you explain.
 
 image::56_Build_Sign_Image.png[]
 
-* "As I explained before, we 've also configured Tekton Chains to automatically sign the container image, attest to it, and apply the SLSA Provenance to it."
-* All of these additional artifacts are then stored in the image registry, alongside your container image.”
-* "This brings a higher degree of trust and verification to our processes, the shield you see in the pipeline view indicates that Tekton Chains has done its job and successfully signed the our artifacts.” you explain.
+* "As I explained before, we 've also configured *Tekton Chains* to automatically sign the container image, attest to it, and apply the SLSA Provenance to it."
+* "All of these additional artifacts are then stored in the image registry, alongside your container image.”
+* "This brings a higher degree of trust and verification to our processes, the shield you see in the pipeline view indicates that *Tekton Chains* has done its job and successfully signed our artifacts.” you explain.
 
 image::58_Signed_Pipeline_Run.png[]
 
@@ -143,7 +142,7 @@ image::59_Generated_Artifacts_Registery.png[]
 
 === Task 4: Image Scan
 
-* "Let's switch back to our pipeline view in *RHDH*, and look at the tasks performed by Red Hat’s Advanced Cluster Security (ACS)" you suggest. 
+* "Let's switch back to our pipeline view in *RHDH*, and look at the tasks performed by link:glossary.html#acs[*Red Hat Advanced Cluster Security (ACS)*,window=_blank]," you suggest. 
 * "The *acs-image-scan* task performs an image scan to identify known vulnerabilities within the container image. It compares the image components against known vulnerability databases, uncovering any CVEs (Common Vulnerabilities and Exposures) that might compromise the container."
 
 image::60_ACS_Image_Scan_Task.png[]
@@ -163,7 +162,7 @@ image::62_Image_Scan_Result.png[]
 
 image::63_ACS_Image_Check_Task.png[]
 
-* "Once again, we can view the analysis results.", you say, clicking on the *Output* icon under *ACTIONS* and then selecting the *Image Check* tab.
+* "Once again, we can view the analysis results," you say, clicking on the *Output* icon under *ACTIONS* and then selecting the *Image Check* tab.
 * "In this report, you can see all the violations that *ACS* detected and the recommended remediation actions."
 
 image::64_Image_Check_Result.png[]
@@ -184,8 +183,8 @@ image::66_SBOM.png[]
 === Demonstrating the Secure Deploy Process
 
 * Addressing the QA engineer, you begin, “Now, I'm going to show you how to validate that an image is signed before deploying it for testing.”
-* “You'll use the Enterprise Contract CLI (ec) along with *Cosign* to first check the original image from the insecure application. I've prepared a script specifically for this purpose.” 
-* You execute the command:
+* “You'll use the link:glossary.html#ec[*Enterprise Contract CLI (ec)*,window=_blank] along with *Cosign* to first check the original image from the insecure application. I've prepared a script specifically for this purpose.” 
+* You execute the command in the QA environment terminal:
 +
 [source, role="execute"]
 ----
@@ -201,12 +200,27 @@ image::67_Validate_Insecure_Image.png[]
 sh validate-secured.sh
 ----
 
-"Obviously, the validation is successful with the secure image.” you conclude, pointing at the success result in the terminal.
+* "Obviously, the validation is successful with the secure image.” you conclude, pointing at the success result in the terminal.
 
 image::79_EC_Validation_Success.png[]
 
+* "We can also test our *0-Trusted Signature Policy*, by deploying both images to *OpenShift*, first we'll test the policy against the insecure image.
+* You execute the command to deploy the insecure image in the QA environment terminal:
++
+[source, role="execute"]
+----
+sh deploy-insecured.sh
+----
+* "The policy does it job and stops us from deploying the insecure application."
 
 
+* You then execute the command to deploy the image built by the secure pipeline in the QA environment terminal:
++
+[source, role="execute"]
+----
+sh deploy-secured.sh
+----
+* "This time the deployment is successful and you can proceed to test this application and promote to production with confidence.", you assure the QA Engineer.
 
 
 

@@ -13,6 +13,12 @@
 [id='rhdh']
 * *Red Hat Developer Hub (RHDH)*: Is an open-source developer portal platform built by Red Hat. It streamlines development workflows by providing a unified environment with access to essential tools and resources. *RHDH* helps development teams collaborate more effectively and accelerate application delivery. Explore Red Hat Developer Hub documentation to learn more: https://developers.redhat.com/rhdh/overview.
 
+[id='rhdh_plugins']
+* *RHDH plugins*: Are pre-built software modules that integrate seamlessly with the RHDH platform.  They provide additional features and functionalities beyond what's offered by the core platform itself. These plugins can be categorized into two main types:
+** *Red Hat Supported Plugins*: These plugins are fully vetted and supported by Red Hat. They undergo rigorous testing to ensure compatibility and security within the RHDH environment.
+* *Community-Developed Plugins*:  A vibrant community of developers contributes a wide variety of plugins to the RHDH ecosystem. These plugins offer innovative features and cater to diverse needs. While not officially supported by Red Hat, many community plugins are well-maintained and can significantly enhance your development experience.
+* Checkout this link to find out more about available plugins: https://developers.redhat.com/rhdh/plugins
+
 [id='quarkus']
 * *Quarkus*: Is a Kubernetes-native Java framework from Red Hat, designed for building cloud-native applications. It emphasizes speed, efficiency, and minimal resource consumption. Compared to traditional Java frameworks, Quarkus offers:
 ** Faster startup times and smaller application footprints
@@ -65,3 +71,8 @@ Read more about Enterprise Contacts on the official website: https://enterprisec
 ** *Provenance Capture*: Observes executions (TaskRuns and PipelineRuns) within your Tekton environment. When a run is complete, Tekton Chains takes a snapshot of the execution details, capturing information about the build process, used resources, and configuration.
 ** *Provenance Transformation*: Converts the captured snapshot into one or more standardized payload formats, such as in-toto or SLSA (Supply chain Levels for Software Artifacts). These formats provide a structured and machine-readable representation of the provenance data.
 
+[id='helm']
+* *Helm Chart*: Is a package that contains all the necessary information to deploy an application to a Kubernetes cluster. It includes Kubernetes manifests (e.g., Deployments, Services), configuration files, and templates. Learn more about Helm Charts here: https://helm.sh/docs/topics/charts/.
+
+[id='acs']
+* *Red Hat Advanced Cluster Security (ACS)*: Is a platform designed to safeguard containerized applications deployed on Kubernetes clusters.  It offers a comprehensive security solution that encompasses various aspects of the software supply chain, protecting your applications from various threats throughout their lifecycle. LEarn more about *Red Hat Advanced Cluster Security (ACS)* here: https://www.redhat.com/en/technologies/cloud-computing/openshift/advanced-cluster-security-kubernetes.

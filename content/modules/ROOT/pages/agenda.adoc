@@ -8,7 +8,7 @@
 Introduction to the role of Internal Developer Portals in enhancing developer onboarding and productivity
 
 == Chapter 2: Tightrope Walking without a Net
-Uncovering the importance of integrating security measures in development processes.
+Understand the importance of integrating security guard rails in the software delivery process.
 
 == Chapter 3: Red Hat Trusted Application Pipeline to the Rescue
-Demonstrating the Red Hat Trusted Application Pipeline's role in fulfilling developer efficiency and security needs.
+Demonstrate the Red Hat Trusted Application Pipeline (RHTAP) role in providing a Trusted Software Supply Chain (TSSC).

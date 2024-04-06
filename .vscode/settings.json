@@ -1,3 +1,11 @@
 {
-    "asciidoc.antora.enableAntoraSupport": true
+    "asciidoc.antora.enableAntoraSupport": true,
+    "cSpell.words": [
+        "keycloak",
+        "Quarkus",
+        "RHDH",
+        "RHTAP",
+        "Sigstore",
+        "Tekton"
+    ]
 }

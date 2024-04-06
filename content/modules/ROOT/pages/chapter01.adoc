@@ -2,14 +2,16 @@
 
 === Your First Steps to Your Digital Kingdom
 
-* Imagine this: You're a newly minted developer within our organization, your spirit burning bright with the desire to craft and create.
+* Imagine this: You're a new developer starting onboarding ith your organization, your spirit burning bright with great desire to craft and create.
 * The keys to your new digital kingdom — your laptop and access credentials — have just been handed over to you.
-* Amid the excitement, you receive a welcome email with a link to access the Red Hat Developer Hub (RHDH), your organization's Internal Developer Portal (IDP).
+* Amid the excitement, you receive a welcome email with a link to access the *Red Hat Developer Hub (RHDH)*, your organization's *Internal Developer Portal (IDP)*.
 * Included in the welcome email are some useful links to provide more details on the technologies you'll be engaging with in your new role.
-** You click link:glossary.adoc#idp[here,window=_blank] to read more about IDPs. 
-** then you click link:glossary.adoc#rhdh[here,window=_blank] to learn more about the Red Hat Developer Hub (RHDH).
+** You click link:glossary.html#idp[here,window=_blank] to read more about *IDPs*. 
+** then you click link:glossary.html#rhdh[here,window=_blank] to learn more about the *Red Hat Developer Hub (RHDH)*.
 * "It looks like this handy glossary is going to be a useful companion through my journey," you think to yourself.
 * With these resources at your fingertips, you're now ready to start working on your new project.
+
+TIP: Throughout this guide, you'll find links to a link:glossary.html[*glossary*,window=_blank] explaining terms that might be unfamiliar. Feel free to explore the glossary to learn more about the concepts and technologies referred to throughout this guide.
 
 '''
 
@@ -28,7 +30,7 @@ image::1_Authenticate.png[]
 
 image::2_Gitlab_Authenticate.png[]
 
-* You then click on the *Authorize* button to authorize link:glossary.adoc#keycloak[*Keycloak*,window=_blank] to access you account.
+* You then click on the *Authorize* button to authorize link:glossary.html#keycloak[*Keycloak*,window=_blank] to access you account.
 
 image::3_Authorize.png[]
 
@@ -40,27 +42,27 @@ image::4_RHDH_Landing_Page.png[]
 
 === Running your first Golden Path Template (GPT)
 
-* Eager as you are, you immediately want to explore the link:glossary.adoc#gpt[Golden Path Templates (GPT),window=_blank] you've heard so much about from your colleagues.
-* You find and click the *Create* button in the left menu. 
+* Eager as you are, you immediately want to explore the link:glossary.html#gpt[Golden Path Templates (GPT),window=_blank] you've heard so much about from your colleagues.
+* You find and click the *Create* link in the left menu. 
 
 image::5_Click_Create.png[]
 
 * Among the options, you spot the *GPT* titled *Insecured Quarkus Service Software Supply Chain* 
 * Feeling a mix of excitement and curiosity, you click the *CHOOSE* button.
 
-NOTE: This lab has been pre-configured with two Golden Template Paths (GPTs), a non-secure GPT and a secure GPT. However, lets pretend that our developer only sees the insecure GPT at this point and the naming of the GPT does not hint at the forthcoming challenges associated with running an insecure software supply pipeline.
+NOTE: This lab has been pre-configured with two Golden Path Templates (GPTs), a non-secure GPT and a secure GPT. However, lets pretend that our developer only sees the insecure GPT at this point and the naming of the GPT does not hint at the forthcoming challenges associated with running an insecure software supply pipeline.
 
 image::6_Choose_Insecure_GPT.png[]
 
 * As the form for the *Golden Path Template (GPT)* appears, you're pleasantly surprised. 
 * Unlike other complicated ticketing systems you've used before, this form is refreshingly simple and seems tailor-made for your particular task. 
-* "Ah, so my team has opted to use link:glossary.adoc#quarkus[*Quarkus*,window=_blank] for this project. That's a great framework for developing Kubernetes-native applications," excitement sparking within you. 
+* "Ah, so my team has opted to use link:glossary.html#quarkus[*Quarkus*,window=_blank] for this project. That's a great framework for developing Kubernetes-native applications," you tell yourself, with excitement sparking within you.. 
 * You click *NEXT*.
 
 image::7_First_Step_Form.png[]
 
 * You're pleased to find all the input fields are already pre-populated for you.
-* You also note that your organization is using link:glossary.adoc#quay[*Red Hat Quay*,window=_blank] as the image registry.
+* You also note that your organization is using link:glossary.html#quay[*Red Hat Quay*,window=_blank] as the image registry.
 * You click *Next* on the this form as well.
 
 image::7_Second_Step_Form.png[]
@@ -73,13 +75,13 @@ image::9_Click_Review_Form.png[]
 
 image::10_Review_Form.png[]
 
-* In just a few seconds, the *Golden Path Template (GPT)* kicks into action, setting up everything you need for your *Quarkus* application.
+* The *Golden Path Template (GPT)* kicks into action, and in just a few seconds it sets up everything you need for your *Quarkus* application.
 * The *GPT* has done quiet a bit of heavy lifting on your behalf here:
-.. It created two repositories in Gitlab: one for the application source code and the other for link:glossary.adoc#gitops[*OpenShift GitOps*,window=_blank] manifests.
+.. It created two repositories in *Gitlab*: one for the application source code and the other for link:glossary.html#gitops[*OpenShift GitOps*,window=_blank] manifests.
 .. It instructed *OpenShift GitOps* to create an application and all the specified resources in the manifests in the target *OpenShift* cluster.
-.. *OpenShift GitOps* then processed the Helm charts in the manifests git repo to deploy a CI pipeline in link:glossary.adoc#pipeline[*OpenShift Pipelines*,window=_blank] to build your application and push it to *Red Hat Quay*.
+.. *OpenShift GitOps* then processed the link:glossary.html#helm[*Helm Charts*,window=_blank] in the manifests git repo to deploy a CI pipeline in link:glossary.html#pipeline[*OpenShift Pipelines*,window=_blank] to build your application and push it to *Red Hat Quay*.
 
-NOTE: You might be wondering, what if my organization uses tools other than OpenShift GitOps or OpenShift Pipelines? What if you've invested in Azure DevOps, for example? The great news is that every step in a Golden Path Template is fully customizable, and we can swap out any tool used in a step with one of your choice. This flexibility is made possible through an extensible ecosystem of plugins. These plugins enable you to select your preferred tools from the existing plugins marketplace or even develop your custom plugins. So, in a nutshell, a GPT adapts to your organization's workflow, not the other way around.
+NOTE: You might be wondering, what if my organization uses tools other than OpenShift GitOps? What if you've invested in Azure DevOps, for example? The great news is that every step in a Golden Path Template is fully customizable, and we can swap out any tool used in a step with one of your choice. This flexibility is made possible through an extensible ecosystem of link:glossary.html#rhdh_plugins[*plugins*,window=_blank]. These plugins enable you to select your preferred tools from the existing plugins marketplace or even develop your custom plugins. So, in a nutshell, a GPT adapts to your organization's workflow, not the other way around.
 
 image::73_GPT_Flow.png[]
 
@@ -105,7 +107,7 @@ image::38_Send_Credentials.png[]
 image::39_Search_For_VSCode.png[]
 
 * "Alright, now I am ready to clone my project's git repo," you tell yourself.
-* You open the *No VNC* clipboard, then you paste the link to your project repo into it.
+* You open the *No VNC* clipboard, then you paste the link:{clone_insecure_url}[*link*,window=_blank] to your project repo into it.
 
 image::68_NoVNC_Clipboard.png[]
 
@@ -145,7 +147,7 @@ image::20_Modify_ExampleResource.png[]
 * You expand the folders *src -> main -> test*, and open the *ExampleResourceTest.java* file. 
 * On line 18, you change the expected text from "Hello RESTEasy" to "Hello from RHDH".
 
-NOTE: The JUnit test for the Hello method needs updating to be the exactly the same as in the *ExampleResource.java**; otherwise, the Build step in the CI/CD pipeline would fail due to discrepancies between the code and its test.
+NOTE: The JUnit test for the Hello method needs updating to be the exactly the same as in the *ExampleResource.java**; otherwise, the build step in the CI/CD pipeline would fail due to discrepancies between the code and its test.
 
 image::21_Modify_ExampleResourceTest.png[]
 
@@ -168,23 +170,16 @@ image::72_Commit_Changes.png[]
 ** Username: {developer_cluster_rhdh_user}
 ** Password: {developer_cluster_rhdh_user_password}
 
-NOTE: You learn more about the importance of this step in the third chapter of this workshop.
+NOTE: You will learn more about the importance of this step in the next chapter of this workshop.
 
 image::45_Sigstore_Signin.png[]
 
-* You close the browser and switch back to *VSCode*
-
-image::24_Stage_Changes.png[]
-
+* You close the browser and switch back to *VSCode.
 * Finally, you click on the *Sync Changes* button.
 
 image::25_SYNC_Changes.png[]
 
-* In the pop-up that follows, you click *OK* to push your changes and complete the process. 
-
-image::26_OK_To_Push_Changes.png[]
-
-* You've successfully implemented your change and updated the documentation in one commit, following the "docs as code" methodology where documentation is treated with the same level of care and under the same processes as source code. 
+* You've successfully implemented your change and updated the documentation in one commit, following the "docs as code" methodology where documentation is treated with the same level of care and under the same process as source code. 
 * You are delighted by knowing that following this methodology ensures that your documentation is as current as your code itself.
 * Your commit triggers the build pipeline for your *Quarkus* application.
 * You switch back to the *RHDH Dashboard* tab in your browser and select the *CI tab* from the top menu, ready to see your committed changes come to life.

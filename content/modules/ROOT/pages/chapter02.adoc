@@ -1,7 +1,7 @@
 == Chapter 2: Tightrope Walking without a Net
 
 * As our story unfolds, you find yourself donning the hat of a QA engineer. 
-* The moment you receive an email from the *Quarkus* Developer announcing the completion of his task, the baton is passed to you. 
+* The moment you receive an email from the *Quarkus* developer announcing the completion of his task, the baton is passed to you. 
 * It's now in your hands to validate the integrity and quality of the code delivered.
 
 '''
@@ -19,6 +19,8 @@ sh deploy-insecured.sh
 
 * As soon as the script completes its run and the application is deployed, you proceed to copy the application's URL and paste it in your browser, eager to start testing the application.
 
+NOTE: It may take the application a few minutes to start after the script completes.
+
 image::29_Deploy_Insecure_Application.png[]
 
 * But, oh no! 
@@ -27,14 +29,13 @@ image::29_Deploy_Insecure_Application.png[]
 
 image::31_Ransomeware.png[]
 
-* Without wasting a moment, you recognize the severity of the situation and know exactly what needs to be done. 
-* You quickly report the issue to your organization's security team, urging them to launch an investigation into this critical breach.
+* Without wasting a moment, you recognize the severity of the situation and quickly report the issue to your organization's security team, urging them to launch an investigation into this critical breach.
 
 '''
 
 === Installing the Guard Rails
 
-In the wake of the sophisticated ransomware attack that exploited vulnerabilities within our organization's software supply chain, a crucial meeting was convened. The conference room hosted the team involved in the incident, and you, a seasoned consultant from Red Hat, ready to guide the team through the crises. 
+In the wake of the sophisticated ransomware attack that exploited vulnerabilities within the organization's software supply chain, a crucial meeting was convened. The conference room hosted the team involved in the incident, and you, a seasoned consultant from Red Hat, ready to guide the team through the crises. 
 
 ==== 1 Signed Commits
 
@@ -43,8 +44,8 @@ In the wake of the sophisticated ransomware attack that exploited vulnerabilitie
 * "Typically, vulnerabilities like this can happen when there's a gap in the software supply chain security," you explain.
 * "The first step in addressing this is setting up your *Git* environment to sign code commits. This will allow us to verify the code's origin and integrity before it gets integrated into your build process.", you add.
 * *Security Engineer*: So, you're saying that ensuring the code commits are signed can prevent tampering?
-* "Exactly. I've already set up link:glossary.adoc#gitsign[*GitSign*,window=_blank] which is part of the link:glossary.adoc#rhtas[*Red Hat Trusted Artifact Signer (RHTAS)*,window=_blank] on our developer's laptop."
-* "You might have noticed that pop-up window from link:glossary.adoc#sigstore[*Sigstore*,window=_blank] requesting your credentials when you commit your code?" you ask the developer.
+* "Exactly. I've already set up link:glossary.html#gitsign[*GitSign*,window=_blank] which is part of the link:glossary.html#rhtas[*Red Hat Trusted Artifact Signer (RHTAS)*,window=_blank] on our developer's laptop."
+* "You might have noticed that pop-up window from link:glossary.html#sigstore[*Sigstore*,window=_blank] requesting your credentials when you commit your code?" you ask the developer.
 * *Developer*: "Yes! Does this mean my code commits are being signed?"
 * "Correct," you confirm as you open a terminal to the development environment, and run the following command to show *GitSign* configuration 
 +
@@ -55,19 +56,19 @@ git config --global --edit
 
 image::75_GitSign_Config.png[]
 
-* You enter ":q" to exit edit mode in the terminal as you explain, "All we need to do is add a step to verify that Code commits are signed in our build pipeline. I will show you this step in action when I demonstrate the full build pipeline run."
+* You enter ":q" to exit edit mode in the terminal as you explain: "All we need to do is add a step to verify that code commits are signed in our build pipeline. I will show you this step in action when I demonstrate the secure build pipeline run."
 
 ==== 2 Signed Container Images
 
 * "Next, we'll build a container image from the verified code, this too needs to be signed."
-* "We will use link:glossary.adoc#cosign[*Cosign*,window=_blank] to create a signing secret", you explain as you to execute the following command in the development environment terminal:
+* "We will use link:glossary.html#cosign[*Cosign*,window=_blank] to create a signing secret", you explain as you to execute the following command in the development environment terminal:
 +
 [source, role="execute"]
 ----
 COSIGN_PASSWORD=openshift cosign generate-key-pair k8s://openshift-pipelines/signing-secrets
 ----
-* "This command," you continue, "generates a key-pair. We will configure link:glossary.adoc#tektonchains[*Tekton Chains*,window=_blank] to use this key in signing the container image." 
-* "The public key, or cosign.pub, will be important later on for verifying the signatures of your images," you tell the QA Engineer.
+* "This command," you continue, "generates a key-pair. We will configure link:glossary.html#tektonchains[*Tekton Chains*,window=_blank] to use this key in signing the container image." 
+* "The public key, or cosign.pub, will be important later on for verifying the signatures of the images you deploy to the QA environment," you tell the QA Engineer.
 * "Before deploying a container image to your QA environment, I will show you how you can use Enterprise Contracts to verify it's origin. This ensures that the image comes from your approved secure build system, not a random personal laptop."
 
 
@@ -124,7 +125,7 @@ oc patch TektonConfig config --type='merge' --patch "$(cat tekton-config.yaml)"
 
 image::33_Configure_Tekton_Chains.png[]
 
-* "Finally we need to setup Cosign to use our TUF mirror registry, provide the cryptographic keys and trust information required for cosign to sign your software artifacts," you explain  as you run the following 
+* "Finally we need to setup Cosign to use our TUF mirror registry, to provide the cryptographic keys and trust information required for cosign to sign your software artifacts," you explain as you run the following in the QA environment terminal.
 +
 [source, role="execute"]
 ----
@@ -135,7 +136,7 @@ image::78_Initialize_Cosign.png[]
 
 ==== 3 Generating Software Bill of Materials (SBOM)
  
-"We'll go a step further and create an attested Software Bill of Materials (SBOM)." 
+* "We'll go a step further and create an attested Software Bill of Materials (SBOM)." 
 * *Developer*: What is an SBOM?
 * "Think of an SBOM as a complete list of ingredients in your application. It details all the open-source components and dependencies used to build your software. This transparency is key for swiftly identifying and addressing vulnerabilities," you explain.
 * *Developer*: How does that help with Security?
@@ -144,13 +145,77 @@ image::78_Initialize_Cosign.png[]
 ==== 4 Vulnerability Scanning and Policy Enforcement
 
 * *Security Engineer*:  What about detecting vulnerabilities within the images themselves?
-* "We'll include steps in the pipeline to perform both image scans and image checks against known CVEs and your organization's policies. This way, we ensure that the images are clear of known vulnerabilities before they're deployed," you answer.
+* "Ah, yes. I remember you struggled quiet a bit with the *Log4Shell* vulnerability a few years back. We'll include steps in the pipeline to perform both image scans and image checks against known CVEs and your organization's policies. This way, we ensure that the images are clear of known vulnerabilities and that our policies are enforced during the build and deploy stages," you answer.
+* "In fact, let me login into link:glossary.html#acs[*Red Hat Advanced Cluster Security (ACS)*,window=_blank] now and show what those policies look like," you say as you open the {acs_route}[RH ACS Console,window=_blank] and log in with your credentials username: {acs_portal_username} and password: {acs_portal_password} 
+
+image::80_rhacs_login.png[]
+
+* You expand the *Platform Configuration* list from the left menu and then click on the *Policy Management* link, as you say: "Here you can find the list of readily available policies that you can choose from."
+
+image::83_rhacs_policy_management.png[]
+
+* "For example, this policy over here checks if your image has the infamous *Log4Shell* vulnerability," you explain as you scroll down to show the *Log4Shell* policy.
+* You click on the *Kebab menu icon* next to this policy, and then click on *Edit policy*, continuing: "We can modify the behavior of this policy if we want."
+
+image::84_rhacs_edit_policy.png[]
+
+* "Let's click on *Policy Behavior*, and if we scroll down, one of the options we can configure is the *Response Method*. Here we can decide if we want *ACS* to block the build or the deployment if the policy is violated, or simply trigger an alert."
+* "Or we can obviously configure new policies, let's setup a policy that checks if our container image is signed during the build stage and whenever we try to deploy an application to *OpenShift*," you say as you click on the *Integrations* link in the left menu.
+
+image::81_rhacs_integrations.png[]
+
+* You scroll down to *Signature Integrations* and click on the *Signature* tile.
+
+image::82_rhacs_signature_integrations.png[]
+
+* You click on the *New Integration* button as you say: "This policy requires *ACS* to integrate with *Cosign* to perform this check."
+
+image::85_rhacs_new_integration.png[]
+
+* You start configuring the nw integration as follows:
+** you enter *cosign* for the *Integration name*.
+** you then expand the *Cosign* field and select Add new public key
+** you set the *Public key name* as cosign.pub
+** and for the *Public key value* you copy the public key from the terminal and paste it in this field. 
+** Finally you click the *Save* button.
+
+image::86_configure_new_integration.png[]
+
+NOTE: For convenience, we have already set up a policy in ACS called *0-Trusted Signature Policy* that checks an image for a valid signature. 
+
+* "All we need to do is enable this policy and configure it to use to Cosign integration we just configured," you explain to the team as you enable the policy.
++
+. You select *Policy Management* from the left menu.
++
+image::rhacs-policy-management.png[]
++
+. You find the policy called *0-Trusted Signature Policy* at the top of the list.
++
+image::rhacs-policy-management-list.png[]
+. You click the *Kebab menu icon* next to the policy and select *Edit policy*.
++
+image::rhacs-policy-actions-popup.png[]
++
+. You then select *Policy criteria* and click the *Select* button.
++
+image::rhacs-policy-criteria-select.png[]
++
+. "This is where we configure our policy to use the Cosign integration we just created ," you explain to team as you select the cosign signature integration and click the *Save* button.
++
+image::rhacs-policy-criteria-trusted-image-signers.png[]
++
+. You continue clicking next at the bottom until you finally save the policy.
+. "Now that the policy is updated, we want to enable it," you say as you click the *Kebab menu icon* again for the same policy and select *Enable policy*
++
+image::rhacs-policy-actions-popup.png[]
+
+* "All done, now ACS will enforce this policy in both the build and deploy stages of our application."
 * *Security Engineer*:  That sounds comprehensive. Implementing these measures would definitely strengthen our security posture.
-* "Excellent! Let me prepare the necessary setup and then I will demonstrate our solution based on Red Hat Trusted Application Pipeline (RHTAP) in action."
-* "RHTAP provides pre-built pipelines with automated security checks, aiming to achieve the highest level of security (SLSA Level 3) for built artifacts and offers the capabilities I just explained."
+* "Excellent! Let me prepare the necessary setup and then I will demonstrate our solution based on link:glossary.html#rhtap[*Red Hat Trusted Application Pipeline (RHTAP)*,window=_blank] in action."
+* "*RHTAP* provides pre-built pipelines with automated security checks, aiming to achieve the highest level of security (link:glossary.html#slsa[*SLSA*,window=_blank] Level 3) for built artifacts and offers the capabilities I just explained."
 
 === Chapter 2 - Summary
 
-As the baton passed to the QA engineer for testing, the narrative took a dramatic turn. The deployed application, instead of showcasing the fruits of their labor, revealed a critical vulnerability, it was infected with ransomware. This revelation abruptly interrupted the testing process and cast a shadow over the software supply chain's security, sparking concerns about vulnerability and exposure.
+As the baton passed to the QA engineer for testing, the story took a dramatic turn. The deployed application, instead of showcasing the fruits of their labor, revealed a critical vulnerability, it was infected with ransomware. This revelation abruptly interrupted the testing process and cast a shadow over the software supply chain's security, sparking concerns about vulnerability and exposure.
 
-The next chapter of our story will showcase Red Hat Trusted Application Pipeline in action. We will explore how integrating these security measures into the build and deployment pipelines can safeguard our software supply chain against the ever-present specter of cyber threats. 
+The next chapter of our story will showcase Red Hat Trusted Application Pipeline (RHTAP) in action. We will explore how integrating these security measures into the build pipelines and deployment process can safeguard our software supply chain against the ever-present specter of cyber threats. 
