@@ -1,13 +1,12 @@
 == Chapter 3:  Red Hat Trusted Application Pipeline to the Rescue
 
-* In the final chapter of our story, you demonstrate to the team how the Red Hat Trusted Application Pipeline (RHTAP) and Red Hat security tools can effectively tackle their security concerns, equipping the organization with a Secure Software Supply Chain.
-
+* In the final chapter of our story, you demonstrate to the team how the *Red Hat Trusted Application Pipeline (RHTAP)* and Red Hat security tools can effectively tackle their security concerns, equipping the organization with a *Trusted Software Supply Chain*.
 
 '''
 
 === Demonstrating the Secure Build Process
 
-* You switch to the Red Hat Developer Hub Dashboard, ready to demonstrate the new GPT with the security enhancements.
+* You switch to the *Red Hat Developer Hub (RHDH)* dashboard, ready to demonstrate the new *GPT* with the security enhancements.
 
 ==== Running the Secure GPT
 
@@ -16,8 +15,8 @@
 image::34_Run_Secure_GPT.png[]
 
 * You keep the default values and click the *Next* button on the first two forms.
-* Before you click the *Review* button on the third form, you show the team that *verify Commits* is set to *enabled* in this form.
-* This is because this GPT is using the *Trusted Artifacts Signer* to verify that code commits are signed.
+* Before you click the *Review* button on the third form, you show the team that *Verify Commits* is set to *enabled* in this form.
+* This is because this *GPT* is using the *Trusted Artifacts Signer* to verify that code commits are signed.
 
 image::35_Review_Commits_Enabled.png[]
 
@@ -26,18 +25,18 @@ image::35_Review_Commits_Enabled.png[]
 
 image::36_Create_Second_GPT.png[]
 
-* The secure GPT executes successfully, you seize this moment to explain the value of using GPTs in this scenario. 
-* "This environment," you explain, "is created with all the security guardrails we discussed. What's fantastic about Golden Path Templates is that the enhancements in the security pipeline are entirely transparent to our developer. This means they won't impact how he codes or builds applications."
+* The secure *GPT* executes successfully, you seize this moment to explain the value of using *GPTs* in this scenario. 
+* "This environment," you explain, "is created with all the security guardrails we discussed. What's fantastic about *Golden Path Templates* is that the enhancements in the security pipeline are entirely transparent to our developer. This means they won't impact how he codes or builds applications."
 
 ==== Code Commit 
 
-* Next, you switch back to your VSCode running on the remote RHEL VM as you say: "To trigger our secure build pipeline, let's open VSCode and make a small change to the documentation."
+* Next, you switch back to your *VSCode* running on the remote RHEL VM as you say: "To trigger our secure build pipeline, let's open VSCode and make a small change to the documentation."
 
 NOTE: If you your VNC session timed out, simply login again by and provide this password {developer_cluster_novnc_user_password} and click on the *Send Credentials* button just like you did before.
 
-* You tell the team: "We are now going to clone our secured app git repo," you click on File in the top menu, then select *New Window*.
+* You tell the team: "We are now going to clone our secured app git repo," you click on *File* in the top menu, then select *New Window*.
 * In the new instance of VSCode, you click on the *Source Control* icon in the left menu.
-* Then on the *Clone Repository* button and  paste the link to the Source Code Repository: {clone_secure_url}
+* Then on the *Clone Repository* button and paste the link to the Source Code Repository: {clone_secure_url}
 
 NOTE: Remember to use the VNC clipboard to copy and paste.
 
@@ -63,7 +62,7 @@ image::43_Trust_Authors.png[]
 
 image::44_Commit_Changes.png[]
 
-* You turn to the team and explain, "This is where the Trusted Artifact Signer kicks in, requiring you to sign in so that we know that the person who commits this code change is trusted."
+* You turn to the team and explain, "This is where the *Trusted Artifact Signer (RHTAS)* kicks in, requiring you to sign in so that we know that the person who commits this code change is trusted."
 * A form appears in your browser, prompting you for your credentials. You fill in the details as follows:
 ** Username: {developer_cluster_rhdh_user}
 ** Password: {developer_cluster_rhdh_user_password}
@@ -222,5 +221,9 @@ sh deploy-secured.sh
 ----
 * "This time the deployment is successful and you can proceed to test this application and promote to production with confidence.", you assure the QA Engineer.
 
+=== Workshop - Summary
 
+As we close the curtains on this workshop, it’s important to reflect on the journey we’ve embarked on together. 
+Throughout this experience, you've stepped into the shoes of developers, QA engineers, and security professionals, confronting head-on the hurdles that each role faces. More importantly, you've seen firsthand how the Red Hat Developer Hub (RHDH) and the Red Hat Trusted Application Pipeline (RHTAP) can transform these challenges into stepping stones for innovation and a solid foundation for building applications in a *Trusted Software Supply Chain*.
+Thank you for joining us on this journey. May the knowledge you’ve gained empower you to become a beacon of innovation and security in your organization. Here's to your success in crafting a future built on innovation and security!
 

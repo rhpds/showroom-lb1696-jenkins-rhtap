@@ -2,12 +2,12 @@
 
 === Your First Steps to Your Digital Kingdom
 
-* Imagine this: You're a new developer starting onboarding ith your organization, your spirit burning bright with great desire to craft and create.
-* The keys to your new digital kingdom — your laptop and access credentials — have just been handed over to you.
-* Amid the excitement, you receive a welcome email with a link to access the *Red Hat Developer Hub (RHDH)*, your organization's *Internal Developer Portal (IDP)*.
+* Imagine this: You're a new developer starting onboarding with your organization, your spirit burning bright with great desire to craft and create.
+* The keys to your new digital kingdom, your laptop and access credentials, have just been handed over to you.
+* Amid the excitement, you discover a welcome email in your inbox,  with a link to access the *Red Hat Developer Hub (RHDH)*, your organization's *Internal Developer Portal (IDP)*.
 * Included in the welcome email are some useful links to provide more details on the technologies you'll be engaging with in your new role.
-** You click link:glossary.html#idp[here,window=_blank] to read more about *IDPs*. 
-** then you click link:glossary.html#rhdh[here,window=_blank] to learn more about the *Red Hat Developer Hub (RHDH)*.
+** You follow this link:glossary.html#idp[link,window=_blank] to read more about *IDPs*. 
+** Then, you explore another link:glossary.html#rhdh[link,window=_blank] to learn more about the *Red Hat Developer Hub (RHDH)*.
 * "It looks like this handy glossary is going to be a useful companion through my journey," you think to yourself.
 * With these resources at your fingertips, you're now ready to start working on your new project.
 
@@ -48,7 +48,7 @@ image::4_RHDH_Landing_Page.png[]
 image::5_Click_Create.png[]
 
 * Among the options, you spot the *GPT* titled *Insecured Quarkus Service Software Supply Chain* 
-* Feeling a mix of excitement and curiosity, you click the *CHOOSE* button.
+* Feeling a mix of excitement and curiosity, you click the *Choose* button.
 
 NOTE: This lab has been pre-configured with two Golden Path Templates (GPTs), a non-secure GPT and a secure GPT. However, lets pretend that our developer only sees the insecure GPT at this point and the naming of the GPT does not hint at the forthcoming challenges associated with running an insecure software supply pipeline.
 
@@ -57,7 +57,7 @@ image::6_Choose_Insecure_GPT.png[]
 * As the form for the *Golden Path Template (GPT)* appears, you're pleasantly surprised. 
 * Unlike other complicated ticketing systems you've used before, this form is refreshingly simple and seems tailor-made for your particular task. 
 * "Ah, so my team has opted to use link:glossary.html#quarkus[*Quarkus*,window=_blank] for this project. That's a great framework for developing Kubernetes-native applications," you tell yourself, with excitement sparking within you.. 
-* You click *NEXT*.
+* You click *Next*.
 
 image::7_First_Step_Form.png[]
 
@@ -78,7 +78,7 @@ image::10_Review_Form.png[]
 * The *Golden Path Template (GPT)* kicks into action, and in just a few seconds it sets up everything you need for your *Quarkus* application.
 * The *GPT* has done quiet a bit of heavy lifting on your behalf here:
 .. It created two repositories in *Gitlab*: one for the application source code and the other for link:glossary.html#gitops[*OpenShift GitOps*,window=_blank] manifests.
-.. It instructed *OpenShift GitOps* to create an application and all the specified resources in the manifests in the target *OpenShift* cluster.
+.. It instructed *OpenShift GitOps* to create an application and all the specified resources in the manifests in the target link:glossary.html#ocp[*OpenShift*,window=_blank] cluster.
 .. *OpenShift GitOps* then processed the link:glossary.html#helm[*Helm Charts*,window=_blank] in the manifests git repo to deploy a CI pipeline in link:glossary.html#pipeline[*OpenShift Pipelines*,window=_blank] to build your application and push it to *Red Hat Quay*.
 
 NOTE: You might be wondering, what if my organization uses tools other than OpenShift GitOps? What if you've invested in Azure DevOps, for example? The great news is that every step in a Golden Path Template is fully customizable, and we can swap out any tool used in a step with one of your choice. This flexibility is made possible through an extensible ecosystem of link:glossary.html#rhdh_plugins[*plugins*,window=_blank]. These plugins enable you to select your preferred tools from the existing plugins marketplace or even develop your custom plugins. So, in a nutshell, a GPT adapts to your organization's workflow, not the other way around.
@@ -107,7 +107,8 @@ image::38_Send_Credentials.png[]
 image::39_Search_For_VSCode.png[]
 
 * "Alright, now I am ready to clone my project's git repo," you tell yourself.
-* You open the *No VNC* clipboard, then you paste the link:{clone_insecure_url}[*link*,window=_blank] to your project repo into it.
+* You open the *No VNC* clipboard, then you paste the following link to your project repo into it: 
+** Project Repo URL: {clone_insecure_url}
 
 image::68_NoVNC_Clipboard.png[]
 
@@ -164,8 +165,6 @@ image::71_Update_Documentation.png[]
 
 image::72_Commit_Changes.png[]
 
-* In the pop-up window that follows, you click *Yes* to stage your changes.
-
 * A form appears in your browser, prompting you for your credentials. You fill in the details as follows:
 ** Username: {developer_cluster_rhdh_user}
 ** Password: {developer_cluster_rhdh_user_password}
@@ -174,7 +173,7 @@ NOTE: You will learn more about the importance of this step in the next chapter 
 
 image::45_Sigstore_Signin.png[]
 
-* You close the browser and switch back to *VSCode.
+* After successful authentication, you close the browser and switch back to *VSCode*.
 * Finally, you click on the *Sync Changes* button.
 
 image::25_SYNC_Changes.png[]
@@ -182,24 +181,33 @@ image::25_SYNC_Changes.png[]
 * You've successfully implemented your change and updated the documentation in one commit, following the "docs as code" methodology where documentation is treated with the same level of care and under the same process as source code. 
 * You are delighted by knowing that following this methodology ensures that your documentation is as current as your code itself.
 * Your commit triggers the build pipeline for your *Quarkus* application.
-* You switch back to the *RHDH Dashboard* tab in your browser and select the *CI tab* from the top menu, ready to see your committed changes come to life.
+* You switch back to the *RHDH Dashboard* tab in your browser and select the *CI tab* from the top menu.
 
 image::27_Click_on_CI_Tab.png[]
 
 * And just as you expected, a build pipeline has already been triggered.
-* You eagerly expand the pipeline view to monitor the progress of the run. 
+* You eagerly expand the pipeline view to monitor the progress of this pipeline run. 
 
 image::28_Expand_Pipeline_View.png[]
 
-* After a few minutes of anticipation, the pipeline run concludes. 
-* Your application image has been successfully built and pushed to the image registry.
+* After a few minutes of anticipation, the pipeline run concludes, and the application image is successfully built.
+* You select the *Image Registry* tab from the upper menu and confirm that your image has been pushed to the Registry.
+
+NOTE: This is another plugin in action allowing RHDH to integrate with Red Hat Quay.
+
+image::87_Image_Registry.png[]
+
+* Finally you switch to the *Docs* tab and verify that documentation is up to date.
+
+image::88_Docs_View.png[]
+
 * With a sense of accomplishment, your task now complete, you draft an email to the QA team, inviting them to begin testing your changes. 
 
 '''
 
 === Chapter 1 - Summary
 
-Our story unfolds with a bright-eyed developer starting his new role, welcomed by the innovative environment of the Red Hat Developer Hub (RHDH). This Internal Developer Portal (IDP), with its Golden Path Templates (GPTs) streamlined and automated his onboarding process. The GPT offered a self-service approach to project initiation, enabling our developer to quickly dive into his task, without the overhead of configuring the underlying technology of the development environment.
+Our story unfolds with a bright-eyed developer starting his new role, welcomed by the innovative environment of the *Red Hat Developer Hub (RHDH)*. This *Internal Developer Portal (IDP)*, with its *Golden Path Templates (GPTs)* streamlined and automated his onboarding process. The *GPT* offered a self-service approach to project initiation, enabling our developer to quickly dive into his task, without the overhead of configuring the underlying technology of the development environment.
 
 The next chapter of our story uncovers the risks associated with providing developers with the tools to create great code without the necessary security guard rails that are crucial for safeguarding the organization against security threats. 
 
