@@ -1,11 +1,65 @@
-== Introduction
-This workshop will take you on a journey through the Software Development Lifecycle (SDLC). Throughout this journey, you'll step into the roles of developers, quality assurance engineers, and security engineers, experiencing firsthand the challenges these personas face. Moreover, you'll see how our solution, the Red Hat Trusted Application Pipeline (RHTAP), addresses these challenges. Our story unfolds over three chapters.
+= From Development to Deployment: Securing the Software Supply Chain with Red Hat OpenShift
 
-== Chapter 1: A Day in the Life of a New Developer
-You will begin by stepping into the shoes of a new developer, eager to start writing great code. You will understand the value of *Internal Developer Portals (IDPs)*, such as the *Red Hat Developer Hub (RHDH)*, in streamlining the onboarding process for new developers, making it not just efficient but also enjoyable. *RHDH* significantly reduces cognitive overload for developers, enabling them to focus on what matters most — writing great code.
+This workshop focuses on the critical integration of security practices into the development and deployment processes using Red Hat OpenShift and a suite of Red Hat security tools. It highlights the necessity of embedding security early in the development lifecycle, known as "shifting left." It guides participants through hands-on activities that transition from non-secure to secure development pipelines.
 
-== Chapter 2: Tightrope Walking without a Net
-The story progresses as you don the hat of a Quality Assurance Engineer, uncovering the risks associated with providing developers with the tools to create great code without the necessary security guard rails vital for safeguarding the organization against security threats.
+== Introduction to the Workshop
 
-== Chapter 3: Red Hat Trusted Application Pipeline to the Rescue
-In our story's final chapter, you play the role of a Red Hat Consultant who demonstrates to the team the capabilities of *Red Hat Trusted Application Pipeline (RHTAP)*, showcasing how it can meet their security challenges without compromising developer productivity.
+Welcome to an engaging session where integrating security into the development and deployment practices is discussed theoretically and applied practically. This workshop showcases the Red Hat Developer Hub (RHDH) and its significance in enhancing the developer experience through a centralized platform for resources, documentation, and tools.
+
+Participants will journey through the transformation from a non-secure to a secure development pipeline, underlining the practical advantages of incorporating security tools such as The Update Framework + Fulcio + Sigstore (TAS), Red Hat Advanced Cluster Security (ACS), and SonarQube into their Red Hat OpenShift workflows.
+
+This workshop will take you through the Software Development Lifecycle (SDLC). Throughout this journey, you'll step into the roles of developers, quality assurance engineers, and security engineers, experiencing firsthand the challenges these personas face. Moreover, you'll see how our solution, the Red Hat Trusted Application Pipeline (RHTAP), addresses these challenges. Our story unfolds over three chapters.
+
+=== Chapter 1: A Day in the Life of a New Developer
+
+You will begin by stepping into the shoes of a new developer eager to start writing great code. You will understand the value of *Internal Developer Portals (IDPs)*, such as the *Red Hat Developer Hub (RHDH)*, in streamlining the onboarding process for new developers, making it both efficient and enjoyable. *RHDH* significantly reduces cognitive overload for developers, enabling them to focus on what matters most — writing great code.
+
+=== Chapter 2: Tightrope Walking without a Net
+
+The story progresses as you don the hat of a Quality Assurance Engineer, uncovering the risks associated with providing developers with the tools to create great code without the necessary security guard rails to safeguard the organization against security threats.
+
+=== Chapter 3: Red Hat Trusted Application Pipeline to the Rescue
+
+In our story's final chapter, you play the role of a Red Hat Consultant who demonstrates to the team the capabilities of *the Red Hat Trusted Application Pipeline (RHTAP)*, showcasing how it can meet its security challenges without compromising developer productivity.
+
+== Workshop Challenge Overview
+
+The challenge set before participants is to learn and apply the transition from using non-secure development practices to implementing a comprehensive, secure development pipeline. This transformation is essential for understanding how to effectively address vulnerabilities and incorporate comprehensive security checks and tools throughout the software development lifecycle.
+
+== Presentation (30 mins)
+
+=== Introduction to Red Hat Developer Hub (RHDH)
+
+An in-depth overview of RHDH is provided, emphasizing its role in bolstering the developer experience with a wealth of resources centralized in one hub.
+
+=== Understanding Security Tools
+
+A presentation of essential security tools:
+
+* *TAS (The Update Framework + Fulcio + Sigstore)*: Described as tools enhancing software supply chains through signing and verification mechanisms.
+* *Red Hat Advanced Cluster Security (ACS)*: Explained as a solution for securing Kubernetes environments, focusing on vulnerability management and policy enforcement.
+* *SonarQube*: Introduced as a tool for continuous analysis of code quality and security.
+
+=== Integration into Red Hat Trusted Application Pipeline (RH TAP)
+
+Discussion on the integration of these security tools within RH TAP to establish a cohesive and secure application development and deployment process using Red Hat OpenShift.
+
+== Hands-on Activity (1 hr 15 mins)
+
+=== Scenario Setup
+
+Two Golden Template Paths (GPTs) are preconfigured in RHDH: a non-secure pipeline and a secure pipeline, designed to facilitate the hands-on experience.
+
+==== Part 1: Exploring the Non-Secure Pipeline
+
+* *Builder Team*: Participants deploy an application using the non-secure GPT, identifying typical security oversights.
+* *QA Team*: Participants deploy the unsecured image, identify vulnerabilities, and observe the consequences of bypassing security checks.
+
+==== Part 2: Transitioning to the Secure Pipeline
+
+* *Builder Team*: Adopts secure development practices, including generating cosign key pairs and integrating TAS, for a secure image build process within Red Hat OpenShift.
+* *QA Team*: Implements new security measures, successfully validating secured images with updated protocols and safely deploying them, marking a transition to a secure operational model.
+
+== Conclusion
+
+The workshop wraps up by highlighting the pivotal role of the Red Hat Consultant in navigating the transition from insecure practices to a secure, efficient development and deployment pipeline.
