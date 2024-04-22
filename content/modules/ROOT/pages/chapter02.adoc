@@ -129,7 +129,7 @@ image::33_Configure_Tekton_Chains.png[]
 
 * "Finally we need to setup *Cosign* to use our TUF mirror registry, to provide the cryptographic keys and trust information required for *Cosign* to sign our software artifacts," you explain as you run the following in the *QA environment* terminal.
 +
-[source, role="execute"]
+[source, role="execute", subs="attributes"]
 ----
 cosign initialize --mirror={tuf_mirror} --root={tuf_mirror}/root.json
 ----
