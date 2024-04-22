@@ -77,27 +77,7 @@ COSIGN_PASSWORD=openshift cosign generate-key-pair k8s://openshift-pipelines/sig
 * "The public key, or cosign.pub, will be important later on for verifying the signatures of the images you deploy to the QA environment," you tell the QA Engineer.
 * "Before deploying a container image, I will show you how you can use *Enterprise Contracts* to verify it's origin. This ensures that the image comes from your approved secure build system, not a random personal laptop."
 
-
 image::76_Cosign_Secret.png[]
-
-* In the Developer's terminal, you execute the command and then copy the *full* content of the public key:
-+
-[source, role="execute"]
-----
-cat cosign.pub
-----
-
-* Next, you switch to the QA terminal and enter:
-+
-[source, role="execute"]
-----
-vi cosign.pub
-----
-
-* You type "*i*" to enter *insert* mode, then you paste the content of the public key into the file, followed by the "*Esc*" key to exit *insert* mode
-* You then save the file by typing "*wq!*" followed by "*return*".
-
-image::77_Copy_Public_Secret.png[]
 
 * With the *Cosign* signing secret in place, the next step is to configure *Tekton Chains* to enable image signing.
 * "Now, let's configure *Tekton Chains* to start signing our images," you guide team as you run the following command in the *development environment* terminal:
@@ -126,6 +106,25 @@ oc patch TektonConfig config --type='merge' --patch "$(cat tekton-config.yaml)"
 ----
 
 image::33_Configure_Tekton_Chains.png[]
+
+* In the *development environment* terminal, you execute the below command and then copy the *full* content of the public key:
++
+[source, role="execute"]
+----
+cat cosign.pub
+----
+
+* Next, you switch to the QA terminal and enter:
++
+[source, role="execute"]
+----
+vi cosign.pub
+----
+
+* You type "*i*" to enter *insert* mode, then you paste the content of the public key into the file, followed by the "*Esc*" key to exit *insert* mode
+* You then save the file by typing "*wq!*" followed by "*return*".
+
+image::77_Copy_Public_Secret.png[]
 
 * "Finally we need to setup *Cosign* to use our TUF mirror registry, to provide the cryptographic keys and trust information required for *Cosign* to sign our software artifacts," you explain as you run the following in the *QA environment* terminal.
 +
