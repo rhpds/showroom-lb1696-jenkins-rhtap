@@ -31,7 +31,7 @@ image::36_Create_Second_GPT.png[]
 ==== Code Commit
 
 * The first thing you decide to do is "To trigger our secure build pipeline, let's open VSCode and make a small change to the documentation."
-* You access your Virtual Network Computer (VNC) interface using the link:{developer_cluster_novnc_web_url}[*link*,window=_blank].
+* Your new IDE is accessible via a Virtual Network Computer (VNC) interface using the link:{developer_cluster_novnc_web_url}[*link*,window=_blank].
 * When prompted, you enter your password: {developer_cluster_novnc_user_password}, and then click on the *Send Credentials* button.
 
 NOTE: Normally, developers would use *VSCode* on their local laptops. However, to simplify the setup process, we've setup *VSCode* on a remote RHEL server accessible via a *VNC*.
