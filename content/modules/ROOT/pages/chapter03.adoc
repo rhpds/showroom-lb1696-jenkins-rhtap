@@ -45,7 +45,7 @@ image::39_Search_For_VSCode.png[]
 
 * "Alright, now I am ready to clone my project's git repo," you tell yourself.
 * You open the *No VNC* clipboard, then you paste the following link to your project repo into it:
-** Project Repo URL: https://gitlab-gitlab.{developer_cluster_openshift_cluster_ingress_domain}/development/secured-app.git
+** Project Repo URL: link:https://gitlab-gitlab.{developer_cluster_openshift_cluster_ingress_domain}/development/secured-app.git[*https://gitlab-gitlab.{developer_cluster_openshift_cluster_ingress_domain}/development/secured-app.git*,window=_blank]
 
 image::68_NoVNC_Clipboard.png[]
 
@@ -126,7 +126,7 @@ image::53_Scan_Source_Task.png[]
 * "We can view the scan results from the pipeline logs as we did before, or we could log in to *SonarQube* to get an in-depth report."
 * "Let's look at the *SonarQube* report this time," you decide.
 * To access *SonarQube*, you use the following link:
-** SonarQube URL: {developer_cluster_sonarqube_url}
+** SonarQube URL: link:{developer_cluster_sonarqube_url}[*SonarQube*,window=_blank]
 ** Username: {developer_cluster_sonarqube_username}
 ** Password: {developer_cluster_sonarqube_password}
 * You click on the project link in the *SonarQube* Dashboard.
