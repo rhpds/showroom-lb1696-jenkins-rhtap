@@ -226,7 +226,7 @@ image::79_EC_Validation_Success.png[]
 ----
 sh deploy-insecured.sh
 ----
-* "The policy does it job and stops us from deploying the insecure application."
+* "The policy does its job and stops us from deploying the insecure application."
 
 
 * You then execute the command to deploy the image built by the secure pipeline in the QA environment terminal:
