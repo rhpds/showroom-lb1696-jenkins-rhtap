@@ -45,7 +45,7 @@ image::39_Search_For_VSCode.png[]
 
 * "Alright, now I am ready to clone my project's git repo," you tell yourself.
 * You open the *No VNC* clipboard, then you paste the following link to your project repo into it:
-** Project Repo URL: {clone_secure_url}
+** Project Repo URL: https://gitlab-gitlab.{developer_cluster_openshift_cluster_ingress_domain}/development/secured-app.git
 
 image::68_NoVNC_Clipboard.png[]
 

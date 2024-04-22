@@ -130,7 +130,7 @@ image::77_Copy_Public_Secret.png[]
 +
 [source, role="execute", subs="attributes"]
 ----
-cosign initialize --mirror={tuf_mirror} --root={tuf_mirror}/root.json
+cosign initialize --mirror=https://tuf-trusted-artifact-signer.{developer_cluster_openshift_cluster_ingress_domain} --root=https://tuf-trusted-artifact-signer.{developer_cluster_openshift_cluster_ingress_domain}/root.json
 ----
 
 image::78_Initialize_Cosign.png[]

@@ -27,11 +27,9 @@ IMPORTANT: Once the showroom guide is created, please delete the file and remove
 |{counter:node} |developer_cluster_devspaces_url | {developer_cluster_devspaces_url}
 |{counter:node} |developer_cluster_devspaces_user | {developer_cluster_devspaces_user}
 |{counter:node} |developer_cluster_devspaces_user_password | {developer_cluster_devspaces_user_password}
-|{counter:nodea} |clone_secure_url | https://gitlab-gitlab.{developer_cluster_openshift_cluster_ingress_domain}/development/secured-app.git
 |{counter:node} |sonarqube_url | {sonarqube_url}
 |{counter:node} |sonarqube_username | {sonarqube_username}
 |{counter:node} |sonarqube_password | {sonarqube_password}
-|{counter:node} |tuf_mirror | https://tuf-trusted-artifact-signer.{developer_cluster_openshift_cluster_ingress_domain}
 |===
 ****
 
