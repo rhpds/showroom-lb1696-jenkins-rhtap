@@ -30,6 +30,8 @@ IMPORTANT: Once the showroom guide is created, please delete the file and remove
 |{counter:node} |developer_cluster_sonarqube_url | {developer_cluster_sonarqube_url}
 |{counter:node} |developer_cluster_sonarqube_username | {developer_cluster_sonarqube_username}
 |{counter:node} |developer_cluster_sonarqube_password | {developer_cluster_sonarqube_password}
+|{counter:node} |developer_cluster_gitlab_user | {developer_cluster_gitlab_user}
+|{counter:node} |developer_cluster_gitlab_user_password | {developer_cluster_gitlab_user_password}
 |===
 ****
 
