@@ -131,7 +131,7 @@ image::33_Configure_Tekton_Chains.png[]
 +
 [source, role="execute"]
 ----
-cosign initialize --mirror=https://tuf.{qa_cluster_openshift_cluster_ingress_domain} --root=https://tuf.{qa_cluster_openshift_cluster_ingress_domain}/root.json
+cosign initialize --mirror={tuf_mirror} --root={tuf_mirror}/root.json
 ----
 
 image::78_Initialize_Cosign.png[]

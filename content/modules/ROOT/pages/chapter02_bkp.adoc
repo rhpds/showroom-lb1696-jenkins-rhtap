@@ -5,7 +5,7 @@
 === Create a Signing Secret
 
 * As the seasoned Security Consultant from Red Hat, you're poised to guide the team through the critical steps of bolstering their software pipeline with Red Hat's security tools.
-* The first order of business is to establish a foundation for signing container images securely. 
+* The first order of business is to establish a foundation for signing container images securely.
 * This is where *Cosign* comes into play, leveraging its capabilities to sign your container images with a high degree of security.
 * You explain to the team, "We'll start by creating a Cosign signing secret. This secret is pivotal as it will be used by Tekton Chains to sign your container images, incorporating both a password and a private key."
 * You direct the team to run the following command in their *Development Environment* terminal:
@@ -45,7 +45,7 @@ You paste the content of the public key into the file and save it by typing:
 
 ===  Configuring Tekton Chains for Signing
 
-* With the *Cosign* signing secret in place, the next step is to configure *Tekton Chains* to enable image signing. 
+* With the *Cosign* signing secret in place, the next step is to configure *Tekton Chains* to enable image signing.
 * This process ensures that every image built and deployed through your pipeline is signed, adding a layer of trust and security.
 * "Now, let's configure Tekton Chains to start signing our images. This step is crucial for automating the security of our container images right from the pipeline," you guide the team.
 * In your *Development Environment* terminal, run this command:
@@ -67,7 +67,7 @@ spec:
     artifacts.pipelinerun.format: in-toto
     artifacts.pipelinerun.storage: oci
     transparency.enabled: true
-    transparency.url: http://rekor-server.rekor-system.svc
+    transparency.url: http://rekor-server.trusted-artifact-signer.svc
   config: {}
 EOF
 oc patch TektonConfig config --type='merge' --patch "$(cat tekton-config.yaml)"
@@ -93,12 +93,12 @@ image::34_Run_Secure_GPT.png[]
 
 image::35_Review_Commits_Enabled.png[]
 
-* You click the *Review* button. 
+* You click the *Review* button.
 * After quickly reviewing the summary and seeing that everything looks great, you proceed to click the *Create* button.
 
 image::36_Create_Second_GPT.png[]
 
-* The secure GPT executes successfully, you seize this moment to explain the value of using GPTs in this scenario. 
+* The secure GPT executes successfully, you seize this moment to explain the value of using GPTs in this scenario.
 * "This environment," you explain, "is created with all the security guardrails we discussed. What's fantastic about Golden Path Templates is that the enhancements in the security pipeline are entirely transparent to our developer. This means they won't impact how he codes or builds applications."
 * Next, you copy the link for the Source Code Repository that was automatically generated for you.
 
@@ -122,13 +122,13 @@ image::38_Send_Credentials.png[]
 image::39_Search_For_VSCode.png[]
 
 * VSCode quickly launches on your remote server.
-* You tell the team: "We are now ready to clone our git repo in my remote VSCode instance." 
+* You tell the team: "We are now ready to clone our git repo in my remote VSCode instance."
 * You click on the *Source Control* icon in the left menu.
 * Then on the *Clone Repository* button and  paste the link to the Source Code Repository you copied earlier from *RHDH*.
 
 image::40_Click_On_Source_Control.png[]
 
-* You explain to the team: "I'll select the current location as the Repository Destination on our remote server." 
+* You explain to the team: "I'll select the current location as the Repository Destination on our remote server."
 
 image::41_Choose_Folder.png[]
 
@@ -155,7 +155,7 @@ image::44_Commit_Changes.png[]
 
 image::45_Sigstore_Signin.png[]
 
-* After providing your credentials and completing the authentication process, you return to VSCode and click the *Sync Changes* button. 
+* After providing your credentials and completing the authentication process, you return to VSCode and click the *Sync Changes* button.
 
 image::46_SigStore_Authentication_Complete.png[]
 
@@ -184,7 +184,7 @@ image::50_Secure_Build_Pipeline.png[]
 
 image::51_Click_On_Verify_Commit.png[]
 
-* "Here in the log, you can see the user we used and the comment we provided when we made the last code change.” 
+* "Here in the log, you can see the user we used and the comment we provided when we made the last code change.”
 * "The *verify-commit* task executes the command link:https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work[*git verify-commit*,window=_blank] to verify that the signature is valid, before the pipeline moves to the next task." you point out.
 
 image::52_Verify_Commit_Log.png[]
@@ -200,7 +200,7 @@ image::53_Scan_Source_Task.png[]
 * "Let's look at the *SonarQube* report this time.", you decide.
 * To access *SonarQube*, you use the following link:
 ** SonarQube URL: {SonarQube_url}
-* You click on the project link in the *SonarQube* Dashboard. 
+* You click on the project link in the *SonarQube* Dashboard.
 
 image::54_SonarQube_Dashboard.png[]
 
@@ -229,7 +229,7 @@ image::59_Generated_Artifacts_Registery.png[]
 
 === Task 4: Image Scan
 
-* "Let's switch back to our pipeline view in *RHDH*, and look at the tasks performed by Red Hat’s Advanced Cluster Security (ACS)" you suggest. 
+* "Let's switch back to our pipeline view in *RHDH*, and look at the tasks performed by Red Hat’s Advanced Cluster Security (ACS)" you suggest.
 * "The *acs-image-scan* task performs an image scan to identify known vulnerabilities within the container image. It compares the image components against known vulnerability databases, uncovering any CVEs (Common Vulnerabilities and Exposures) that might compromise the container."
 
 image::60_ACS_Image_Scan_Task.png[]
@@ -244,7 +244,7 @@ image::62_Image_Scan_Result.png[]
 
 === Task 5: ACS Image Check
 
-* You switch back to the pipeline view as you explain: "*ACS* doesn't stop at scanning; it can also assess whether the image adheres to predefined rules by performing an image check". 
+* You switch back to the pipeline view as you explain: "*ACS* doesn't stop at scanning; it can also assess whether the image adheres to predefined rules by performing an image check".
 * "The *image-scan-check* task evaluates the container image against policies and compliance standards. This includes not running as root, using approved base images, or avoiding prohibited software packages, for example."
 
 image::63_ACS_Image_Check_Task.png[]
@@ -270,7 +270,7 @@ image::66_SBOM.png[]
 === Demonstrating the Secure Deploy Process
 
 * Addressing the QA engineer, you begin, “Now, I'm going to show you how to validate that an image is signed before deploying it for testing.”
-* “You'll use the Enterprise Contract CLI (ec) along with *Cosign* to first check the original image from the insecure application. I've prepared a script specifically for this purpose.” 
+* “You'll use the Enterprise Contract CLI (ec) along with *Cosign* to first check the original image from the insecure application. I've prepared a script specifically for this purpose.”
 * You execute the command:
 +
 [source, role="execute"]

@@ -31,6 +31,7 @@ IMPORTANT: Once the showroom guide is created, please delete the file and remove
 |{counter:node} |sonarqube_url | {sonarqube_url}
 |{counter:node} |sonarqube_username | {sonarqube_username}
 |{counter:node} |sonarqube_password | {sonarqube_password}
+|{counter:node} |tuf_mirror | https://tuf-trusted-artifact-signer.{developer_cluster_openshift_cluster_ingress_domain}
 |===
 ****
 
