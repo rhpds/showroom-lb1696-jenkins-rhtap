@@ -4,7 +4,7 @@
 
 This page lists the variables you can use when making instructions.
 
-IMPORTANT: Once the showroom guide is created, please delete the file and remove the *xref : variable-guide-delete-me.adoc [Variable Guide (Delete Me)]*  line from *content/modules/ROOT/nav.adoc* file. 
+IMPORTANT: Once the showroom guide is created, please delete the file and remove the *xref : variable-guide-delete-me.adoc [Variable Guide (Delete Me)]*  line from *content/modules/ROOT/nav.adoc* file.
 
 
 
@@ -24,6 +24,13 @@ IMPORTANT: Once the showroom guide is created, please delete the file and remove
 |{counter:node} |developer_cluster_bastion_public_hostname | {developer_cluster_bastion_public_hostname}
 |{counter:node} |developer_cluster_bastion_ssh_password | {developer_cluster_bastion_ssh_password}
 |{counter:node} |developer_cluster_bastion_ssh_user_name | {developer_cluster_bastion_ssh_user_name}
+|{counter:node} |developer_cluster_devspaces_url | {developer_cluster_devspaces_url}
+|{counter:node} |developer_cluster_devspaces_user | {developer_cluster_devspaces_user}
+|{counter:node} |developer_cluster_devspaces_user_password | {developer_cluster_devspaces_user_password}
+|{counter:nodea} |clone_secure_url | https://gitlab-gitlab.{developer_cluster_openshift_cluster_ingress_domain}/development/secured-app.git
+|{counter:node} |sonarqube_url | {sonarqube_url}
+|{counter:node} |sonarqube_username | {sonarqube_username}
+|{counter:node} |sonarqube_password | {sonarqube_password}
 |===
 ****
 
@@ -42,6 +49,7 @@ IMPORTANT: Once the showroom guide is created, please delete the file and remove
 |{counter:nodea} |qa_cluster_openshift_cluster_admin_password | {qa_cluster_openshift_cluster_admin_password}
 |{counter:nodea} |qa_cluster_openshift_cluster_admin_username | {qa_cluster_openshift_cluster_admin_username}
 |{counter:nodea} |qa_cluster_web_console_url | {qa_cluster_web_console_url}
+|{counter:nodea} |qa_cluster_openshift_cluster_ingress_domain | {qa_cluster_openshift_cluster_ingress_domain}
 |===
 ****
 
