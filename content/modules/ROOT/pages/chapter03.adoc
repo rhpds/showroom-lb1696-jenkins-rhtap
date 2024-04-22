@@ -126,9 +126,9 @@ image::53_Scan_Source_Task.png[]
 * "We can view the scan results from the pipeline logs as we did before, or we could log in to *SonarQube* to get an in-depth report."
 * "Let's look at the *SonarQube* report this time," you decide.
 * To access *SonarQube*, you use the following link:
-** SonarQube URL: {sonarqube_url}
-** Username: {sonarqube_username}
-** Password: {sonarqube_password}
+** SonarQube URL: {developer_cluster_sonarqube_url}
+** Username: {developer_cluster_sonarqube_username}
+** Password: {developer_cluster_sonarqube_password}
 * You click on the project link in the *SonarQube* Dashboard.
 
 image::54_SonarQube_Dashboard.png[]
