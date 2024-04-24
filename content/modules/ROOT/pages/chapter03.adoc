@@ -30,7 +30,7 @@ image::36_Create_Second_GPT.png[]
 
 ==== Code Commit
 
-* The first thing you decide to do is "To trigger our secure build pipeline, let's open VSCode and make a small change to the documentation."
+* "To trigger our secure build pipeline, let's open VSCode and make a small change to the documentation.", you say.
 
 * You click on the *Open Component in Catalog* link.
 
@@ -38,19 +38,25 @@ image::11_Executed_GPT.png[]
 
 * You find and click on the *OpenShift Dev Spaces (VSCode)* link.
 
-image::13_Click_OpenShift_DevSpaces.png[]
+image::95_Click_Openshift_Devspaces.png[]
 
 * *OpenShift Dev Spaces* then begins creating your workspace, processing a *Devfile* containing all the configuration needed to set up your development environment set up for link:glossary.html#gitsign[*GitSign*,window=_blank].
 
 * After waiting a few minutes for *OpenShift Dev Spaces* to finish setting up your workspace, you're presented with a fully fledged IDE accessible from your browser.
 * You click the button *Yes, I trust the authors*.
 
-image::19_Trust_Authors.png[]
+image::96_Trust_Authors.png[]
 
 * "For the purpose of this demo, updating the documentation will be enough to trigger the new build pipeline" you explain.
-* You expand the docs folder and open the markdown file *Index.md*.
+* You expand the docs folder and open the markdown file *index.md*.
 * At the document's end, you add: "Build pipeline integrated with security tools."
+
+image::97_Index_Markdown_Updated.png[]
+
 * You press CTRL+S to save your changes, then you click on the *Hamburger button* (three horizontal bars) on the top left of your screen and select *Terminal -> New Terminal*
+
+image::98_Terminal_Menu.png[]
+
 * Before you start committing your code, you confirm the Gitsign git config.
 * "As you see, our development environment has been configured for Gitsign", you express.
 * Run the below command on the *VS Code* terminal to view the Gitsign global git config:
@@ -60,9 +66,11 @@ image::19_Trust_Authors.png[]
 git config --global --list
 ----
 
+NOTE: You may need to allow paste functionality when prompted by the browser.
+
 image::94_Gitsign_Git_Global_Config.png[]
 
-* To begin the process, run the following command to add your changes to staging:
+* To begin commiting your code to the repository, run the following command to add your changes to staging:
 +
 [source, role="execute"]
 ----
@@ -75,7 +83,8 @@ git add .
 git commit -m "Doc Update"
 ----
 * You will notice that you receive an error message that states *error opening browser: exec: "xdg-open": executable file not found in $PATH*.  This is because our *VS Code* terminal is trying to open a browser window to obtain your credentials for signing but is unable to as it is running as a container.
-* However, Gitsign allows you to provide your signing credentials by printing the url that you can copy and paste in a separate browser window.
+* However, Gitsign allows you to provide your signing credentials by copying and pasting the url it outputs into a separate browser window.
+* Copy and paste the url into a new browser tab/window and hit enter.
 
 image::90_Gitsign_Commit_Message.png[]
 
@@ -118,7 +127,7 @@ image::50_Secure_Build_Pipeline.png[]
 ==== Task 1: Verify Commit
 
 * "The first task after cloning our git repo, is ensuring the source code modifications were made by a trusted sourc," you explain.
-* "This task will only succeed if it can verify a trusted signature on the last commit that triggered the pipeline. This is the signature we provided using *GitSign* when we committed the code from *VSCode*."
+* "This task will only succeed if it can verify a trusted signature on the last commit that triggered the pipeline. This is the signature we provided using *GitSign* when we committed the code from *Dev Spaces*."
 * You then click on the task *verify-commit* and pull up the logs.
 
 image::51_Click_On_Verify_Commit.png[]
