@@ -81,11 +81,11 @@ image::90_Gitsign_Commit_Message.png[]
 
 * The browser will prompt you for your credentials.  Enter {developer_cluster_devspaces_user} for the username and {developer_cluster_devspaces_user_password} for the password.
 
-image::91_Gitsign_Credentials_Prompt.png
+image::91_Gitsign_Credentials_Prompt.png[]
 
 * You will then be redirected to another page that will present a verification code.  Copy this code into your clipboard.
 
-image::92_Gitsign_Verification_Code.png
+image::92_Gitsign_Verification_Code.png[]
 
 * Return to devspaces and paste this code into the waiting prompt and hit enter:
 +
