@@ -51,7 +51,18 @@ image::19_Trust_Authors.png[]
 * You expand the docs folder and open the markdown file *Index.md*.
 * At the document's end, you add: "Build pipeline integrated with security tools."
 * You press CTRL+S to save your changes, then you click on the *Hamburger button* (three horizontal bars) on the top left of your screen and select *Terminal -> New Terminal*
-* Run the following command to add your changes to staging:
+* Before you start committing your code, you confirm the Gitsign git config.
+* "As you see, our development environment has been configured for Gitsign", you express.
+* Run the below command to view the Gitsign global git config:
++
+[source, role="execute"]
+----
+git config --global --list
+----
+
+image::94_Gitsign_Git_Global_Config.png[]
+
+* To begin the process, run the following command to add your changes to staging:
 +
 [source, role="execute"]
 ----

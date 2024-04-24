@@ -51,7 +51,7 @@ In the wake of the sophisticated ransomware attack that exploited vulnerabilitie
 ** A new software template *Secured Quarkus Service Software Supply Chain* with an option called *Verify Commits* that should be enabled to verify signatures on all commits.
 ** A pop-up window from link:glossary.html#sigstore[*Sigstore*,window=_blank] in your *Dev Spaces* workspace requesting your credentials when commiting your code.
 * *Developer*: "Yes! Does this mean my code commits are being signed with my credentials?"
-* "Correct," you confirm as you open a terminal within your Dev Spaces workspace and run the following command to show *GitSign* configuration: *git config --global --edit*
+* "Correct," you confirm as you open a terminal within your Dev Spaces workspace and run the following command to show *GitSign* configuration: *git config --global --list*
 
 NOTE: You will be asked to run this command later on in this lab.
 
