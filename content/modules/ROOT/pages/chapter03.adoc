@@ -72,7 +72,7 @@ image::90_Gitsign_Commit_Message.png[]
 
 image::91_Gitsign_Credentials_Prompt.png
 
-* You will then be redirected to page that will present a verification code.  Copy this code into your clipboard.
+* You will then be redirected to another page that will present a verification code.  Copy this code into your clipboard.
 
 image::92_Gitsign_Verification_Code.png
 
