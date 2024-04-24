@@ -110,12 +110,14 @@ image::13_Click_OpenShift_DevSpaces.png[]
 
 image::14_Login_With_OpenShift.png[]
 
-* Then, you choose the Single Sign-On option by clicking the *rhsso* button and entering your username and password as follows:
+* Then, you choose the Single Sign-On option by clicking the *rhsso* button
+
+image::15_Login_RHSSO.png[]
+
+* You then enter your username and password as follows:
 ** *Username*: {developer_cluster_rhdh_user}
 ** *Password*: {developer_cluster_rhdh_user_password}
 * After inputting your credentials, you click the *Sign in* button.
-
-image::15_Login_RHSSO.png[]
 
 * You authorize *OpenShift Dev Spaces* to access your account by clicking the *Allow selected permissions* button.
 
