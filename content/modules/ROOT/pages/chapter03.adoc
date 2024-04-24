@@ -64,7 +64,7 @@ git add .
 git commit -m "Doc Update"
 ----
 * You will notice that you receive an error message that states *error opening browser: exec: "xdg-open": executable file not found in $PATH*.  This is because our terminal is trying to open a browser window to obtain your credentials for signing but is unable to as it is running as a container.
-* However, Gitsign allows you to provide your credentials for signing using a browser and a generated url.  Copy this url and paste it in a new browser window.
+* However, Gitsign allows you to provide your signing credentials by printing the url that you can copy and paste in a separate browser window.
 
 image::90_Gitsign_Commit_Message.png[]
 
