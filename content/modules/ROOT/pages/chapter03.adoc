@@ -68,7 +68,7 @@ git commit -m "Doc Update"
 
 image::90_Gitsign_Commit_Message.png[]
 
-* The browser will prompt you for your credentials.  Entery {developer_cluster_devspaces_user} for the username and {developer_cluster_devspaces_user_password} for the password.
+* The browser will prompt you for your credentials.  Enter {developer_cluster_devspaces_user} for the username and {developer_cluster_devspaces_user_password} for the password.
 
 image::91_Gitsign_Credentials_Prompt.png
 
