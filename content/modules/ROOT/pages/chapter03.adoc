@@ -53,7 +53,7 @@ image::19_Trust_Authors.png[]
 * You press CTRL+S to save your changes, then you click on the *Hamburger button* (three horizontal bars) on the top left of your screen and select *Terminal -> New Terminal*
 * Before you start committing your code, you confirm the Gitsign git config.
 * "As you see, our development environment has been configured for Gitsign", you express.
-* Run the below command to view the Gitsign global git config:
+* Run the below command on the *VS Code* terminal to view the Gitsign global git config:
 +
 [source, role="execute"]
 ----
@@ -74,7 +74,7 @@ git add .
 ----
 git commit -m "Doc Update"
 ----
-* You will notice that you receive an error message that states *error opening browser: exec: "xdg-open": executable file not found in $PATH*.  This is because our terminal is trying to open a browser window to obtain your credentials for signing but is unable to as it is running as a container.
+* You will notice that you receive an error message that states *error opening browser: exec: "xdg-open": executable file not found in $PATH*.  This is because our *VS Code* terminal is trying to open a browser window to obtain your credentials for signing but is unable to as it is running as a container.
 * However, Gitsign allows you to provide your signing credentials by printing the url that you can copy and paste in a separate browser window.
 
 image::90_Gitsign_Commit_Message.png[]
@@ -87,7 +87,7 @@ image::91_Gitsign_Credentials_Prompt.png[]
 
 image::92_Gitsign_Verification_Code.png[]
 
-* Return to devspaces and paste this code into the waiting prompt and hit enter:
+* Return to *Dev Spaces* and paste this code into the waiting prompt in the *VS Code* terminal and hit enter:
 +
 [source, role="execute"]
 ----
