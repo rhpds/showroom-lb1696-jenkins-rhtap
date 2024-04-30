@@ -40,7 +40,7 @@ image::11_Executed_GPT.png[]
 
 image::95_Click_Openshift_Devspaces.png[]
 
-* *OpenShift Dev Spaces* then begins creating your workspace, processing a *Devfile* containing all the configuration needed to set up your development environment set up for link:glossary.html#gitsign[*GitSign*,window=_blank].
+* *OpenShift Dev Spaces* then begins creating your workspace, processing a *Devfile* containing all the configuration needed to set up your development environment for link:glossary.html#gitsign[*GitSign*,window=_blank].
 
 * After waiting a few minutes for *OpenShift Dev Spaces* to finish setting up your workspace, you're presented with a fully fledged IDE accessible from your browser.
 * You click the button *Yes, I trust the authors*.
