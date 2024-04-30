@@ -46,23 +46,17 @@ In the wake of the sophisticated ransomware attack that exploited vulnerabilitie
 * "Typically, vulnerabilities like this can happen when there's a gap in the software supply chain security," you explain.
 * "The first step in addressing this is setting up your *Git* environment to sign code commits. This will allow us to verify the code's origin and integrity before it gets integrated into your build process.", you add.
 * *Security Engineer*: So, you're saying that ensuring code commits are signed can prevent tampering?
-* "Exactly. To get the team accustomed to this new way of signing commits, we've set up an isolated development environment that has already been configured with link:glossary.html#gitsign[*GitSign*,window=_blank] which is part of the link:glossary.html#rhtas[*Red Hat Trusted Artifact Signer (RHTAS)*,window=_blank]."
-* "We've decided to keep this IDE separate from Developer Hub for now so as to not impact our other development teams during this POC.
-* "You might notice two important changes in this POC:
+* "Exactly. To get this working we had to make a few changes to our *Dev Spaces* instance to incorporate link:glossary.html#gitsign[*GitSign*,window=_blank] which is part of the link:glossary.html#rhtas[*Red Hat Trusted Artifact Signer (RHTAS)*,window=_blank]."
+* "You might notice two important changes:
 ** A new software template *Secured Quarkus Service Software Supply Chain* with an option called *Verify Commits* that should be enabled to verify signatures on all commits.
-** A pop-up window from link:glossary.html#sigstore[*Sigstore*,window=_blank] in your new IDE requesting your credentials when commiting your code.
+** A pop-up window from link:glossary.html#sigstore[*Sigstore*,window=_blank] in your *Dev Spaces* workspace requesting your credentials when commiting your code.
 * *Developer*: "Yes! Does this mean my code commits are being signed with my credentials?"
-* "Correct," you confirm as you open a terminal to the *development environment*, and run the following command to show *GitSign* configuration
-+
-[source, role="execute"]
-----
-git config --global --edit
-----
+* "Correct," you confirm as you open a terminal within your *Dev Spaces* workspace and run the following command to show *GitSign* configuration: *git config --global --list*
 
-image::75_GitSign_Config.png[]
+NOTE: You will be asked to run this command later on in this lab.
 
-* You enter "*:q*" followed by *return* to exit edit mode in the terminal as you explain: "All we need to do is add a step to verify that code commits are signed in our build pipeline."
-* "I will show you this step in action when I demonstrate the secure build pipeline run."
+// * You enter "*:q*" followed by *return* to exit edit mode in the terminal as you explain: "All we need to do is add a step to verify that code commits are signed in our build pipeline."
+// * "I will show you this step in action when I demonstrate the secure build pipeline run."
 
 ==== Signed Container Images
 
@@ -150,6 +144,8 @@ image::78_Initialize_Cosign.png[]
 * "Ah, yes. I remember you struggled quiet a bit with the link:https://en.wikipedia.org/wiki/Log4Shell[*Log4Shell*,window=_blank] vulnerability a few years back."
 * "We'll include steps in the pipeline to perform both image scans and image checks against known CVEs and your organization's policies. This way, we ensure that the images are clear of known vulnerabilities and that our policies are enforced during the build and deploy stages," you answer.
 * "In fact, let me login into link:glossary.html#acs[*Red Hat Advanced Cluster Security (ACS)*,window=_blank] now and show what those policies look like," you say as you open the {qa_cluster_acs_route}[RH ACS Console,window=_blank] and log in with your credentials username: {qa_cluster_acs_portal_username} and password: {qa_cluster_acs_portal_password}
+
+NOTE: The browser will warn you of a certificate issue when you first access the RHACS console.  Ignore this warning and continue to the site.
 
 image::80_rhacs_login.png[]
 

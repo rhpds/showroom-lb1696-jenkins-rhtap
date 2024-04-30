@@ -30,71 +30,92 @@ image::36_Create_Second_GPT.png[]
 
 ==== Code Commit
 
-* The first thing you decide to do is "To trigger our secure build pipeline, let's open VSCode and make a small change to the documentation."
-* Your new IDE is accessible via a Virtual Network Computer (VNC) interface using the link:{developer_cluster_novnc_web_url}[*link*,window=_blank].
-* When prompted, you enter your password: {developer_cluster_novnc_user_password}, and then click on the *Send Credentials* button.
+* "To trigger our secure build pipeline, let's open VSCode and make a small change to the documentation.", you say.
 
-NOTE: Normally, developers would use *VSCode* on their local laptops. However, to simplify the setup process, we've setup *VSCode* on a remote RHEL server accessible via a *VNC*.
+* You click on the *Open Component in Catalog* link.
 
-image::38_Send_Credentials.png[]
+image::11_Executed_GPT.png[]
 
-* Once the RHEL server welcome screen appears, you click on *Activities* at the top left of your screen and enter "*VSCode*" in the search bar.
-* You then launch *VSCode* by clicking on it's icon.
+* You find and click on the *OpenShift Dev Spaces (VSCode)* link.
 
-image::39_Search_For_VSCode.png[]
+image::95_Click_Openshift_Devspaces.png[]
 
-* "Alright, now I am ready to clone my project's git repo," you tell yourself.
-* You open the *No VNC* clipboard, then you paste the following link to your project repo into it:
-** Project Repo URL: link:https://{developer_cluster_gitlab_user}:{developer_cluster_gitlab_user_password}@gitlab-gitlab.{developer_cluster_openshift_cluster_ingress_domain}/development/secured-app.git[*https://{developer_cluster_gitlab_user}:{developer_cluster_gitlab_user_password}@gitlab-gitlab.{developer_cluster_openshift_cluster_ingress_domain}/development/secured-app.git*,window=_blank]
+* *OpenShift Dev Spaces* then begins creating your workspace, processing a *Devfile* containing all the configuration needed to set up your development environment for link:glossary.html#gitsign[*GitSign*,window=_blank].
 
-image::68_NoVNC_Clipboard.png[]
+* After waiting a few minutes for *OpenShift Dev Spaces* to finish setting up your workspace, you're presented with a fully fledged IDE accessible from your browser.
+* You click the button *Yes, I trust the authors*.
 
-image::69_NoVNC_Clipboard_with_URL.png[]
-
-* You copy the link from the clipboard as you prepare to use it in *VSCode*.
-* You click on the *Source Control* icon in the left menu, then on the *Clone Repository* button, and paste the link you just copied from the clipboard.
-
-NOTE: To copy & paste between your laptop and the remote Linux VM, you need to use the VNC clipboard.
-
-* You explain to the team: "I'll select the current location as the Repository Destination on our remote VM."
-
-image::41_Choose_Folder.png[]
-
-* You load the cloned repository in *VSCode* by clicking *Open* in the pop-up window that follows.
-
-image::42_Open_Cloned_Repo.png[]
-
-* After choosing to trust the authors, you affirm, "And now, we're set to trigger the new secure build process."
-
-image::43_Trust_Authors.png[]
+image::96_Trust_Authors.png[]
 
 * "For the purpose of this demo, updating the documentation will be enough to trigger the new build pipeline" you explain.
-* You expand the docs folder and open the markdown file *Index.md*.
+* You expand the docs folder and open the markdown file *index.md*.
 * At the document's end, you add: "Build pipeline integrated with security tools."
-* You press CTRL+S to save your changes, then you click on the *Source Control* icon located in the left menu.
-* You enter the commit message “Doc Update" and click on the *Commit* button to finalize your changes.
 
-image::44_Commit_Changes.png[]
+image::97_Index_Markdown_Updated.png[]
 
-* You turn to the team and explain, "This is where the *Trusted Artifact Signer (RHTAS)* kicks in, requiring you to sign in so that we know that the person who commits this code change is trusted."
-* A form appears in your browser, prompting you for your credentials. You fill in the details as follows:
-** Username: {developer_cluster_rhdh_user}
-** Password: {developer_cluster_rhdh_user_password}
+* You press CTRL+S to save your changes, then you click on the *Hamburger button* (three horizontal bars) on the top left of your screen and select *Terminal -> New Terminal*
 
-image::45_Sigstore_Signin.png[]
+image::98_Terminal_Menu.png[]
 
-image::46_SigStore_Authentication_Complete.png[]
+* Before you start committing your code, you confirm the Gitsign git config.
+* "As you see, our development environment has been configured for Gitsign", you express.
+* Run the below command on the *VS Code* terminal to view the Gitsign global git config:
++
+[source, role="execute"]
+----
+git config --global --list
+----
 
-* After providing your credentials and completing the authentication process, you return to VSCode and click the *Sync Changes* button.
+NOTE: You may need to allow paste functionality when prompted by the browser.
 
-image::47_Sync_Change.png[]
+image::94_Gitsign_Git_Global_Config.png[]
+
+* To begin commiting your code to the repository, run the following command to add your changes to staging:
++
+[source, role="execute"]
+----
+git add .
+----
+* Run the next command to commit your changes:
++
+[source, role="execute"]
+----
+git commit -m "Doc Update"
+----
+* You will notice that you receive an error message that states *error opening browser: exec: "xdg-open": executable file not found in $PATH*.  This is because our *VS Code* terminal is trying to open a browser window to obtain your credentials for signing but is unable to as it is running as a container.
+* However, Gitsign allows you to provide your signing credentials by copying and pasting the url it outputs into a separate browser window.
+* Copy and paste the url into a new browser tab/window and hit enter.
+
+image::90_Gitsign_Commit_Message.png[]
+
+* The browser will prompt you for your credentials.  Enter {developer_cluster_devspaces_user} for the username and {developer_cluster_devspaces_user_password} for the password.
+
+image::91_Gitsign_Credentials_Prompt.png[]
+
+* You will then be redirected to another page that will present a verification code.  Copy this code into your clipboard.
+
+image::92_Gitsign_Verification_Code.png[]
+
+* Return to *Dev Spaces* and paste this code into the waiting prompt in the *VS Code* terminal and hit enter:
++
+[source, role="execute"]
+----
+Enter verification code:
+----
+
+* If successful, you should receive a successful commit message:
++
+image::93_Gitsign_Commit_Signed.png[]
+
+* Push the code to the repository with the below command:
++
+[source, role="execute"]
+----
+git push
+----
 
 * This action sets the build pipeline into motion.
-* You navigate back to the *RHDH Dashboard* tab in your browser and click on the *Open Component in Catalog* link.
-
-image::48_Open_Component_In_Catalog.png[]
-
-* You then select the *CI tab* from the top menu, and expand the pipeline view to show the team that pipeline execution is in progress.
+* You switch back to the *Developer Hub* and select the *CI tab* from the top menu, and expand the pipeline view to show the team that pipeline execution is in progress.
 
 image::49_Expand_Secure_Pipeline.png[]
 
@@ -106,7 +127,7 @@ image::50_Secure_Build_Pipeline.png[]
 ==== Task 1: Verify Commit
 
 * "The first task after cloning our git repo, is ensuring the source code modifications were made by a trusted sourc," you explain.
-* "This task will only succeed if it can verify a trusted signature on the last commit that triggered the pipeline. This is the signature we provided using *GitSign* when we committed the code from *VSCode*."
+* "This task will only succeed if it can verify a trusted signature on the last commit that triggered the pipeline. This is the signature we provided using *GitSign* when we committed the code from *Dev Spaces*."
 * You then click on the task *verify-commit* and pull up the logs.
 
 image::51_Click_On_Verify_Commit.png[]
