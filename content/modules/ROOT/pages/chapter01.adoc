@@ -11,12 +11,6 @@
 * "It looks like this handy glossary is going to be a useful companion through my journey," you think to yourself.
 * With these resources at your fingertips, you're now ready to start working on your new project.
 
-IMPORTANT: On the right of your screen you will notice two terminals.  The top terminal should be your *development environment* and the bottom terminal is your *QA environment*.  Both terminals should be logged into the *QA environment* on start up.  In your *development environment* (terminal at the top), run the below command to login to the development environment.  Use *{developer_cluster_bastion_ssh_password}* as your password:
-[source, role="execute", subs="attributes"]
-----
-ssh {developer_cluster_bastion_ssh_user_name}@{developer_cluster_bastion_public_hostname}
-----
-
 TIP: Throughout this guide, you'll find links to a link:glossary.html[*glossary*,window=_blank] explaining terms that might be unfamiliar. Feel free to explore the glossary to learn more about the concepts and technologies referred to throughout this guide.
 
 '''
@@ -146,7 +140,7 @@ image::19_Trust_Authors.png[]
 
 NOTE: The JUnit test for the Hello method needs updating; otherwise, the Build step in the CI/CD pipeline would fail due to discrepancies between the code and its test.
 
-* In your *insecured-app* workspace, you expand the folders *src -> main -> java*, and then open the *ExampleResource.java *file.
+* In your *insecured-app* workspace, you expand the folders *src -> main -> java*, and then open the *ExampleResource.java* file.
 * On line 14, you replace the return message of the hello method from "Hello RESTEasy" to "Hello from RHDH".
 
 image::20_Modify_ExampleResource.png[]
@@ -165,7 +159,7 @@ image::22_Index_File.png[]
 
 * Having completed your task, you're ready to commit your changes.
 * You click on the *Source Control* icon located in the left menu.
-* Then, you enter the commit message “My First Commit" and click on the *Commit* button to finalize your changes.
+* Then, you enter the commit message "My First Commit" and click on the *Commit* button to finalize your changes.
 
 image::23_My_First_Commit.png[]
 
