@@ -40,9 +40,9 @@ image::11_Executed_GPT.png[]
 
 image::95_Click_Openshift_Devspaces.png[]
 
-* *OpenShift Dev Spaces* then begins creating your workspace, processing a *Devfile* containing all the configuration needed to set up your development environment for link:glossary.html#gitsign[*GitSign*,window=_blank].
+* *OpenShift Dev Spaces* then begins creating your workspace, just like before.
 
-* After waiting a few minutes for *OpenShift Dev Spaces* to finish setting up your workspace, you're presented with a fully fledged IDE accessible from your browser.
+* After waiting a few minutes for *OpenShift Dev Spaces* to finish setting up your workspace, you're presented with your IDE.
 * You click the button *Yes, I trust the authors*.
 
 image::96_Trust_Authors.png[]
@@ -53,12 +53,12 @@ image::96_Trust_Authors.png[]
 
 image::97_Index_Markdown_Updated.png[]
 
-* You press CTRL+S to save your changes, then you click on the *Hamburger button* (three horizontal bars) on the top left of your screen and select *Terminal -> New Terminal*
+* You click on the *Hamburger button* (three horizontal bars) on the top left of your screen and select *Terminal -> New Terminal*
 
 image::98_Terminal_Menu.png[]
 
 * Before you start committing your code, you confirm the Gitsign git config.
-* "As you see, our development environment has been configured for Gitsign", you express.
+* "As you see, our development environment has been configured for Gitsign", you explain.
 * Run the below command on the *VS Code* terminal to view the Gitsign global git config:
 +
 [source, role="execute"]

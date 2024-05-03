@@ -5,6 +5,20 @@
 * It's now in your hands to validate the integrity and quality of the code delivered.
 
 '''
+=== Understanding the workshop terminals
+
+* Before we start the activities for this lab, let's familiarize ourselves with the two terminals to the right of your workshop guide.
+* Initially, both terminals are logged into the QA environment. 
+* We want the top terminal to connect to your *development environment* .
+* In the top terminal, run the below command to login to the development environment.  Use *{developer_cluster_bastion_ssh_password}* as your password:
+[source, role="execute", subs="attributes"]
+----
+ssh {developer_cluster_bastion_ssh_user_name}@{developer_cluster_bastion_public_hostname}
+----
+
+image::89_Dev_vs_QA_Terminal.png[]
+
+* Now that we have both terminals connected to the correct environments let's continue with our narrative.
 
 === Testing the Insecure Application
 
@@ -16,8 +30,6 @@
 ----
 sh deploy-insecured.sh
 ----
-
-image::89_Dev_vs_QA_Terminal.png[]
 
 * As soon as the script completes its run and the application is deployed, you proceed to copy the application's URL and paste it in your browser, eager to start testing the application.
 
@@ -41,22 +53,13 @@ In the wake of the sophisticated ransomware attack that exploited vulnerabilitie
 
 ==== Signed Commits
 
+
 * "I understand you've encountered a serious issue with a ransomware infection.  Lets discuss the situation and how we can prevent this from happening again," you tell the team.
 * *QA Engineer*:  (Visibly upset)  Yeah, I couldn't believe it!  How could this have happened?
 * "Typically, vulnerabilities like this can happen when there's a gap in the software supply chain security," you explain.
 * "The first step in addressing this is setting up your *Git* environment to sign code commits. This will allow us to verify the code's origin and integrity before it gets integrated into your build process.", you add.
 * *Security Engineer*: So, you're saying that ensuring code commits are signed can prevent tampering?
-* "Exactly. To get this working we had to make a few changes to our *Dev Spaces* instance to incorporate link:glossary.html#gitsign[*GitSign*,window=_blank] which is part of the link:glossary.html#rhtas[*Red Hat Trusted Artifact Signer (RHTAS)*,window=_blank]."
-* "You might notice two important changes:
-** A new software template *Secured Quarkus Service Software Supply Chain* with an option called *Verify Commits* that should be enabled to verify signatures on all commits.
-** A pop-up window from link:glossary.html#sigstore[*Sigstore*,window=_blank] in your *Dev Spaces* workspace requesting your credentials when commiting your code.
-* *Developer*: "Yes! Does this mean my code commits are being signed with my credentials?"
-* "Correct," you confirm as you open a terminal within your *Dev Spaces* workspace and run the following command to show *GitSign* configuration: *git config --global --list*
-
-NOTE: You will be asked to run this command later on in this lab.
-
-// * You enter "*:q*" followed by *return* to exit edit mode in the terminal as you explain: "All we need to do is add a step to verify that code commits are signed in our build pipeline."
-// * "I will show you this step in action when I demonstrate the secure build pipeline run."
+* "Exactl!. By verifying the commit was made by an authorized individual, we can ensure that the code has not been tampered with by unauthorized individuals or compromised by malicious software, providing a strong line of defense against potential security breaches."
 
 ==== Signed Container Images
 
@@ -74,7 +77,7 @@ COSIGN_PASSWORD=openshift cosign generate-key-pair k8s://openshift-pipelines/sig
 image::76_Cosign_Secret.png[]
 
 * With the *Cosign* signing secret in place, the next step is to configure *Tekton Chains* to enable image signing.
-* "Now, let's configure *Tekton Chains* to start signing our images," you guide team as you run the following command in the *development environment* terminal:
+* "Now, let's configure *Tekton Chains* to start signing our images," you guide the team as you run the following command in the *development environment* terminal:
 +
 [source, role="execute"]
 ----
@@ -116,7 +119,7 @@ vi cosign.pub
 ----
 
 * You type "*i*" to enter *insert* mode, then you paste the content of the public key into the file, followed by the "*Esc*" key to exit *insert* mode
-* You then save the file by typing "*wq!*" followed by "*return*".
+* You then save the file by typing "*:wq!*" followed by "*return*".
 
 image::77_Copy_Public_Secret.png[]
 
