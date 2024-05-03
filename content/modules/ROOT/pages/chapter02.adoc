@@ -8,9 +8,10 @@
 === Understanding the workshop terminals
 
 * Before we start the activities for this lab, let's familiarize ourselves with the two terminals to the right of your workshop guide.
-* Initially, both terminals are logged into the QA environment. 
+* Initially, both terminals are logged into the QA environment.
 * We want the top terminal to connect to your *development environment* .
 * In the top terminal, run the below command to login to the development environment.  Use *{developer_cluster_bastion_ssh_password}* as your password:
++
 [source, role="execute", subs="attributes"]
 ----
 ssh {developer_cluster_bastion_ssh_user_name}@{developer_cluster_bastion_public_hostname}
