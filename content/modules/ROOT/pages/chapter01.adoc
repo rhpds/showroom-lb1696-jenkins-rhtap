@@ -117,15 +117,19 @@ image::15_Login_RHSSO.png[]
 
 image::16_Allow_Selected_Permissions.png[]
 
-* Subsequently, you click *Authorize* to grant *OpenShift Dev Spaces* access to your *GitLab* account.
-
-image::17_Authorize_Gitlab.png[]
-
 * *OpenShift Dev Spaces* then begins creating your workspace, processing a *Devfile* containing all the configuration needed to set up your development environment.
 
 NOTE: A link:https://devfile.io/[*Devfile*,window=_blank] is a YAML configuration file that serves as a portable definition for a development environment. It is designed to be a universal format that can describe any type of development environment, making it easier for developers to code, build, test, and run applications across different tools and platforms without the need to manually configure each environment.
 
 image::18_DevSpaces_Process_Devfile.png[]
+
+* A prompt *Do you trust the authors of this repository?* will appear.  Select *Do not ask me again for other repositories* and then click *Continue*
+
+image::99_Devspaces_Trust_Repository.png[]
+
+* Subsequently, you click *Authorize* to grant *OpenShift Dev Spaces* access to your *GitLab* account.
+
+image::17_Authorize_Gitlab.png[]
 
 * After waiting a few minutes for *OpenShift Dev Spaces* to finish setting up your workspace, you're presented with a fully fledged IDE accessible from your browser.
 * You click the button *Yes, I trust the authors*.
