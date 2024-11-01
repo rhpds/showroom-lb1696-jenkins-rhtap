@@ -30,7 +30,7 @@ image::1_Authenticate.png[]
 
 image::2_Gitlab_Authenticate.png[]
 
-* You then click on the *Authorize* button to authorize link:glossary.html#keycloak[*Keycloak*,window=_blank] to access you account.
+* You then click on the *Authorize keycloak* button to authorize link:glossary.html#keycloak[*Keycloak*,window=_blank] to access you account.
 
 image::3_Authorize.png[]
 
@@ -127,7 +127,7 @@ image::18_DevSpaces_Process_Devfile.png[]
 
 image::99_Devspaces_Trust_Repository.png[]
 
-* Subsequently, you click *Authorize* to grant *OpenShift Dev Spaces* access to your *GitLab* account.
+* Subsequently, you click *Authorize devspaces* to grant *OpenShift Dev Spaces* access to your *GitLab* account.
 
 image::17_Authorize_Gitlab.png[]
 
