@@ -203,9 +203,9 @@ image::63_ACS_Image_Check_Task.png[]
 
 image::64_Image_Check_Result.png[]
 
-=== Task 6: Export SBOM
+=== Task 6: Upload SBOM to Repository
 
-image::65_Scan_Export_SBOM_Task.png[]
+image::65_Upload_SBOM_Repo_Task.png[]
 
 
 * You then demonstrate how to access the generated *SBOM* by clicking the link that's readily available in your pipeline view.
@@ -215,6 +215,13 @@ image::57_SBOM_Link.png[]
 * After you click you immediately see the generated SBOM.
 
 image::66_SBOM.png[]
+
+=== Task 7: Upload SBOM to TPA
+
+image::65_Upload_SBOM_TPA_Task.png[]
+
+
+* In this step, the SBOM is uploaded to Trusted Profile Analyzer.  We do this to turn the raw SBOM into actionalble information.  For example, TPA can identify dependencies in your image that are targets of known Common Vulnerabilities and Exploits (CVEs).  These CVE's can be viewed on the Trusted Profile Analyzer console for the specific SBOM uploaded.
 
 === Demonstrating the Secure Deploy Process
 
