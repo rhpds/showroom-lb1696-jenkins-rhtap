@@ -149,8 +149,6 @@ image::78_Initialize_Cosign.png[]
 * "We'll include steps in the pipeline to perform both image scans and image checks against known CVEs and your organization's policies. This way, we ensure that the images are clear of known vulnerabilities and that our policies are enforced during the build and deploy stages," you answer.
 * "In fact, let me login into link:glossary.html#acs[*Red Hat Advanced Cluster Security (ACS)*,window=_blank] now and show what those policies look like," you say as you open the {qa_cluster_acs_route}[RH ACS Console,window=_blank] and log in with your credentials username: {qa_cluster_acs_portal_username} and password: {qa_cluster_acs_portal_password}
 
-NOTE: The browser will warn you of a certificate issue when you first access the RHACS console.  Ignore this warning and continue to the site.
-
 image::80_rhacs_login.png[]
 
 * You expand the *Platform Configuration* list from the left menu and then click on the *Policy Management* link, as you say: "Here you can find the list of readily available policies you can choose from."
