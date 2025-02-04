@@ -103,7 +103,7 @@ image::92_Gitsign_Verification_Code.png[]
 Enter verification code:
 ----
 +
-NOTE: Once you've pasted the code, you may be presented with a popup to allow paste functionality in Devspaces.  Click *Allow* and then hit *Enter*.  If no popup appears, just hit *Enter*.
+NOTE: Once you've pasted the code, depending on your browser, you may be presented with a popup to allow paste functionality in Devspaces.  Click *Allow* and then hit *Enter*.  If no popup appears, just hit *Enter*.
 
 * If successful, you should receive a successful commit message:
 +
