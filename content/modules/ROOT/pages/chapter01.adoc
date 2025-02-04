@@ -163,7 +163,7 @@ image::22_Index_File.png[]
 
 * Having completed your task, you're ready to commit your changes.
 * You click on the *Source Control* icon located in the left menu.
-
++
 IMPORTANT: You may or may not be prompted to trust your workspace again.  Go ahead and follow the prompts to trust the workspace if required.
 +
 image::22_Manage_Workspace_Trust.png[]
