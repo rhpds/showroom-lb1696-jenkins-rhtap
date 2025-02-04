@@ -162,7 +162,12 @@ image::21_Modify_ExampleResourceTest.png[]
 image::22_Index_File.png[]
 
 * Having completed your task, you're ready to commit your changes.
-* You click on the *Source Control* icon located in the left menu.  You may or may not be prompted to trust your workspace again.  Go ahead and follow the prompts to trust the workspace if required.
+* You click on the *Source Control* icon located in the left menu.
+
+IMPORTANT: You may or may not be prompted to trust your workspace again.  Go ahead and follow the prompts to trust the workspace if required.
++
+image::22_Manage_Workspace_Trust.png[]
+
 * Then, you enter the commit message "My First Commit" and click on the *Commit* button to finalize your changes.
 
 image::23_My_First_Commit.png[]
