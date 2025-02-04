@@ -96,12 +96,14 @@ image::91_Gitsign_Credentials_Prompt.png[]
 
 image::92_Gitsign_Verification_Code.png[]
 
-* Return to *Dev Spaces* and paste this code into the waiting prompt in the *VS Code* terminal and hit enter:
+* Return to *Dev Spaces* and paste this code into the waiting prompt in the *VS Code* terminal.
 +
 [source, role="execute"]
 ----
 Enter verification code:
 ----
++
+NOTE: Once you've pasted the code, you may be presented with a popup to allow paste functionality in Devspaces.  Click *Allow* and then hit *Enter*.  If no popup appears, just hit *Enter*.
 
 * If successful, you should receive a successful commit message:
 +
