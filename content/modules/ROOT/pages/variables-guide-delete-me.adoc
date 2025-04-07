@@ -15,7 +15,7 @@ IMPORTANT: Once the showroom guide is created, please delete the file and remove
 [%autowidth,cols="^.^,^.^a,^.^a",options="header"]
 |===
 |SR No.| Variable Name| Variable Value
-|{counter:node} |developer_cluster_rhdh_id_provider | test
+|{counter:node} |developer_cluster_rhdh_id_provider | {developer_cluster_rhdh_id_provider}
 |{counter:node} |developer_cluster_rhdh_url | {developer_cluster_rhdh_url}
 |{counter:node} |developer_cluster_rhdh_user | {developer_cluster_rhdh_user}
 |{counter:node} |developer_cluster_rhdh_user_password | {developer_cluster_rhdh_user_password}
