@@ -40,21 +40,26 @@ image::4_RHDH_Landing_Page.png[]
 
 '''
 
-=== Running your first Golden Path Template (GPT)
+=== Running your first Software Template
 
-* Eager as you are, you immediately want to explore the link:glossary.html#gpt[Golden Path Templates (GPT),window=_blank] you've heard so much about from your colleagues.
+* Eager as you are, you immediately want to explore the link:glossary.html#gpt[Software Templates,window=_blank] you've heard so much about from your colleagues.
 * You find and click the *Create* link in the left menu.
 
 image::5_Click_Create.png[]
 
-* Among the options, you spot the *GPT* titled *Insecured Quarkus Service Software Supply Chain*
+* Among the options, you spot the *Software Template* titled *Insecure Quarkus Service Software Supply Chain (Jenkins)*
 * Feeling a mix of excitement and curiosity, you click the *Choose* button.
 
-NOTE: This lab has been pre-configured with two Golden Path Templates (GPTs), a non-secure GPT and a secure GPT. However, lets pretend that our developer only sees the insecure GPT at this point and the naming of the GPT does not hint at the forthcoming challenges associated with running an insecure software supply pipeline.
+This lab has been pre-configured with three software templates:
+. Insecure Quarkus Service Software Supply Chain (Jenkins) – representing a non-secure pipeline.
+. Securing a Quarkus Service Software Supply Chain (Jenkins) – a secure variant using Jenkins.
+. Securing a Quarkus Service Software Supply Chain (Tekton) – another secure option, this time using Tekton instead of Jenkins. You’ll get a chance to explore this template in a bonus exercise.
 
-image::6_Choose_Insecure_GPT.png[]
+However, for the purpose of this exercise, let’s assume our developer only has visibility of the non-secure template and that the template’s name doesn’t hint at the challenges that lie ahead when working with an insecure software supply chain.
 
-* As the form for the *Golden Path Template (GPT)* appears, you're pleasantly surprised.
+image::6_Choose_Insecure_ST.png[]
+
+* As the form for the *Software Template* appears, you're pleasantly surprised.
 * Unlike other complicated ticketing systems you've used before, this form is refreshingly simple and seems tailor-made for your particular task.
 * "Ah, so my team has opted to use link:glossary.html#quarkus[*Quarkus*,window=_blank] for this project. That's a great framework for developing Kubernetes-native applications," you tell yourself, with excitement sparking within you..
 * You click *Next*.
@@ -75,15 +80,15 @@ image::9_Click_Review_Form.png[]
 
 image::10_Review_Form.png[]
 
-* The *Golden Path Template (GPT)* kicks into action, and in just a few seconds it sets up everything you need for your *Quarkus* application.
-* The *GPT* has done quiet a bit of heavy lifting on your behalf here:
+* The *software template* kicks into action, and in just a few seconds it sets up everything you need for your *Quarkus* application.
+* The *software template* has done quiet a bit of heavy lifting on your behalf here:
 .. It created two repositories in *Gitlab*: one for the application source code and the other for link:glossary.html#gitops[*OpenShift GitOps*,window=_blank] manifests.
 .. It instructed *OpenShift GitOps* to create an application and all the specified resources in the manifests in the target link:glossary.html#ocp[*OpenShift*,window=_blank] cluster.
 .. *OpenShift GitOps* then processed the link:glossary.html#helm[*Helm Charts*,window=_blank] in the manifests git repo to deploy a CI pipeline in link:glossary.html#pipeline[*OpenShift Pipelines*,window=_blank] to build your application and push it to *Red Hat Quay*.
 
-NOTE: You might be wondering, what if my organization uses tools other than OpenShift GitOps? What if you've invested in Azure DevOps, for example? The great news is that every step in a Golden Path Template is fully customizable, and we can swap out any tool used in a step with one of your choice. This flexibility is made possible through an extensible ecosystem of link:glossary.html#rhdh_plugins[*plugins*,window=_blank]. These plugins enable you to select your preferred tools from the existing plugins marketplace or even develop your custom plugins. So, in a nutshell, a GPT adapts to your organization's workflow, not the other way around.
-
 image::73_GPT_Flow.png[]
+
+NOTE: You might be wondering, what if my organization uses tools other than OpenShift GitOps? What if you've invested in Azure DevOps, for example? The great news is that every step in a software template is fully customizable, and we can swap out any tool used in a step with one of your choice. This flexibility is made possible through an extensible ecosystem of link:glossary.html#rhdh_plugins[*plugins*,window=_blank]. These plugins enable you to select your preferred tools from the existing plugins marketplace or even develop your custom plugins. So, in a nutshell, a software template adapts to your organization's workflow, not the other way around.
 
 * You click on the *Open Component in Catalog* link.
 
