@@ -18,14 +18,14 @@ TIP: Throughout this guide, you'll find links to a link:glossary.html[*glossary*
 === Logging into Red Hat Developer Hub (RHDH)
 
 * Eager to check out the *RHDH*, you quickly follow the instructions from your welcome email.
-* You use this link:{developer_cluster_rhdh_url}[*URL*, ,window=_blank] to log into *RHDH*.
+* You use this link:rhdh_url: "https://backstage-backstag.${OPENSHIFT_CLUSTER_INGRESS_DOMAIN}"[*URL*, ,window=_blank] to log into *RHDH*.
 * Next, you click on the *GitLab* button to start the authentication process.
 
 image::1_Authenticate.png[]
 
 * Now, it's time to enter your username and password as detailed below:
-** *Username*: {developer_cluster_rhdh_user}
-** *Password*: {developer_cluster_rhdh_user_password}
+** *Username*: {user}
+** *Password*: {password}
 * After inputting your credentials, you click the *Sign in* button.
 
 image::2_Gitlab_Authenticate.png[]
@@ -50,14 +50,18 @@ image::5_Click_Create.png[]
 * Among the options, you spot the *Software Template* titled *Insecure Quarkus Service Software Supply Chain (Jenkins)*
 * Feeling a mix of excitement and curiosity, you click the *Choose* button.
 
-This lab has been pre-configured with three software templates:
-. Insecure Quarkus Service Software Supply Chain (Jenkins) – representing a non-secure pipeline.
-. Securing a Quarkus Service Software Supply Chain (Jenkins) – a secure variant using Jenkins.
-. Securing a Quarkus Service Software Supply Chain (Tekton) – another secure option, this time using Tekton instead of Jenkins. You’ll get a chance to explore this template in a bonus exercise.
-
-However, for the purpose of this exercise, let’s assume our developer only has visibility of the non-secure template and that the template’s name doesn’t hint at the challenges that lie ahead when working with an insecure software supply chain.
-
 image::6_Choose_Insecure_ST.png[]
+
+[NOTE]
+====
+* This lab has been pre-configured with three software templates:
+
+. Insecure Quarkus Service Software Supply Chain (Jenkins), representing a non-secure pipeline.
+. Securing a Quarkus Service Software Supply Chain (Jenkins), a secure variant using Jenkins.
+. Securing a Quarkus Service Software Supply Chain (Tekton), another secure option, this time using Tekton instead of Jenkins. You’ll get a chance to explore this template in a bonus exercise.
+
+* However, for the purpose of this exercise, let’s assume our developer only has visibility of the non-secure template and that the template’s name doesn’t hint at the challenges that lie ahead when working with an insecure software supply chain.
+====
 
 * As the form for the *Software Template* appears, you're pleasantly surprised.
 * Unlike other complicated ticketing systems you've used before, this form is refreshingly simple and seems tailor-made for your particular task.
@@ -114,8 +118,8 @@ image::14_Login_With_OpenShift.png[]
 image::15_Login_RHSSO.png[]
 
 * You then enter your username and password as follows:
-** *Username*: {developer_cluster_rhdh_user}
-** *Password*: {developer_cluster_rhdh_user_password}
+** *Username*: {user}
+** *Password*: {password}
 * After inputting your credentials, you click the *Sign in* button.
 
 * You authorize *OpenShift Dev Spaces* to access your account by clicking the *Allow selected permissions* button.
