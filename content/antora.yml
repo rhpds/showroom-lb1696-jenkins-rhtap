@@ -25,4 +25,8 @@ asciidoc:
     page-links:
     - url: https://redhat.com
       text: Red Hat
-   
+    jenkins_user: admin
+    jenkins_password: MzIyNjc5
+    qa_cluster_acs_route: https://central-stackrox.apps.cluster-lq56c.lq56c.sandbox3988.opentlc.com
+    qa_cluster_acs_portal_username: admin
+    qa_cluster_acs_portal_password:  MzIyNjc5

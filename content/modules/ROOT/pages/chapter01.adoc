@@ -18,8 +18,9 @@ TIP: Throughout this guide, you'll find links to a link:glossary.html[*glossary*
 === Logging into Red Hat Developer Hub (RHDH)
 
 * Eager to check out the *RHDH*, you quickly follow the instructions from your welcome email.
-* You use this link:rhdh_url: "https://backstage-backstag.${OPENSHIFT_CLUSTER_INGRESS_DOMAIN}"[*URL*, ,window=_blank] to log into *RHDH*.
+* You use this link:rhdh_url: "https://backstage-backstage.{OPENSHIFT_CLUSTER_INGRESS_DOMAIN}"[*URL*, ,window=_blank] to log into *RHDH*.
 * Next, you click on the *GitLab* button to start the authentication process.
+
 
 image::1_Authenticate.png[]
 
@@ -201,12 +202,34 @@ image::26_OK_To_Push_Changes.png[]
 image::27_Click_on_CI_Tab.png[]
 
 * And just as you expected, a build pipeline has already been triggered.
-* You eagerly expand the pipeline view to monitor the progress of this pipeline run.
 
-image::28_Expand_Pipeline_View.png[]
+TIP: At this point, you might be curious to see the *Blue Ocean* view in Jenkins, especially if you're already familiar with it. While it's not strictly necessary (everything you need to know is right here in RHDH), it's a good chance to peek under the hood and confirm that RHDH is seamlessly integrated with your Jenkins backend.
 
-* After a few minutes of anticipation, the pipeline run concludes, and the application image is successfully built.
-* You select the *Image Registry* tab from the upper menu and confirm that your image has been pushed to the Registry.
+* You click on the link **View Build** action to navigate to **Jenkins**.
+
+image::100_view_build_Action.png[]]
+
+* This opens the Jenkins login screen in a new tab.
+
+image::101_jenkins_login.png[]
+
+* You enter the user name {jenkins_user} and password {jenkins_password} to login
+* In the Jenkins Dashboard, you click on the *Open Blue Ocean* link in the left navigation menu.
+
+image::102_click_on_blue_ocean.png[]
+
+* You can now monitor the progress of the pipeline run you just executed from **RHDH**, and you can also expand each task to view the logs.
+
+image::103_blue_ocean_view.pngp[]
+
+NOTE: While Jenkins Blue Ocean provides rich visualisation and might be familiar to many engineers, Red Hat Developer Hub is designed to be the central location for CI visibility. Once you've confirmed everything is wired correctly, you’ll rarely need to leave the RHDH interface again.
+
+* Once the pipeline run execution is complete, you switch back to the *CI* view in RHDH and, to your satisfaction, the CI view reflects the same completed status.
+* You then select the *Image Registry* tab from the upper menu,
+
+image::104_select_image_registry.png[]
+
+* You confirm that your image has been pushed to the Registry.
 
 NOTE: This is another plugin in action allowing RHDH to integrate with Red Hat Quay.
 
@@ -222,7 +245,7 @@ image::88_Docs_View.png[]
 
 === Chapter 1 - Summary
 
-Our story unfolds with a bright-eyed developer starting his new role, welcomed by the innovative environment of the *Red Hat Developer Hub (RHDH)*. This *Internal Developer Portal (IDP)*, with its *Golden Path Templates (GPTs)* streamlined and automated his onboarding process. The *GPT* offered a self-service approach to project initiation, enabling our developer to quickly dive into his task, without the overhead of configuring the underlying technology of the development environment.
+Our story unfolds with a bright-eyed developer starting his new role, welcomed by the innovative environment of the *Red Hat Developer Hub (RHDH)*. This *Internal Developer Portal (IDP)*, with its *Software Templates* streamlined and automated his onboarding process. The software template offered a self-service approach to project initiation, enabling our developer to quickly dive into his task, without the overhead of configuring the underlying technology of the development environment.
 
 The next chapter of our story uncovers the risks associated with providing developers with the tools to create great code without the necessary security guard rails that are crucial for safeguarding the organization against security threats.
 
