@@ -18,7 +18,7 @@ TIP: Throughout this guide, you'll find links to a link:glossary.html[*glossary*
 === Logging into Red Hat Developer Hub (RHDH)
 
 * Eager to check out the *RHDH*, you quickly follow the instructions from your welcome email.
-* You use this link:rhdh_url: "https://backstage-backstage.{OPENSHIFT_CLUSTER_INGRESS_DOMAIN}"[*URL*, ,window=_blank] to log into *RHDH*.
+* You use this link:rhdh_url: https://backstage-backstage.{OPENSHIFT_CLUSTER_INGRESS_DOMAIN}[*URL*, ,window=_blank] to log into *RHDH*.
 * Next, you click on the *GitLab* button to start the authentication process.
 
 
@@ -66,7 +66,7 @@ image::6_Choose_Insecure_ST.png[]
 
 * As the form for the *Software Template* appears, you're pleasantly surprised.
 * Unlike other complicated ticketing systems you've used before, this form is refreshingly simple and seems tailor-made for your particular task.
-* "Ah, so my team has opted to use link:glossary.html#quarkus[*Quarkus*,window=_blank] for this project. That's a great framework for developing Kubernetes-native applications," you tell yourself, with excitement sparking within you..
+* "Ah, so my team has opted to use link:glossary.html#quarkus[*Quarkus*,window=_blank] for this project. That's a great framework for developing Kubernetes-native applications," you tell yourself, with excitement sparking within you.
 * You click *Next*.
 
 image::7_First_Step_Form.png[]

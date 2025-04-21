@@ -30,3 +30,6 @@ asciidoc:
     qa_cluster_acs_route: https://central-stackrox.apps.cluster-lq56c.lq56c.sandbox3988.opentlc.com
     qa_cluster_acs_portal_username: admin
     qa_cluster_acs_portal_password:  MzIyNjc5
+    sonarqube_url: https://sonarqube-sonarqube.apps.cluster-9bk75.9bk75.sandbox4782.opentlc.com
+    sonarqube_user: admin
+    sonarqube_password: MzE5NTY2
