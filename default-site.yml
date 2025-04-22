@@ -1,6 +1,7 @@
 ---
 site:
-  title: LB1696 - Secure CI/CD Pipeline Transformation with Jenkins and Red Hat’s Trusted Application Pipeline
+  title: |
+    LB1696 - Secure CI/CD Pipeline Transformation with Jenkins and Red Hat’s Trusted Application Pipeline
   url: https://redhat-scholars.github.io/course-template
   start_page: modules::index.adoc
 
