@@ -8,4 +8,6 @@
 
 * xref:chapter03.adoc[Chapter 3: Red Hat Trusted Application Pipeline to the Rescue]
 
+* xref:chapter04.adoc[Bonus Chapter: Securing a Quarkus Service Software Supply Chain (Tekton)]
+
 * xref:glossary.adoc[Glossary]

@@ -9,7 +9,7 @@
 
 * Your first action is to deploy the image, built by the developer, to the *QA environment*.
 * Your experience as a QA engineer has equipped you with a toolkit of scripts, designed to automate such tasks.
-* You open your QA terminal, and type the command:
+* You open your terminal, and type the command:
 
 [source, role="execute"]
 ----
@@ -34,19 +34,19 @@ image::31_Ransomeware.png[]
 
 === Installing the Guard Rails
 
-* In the aftermath of discovering a critical vulnerability during QA testing, the organisation convenes a post-mortem to establish a more secure development process. You, a Red Hat consultant with expertise in supply chain security, join the meeting alongside the developers, QA engineers, platform engineers, and security leads.
+* In the aftermath of discovering a critical vulnerability during QA testing, the organization convenes a post-mortem to establish a more secure development process. You, a Red Hat consultant with expertise in supply chain security, join the meeting alongside the developers, QA engineers, platform engineers, and security leads.
 
 * You begin by addressing the group: "Thank you for having me. I understand that a malicious component slipped through into your QA environment."
 
-* The *QA engineer* nods in agreement: "Yes, I ran my usual tests, but the application turned out to be compromised. I was shocked and immediately isolated the environment."
+* The *QA engineer* nods in agreement: "Yes, I ran my usual tests, but the application turned out to be compromised. I was shocked and immediately reported the issue to our security team."
 
-* The *security engineer* adds: "We reviewed logs and build artifacts. It appears the culprit was an unverified library that made it into our pipeline.
+* The *security engineer* adds: "We isolated the environment and reviewed logs and build artifacts. It appears the culprit was an unverified library that made it into our pipeline.
 
 * "Right," you reply. "In scenarios like this, it’s often not one person’s fault, but a gap in the controls we put in place. We need to strengthen your software supply chain in a way that prevents these incidents from happening again. Let me walk you through the key security practices we will put in place."
 
 === 1. Signed Commits
 
-* "For starters, let’s make sure all source code commits are cryptographically signed. This gives us provenance, we can verify *who* made a change and *whether* that change is authentic."
+* "For starters, let’s make sure all source code commits are cryptographically signed. This gives us provenance, we can verify who made a change and whether that change is authentic."
 * *Developer*: "So you’re saying even if I didn’t see anything malicious, unsigned commits could let unverified code in?"
 * "Exactly. We will configure your Git environment to enforce signed commits. That way, only authorized and verified changes can enter your build process."
 
@@ -93,8 +93,8 @@ image::78_Initialize_Cosign.png[]
 
 * *Security Engineer*:  "Okay, but how can we enforce policies that stop the deployment of images with known malicious libraries?"
 * "Ah, yes. I remember that you struggled quite a bit with the link:https://en.wikipedia.org/wiki/Log4Shell[*Log4Shell*,window=_blank] vulnerability a few years back."
-* "We will include steps in the pipeline to perform both image scans and image checks against known CVEs and your organisation's policies. This way, we ensure that the images are clear of known vulnerabilities and that our policies are enforced during the build and deployment stages," you answer.
-* "In fact, let me log in to link:glossary.html#acs[*Red Hat Advanced Cluster Security (ACS)*,window=_blank] now and show you what those policies look like," you say as you open the {qa_cluster_acs_route}[RH ACS Console,window=_blank] and log in with your credentials, username: {qa_cluster_acs_portal_username} and password: {qa_cluster_acs_portal_password}.
+* "We will include steps in the pipeline to perform both image scans and image checks against known CVEs and your organization's policies. This way, we ensure that the images are clear of known vulnerabilities and that our policies are enforced during the build and deployment stages," you answer.
+* "In fact, let me log in to link:glossary.html#acs[*Red Hat Advanced Cluster Security (ACS)*,window=_blank] now and show you what those policies look like," you say as you open the ACS Console using this link: https://central-stackrox.{OPENSHIFT_CLUSTER_INGRESS_DOMAIN} and log in with your credentials, username: {adminuser} and password: {password}.
 
 NOTE: The browser will warn you about a certificate issue when you first access the RHACS console. Ignore this warning and continue to the site.
 
@@ -177,7 +177,7 @@ image::rhacs-policy-criteria-trusted-image-signers.png[]
 
 image::110_enable_policy.png[]
 
-* "All done, now *ACS* will enforce this policy in the build stage of our application."
+* "All done. ACS will now enforce this policy in the build stage of our application."
 * *Security Engineer*:  "That sounds comprehensive. Implementing these measures will definitely strengthen our security posture."
 * "Excellent. Let me prepare the necessary setup and then I will demonstrate our solution based on link:glossary.html#rhtap[*Red Hat Trusted Application Pipeline (RHTAP)*,window=_blank] in action."
 * "*RHTAP* provides prebuilt pipelines with automated security checks, aiming to achieve the highest level of security, link:glossary.html#slsa[*SLSA*,window=_blank] Level 3, for built artifacts and offers the capabilities I just explained."

@@ -48,7 +48,7 @@ Discussion on the integration of these security tools within RH TAP to establish
 
 === Scenario Setup
 
-Two Golden Template Paths (GPTs) are preconfigured in RHDH: a non-secure pipeline and a secure pipeline, designed to facilitate the hands-on experience.
+Two Software Templates are pre-configured in Red Hat Developer Hub (RHDH): a non-secure pipeline and a secure pipeline, designed to facilitate the hands-on experience.
 
 ==== Part 1: Exploring the Non-Secure Pipeline
 

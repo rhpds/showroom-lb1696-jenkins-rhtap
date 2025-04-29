@@ -13,6 +13,7 @@ asciidoc:
     acs_url: httpis://
     gitops_url: https://
     gitea_customersapp_url: https://
+    adminuser: admin
     username: user
     password: pswd
     doc_openshift_api: https://docs.redhat.com/en/documentation/openshift_container_platform/4.17/html/security_apis/secret-v1
@@ -25,11 +26,6 @@ asciidoc:
     page-links:
     - url: https://redhat.com
       text: Red Hat
-    jenkins_user: admin
-    jenkins_password: MzIyNjc5
-    qa_cluster_acs_route: https://central-stackrox.apps.cluster-lq56c.lq56c.sandbox3988.opentlc.com
-    qa_cluster_acs_portal_username: admin
-    qa_cluster_acs_portal_password:  MzIyNjc5
+  
+ 
     sonarqube_url: https://sonarqube-sonarqube.apps.cluster-9bk75.9bk75.sandbox4782.opentlc.com
-    sonarqube_user: admin
-    sonarqube_password: MzE5NTY2

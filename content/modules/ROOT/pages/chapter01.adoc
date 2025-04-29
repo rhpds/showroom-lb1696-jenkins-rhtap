@@ -18,7 +18,7 @@ TIP: Throughout this guide, you'll find links to a link:glossary.html[*glossary*
 === Logging into Red Hat Developer Hub (RHDH)
 
 * Eager to check out the *RHDH*, you quickly follow the instructions from your welcome email.
-* You use this link:rhdh_url: https://backstage-backstage.{OPENSHIFT_CLUSTER_INGRESS_DOMAIN}[*URL*, ,window=_blank] to log into *RHDH*.
+* You use this link:https://backstage-backstage.{OPENSHIFT_CLUSTER_INGRESS_DOMAIN}[*URL*,window=_blank] to log into *RHDH*.
 * Next, you click on the *GitLab* button to start the authentication process.
 
 
@@ -31,7 +31,7 @@ image::1_Authenticate.png[]
 
 image::2_Gitlab_Authenticate.png[]
 
-* You then click on the *Authorize keycloak* button to authorize link:glossary.html#keycloak[*Keycloak*,window=_blank] to access you account.
+* You then click on the *Authorize keycloak* button to authorize link:glossary.html#keycloak[*Keycloak*,window=_blank] to access your account.
 
 image::3_Authorize.png[]
 
@@ -89,11 +89,11 @@ image::10_Review_Form.png[]
 * The *software template* has done quiet a bit of heavy lifting on your behalf here:
 .. It created two repositories in *Gitlab*: one for the application source code and the other for link:glossary.html#gitops[*OpenShift GitOps*,window=_blank] manifests.
 .. It instructed *OpenShift GitOps* to create an application and all the specified resources in the manifests in the target link:glossary.html#ocp[*OpenShift*,window=_blank] cluster.
-.. *OpenShift GitOps* then processed the link:glossary.html#helm[*Helm Charts*,window=_blank] in the manifests git repo to deploy a CI pipeline in link:glossary.html#pipeline[*OpenShift Pipelines*,window=_blank] to build your application and push it to *Red Hat Quay*.
+.. *OpenShift GitOps* then processed the link:glossary.html#helm[*Helm Charts*,window=_blank] in the manifests git repo to deploy a CI pipeline in Jenkins to build your application and push it to *Red Hat Quay*.
 
 image::73_GPT_Flow.png[]
 
-NOTE: You might be wondering, what if my organization uses tools other than OpenShift GitOps? What if you've invested in Azure DevOps, for example? The great news is that every step in a software template is fully customizable, and we can swap out any tool used in a step with one of your choice. This flexibility is made possible through an extensible ecosystem of link:glossary.html#rhdh_plugins[*plugins*,window=_blank]. These plugins enable you to select your preferred tools from the existing plugins marketplace or even develop your custom plugins. So, in a nutshell, a software template adapts to your organization's workflow, not the other way around.
+NOTE: You might be wondering, what if my organization uses tools other than Jenkins? What if you've invested in Azure DevOps, for example? The great news is that every step in a software template is fully customizable, and we can swap out any tool used in a step with one of your choice. This flexibility is made possible through an extensible ecosystem of link:glossary.html#rhdh_plugins[*plugins*,window=_blank]. These plugins enable you to select your preferred tools from the existing plugins marketplace or even develop your custom plugins. So, in a nutshell, a software template adapts to your organization's workflow, not the other way around.
 
 * You click on the *Open Component in Catalog* link.
 
@@ -104,9 +104,11 @@ image::11_Executed_GPT.png[]
 image::12_Dashboard.png[]
 
 * The first thing you decide to do is dive into coding on your project.
-* You decide to use the Integrated Development Environment (IDE), *OpenShift Dev Spaces*, that Developer Hub has been configured to use.  You find and click on the *OpenShift Dev Spaces (VSCode)* link conveniently located in your Dashboard.
+* You decide to use the Integrated Development Environment (IDE), *OpenShift Dev Spaces*, that Developer Hub has been configured to use.  
 
 NOTE: link:https://developers.redhat.com/products/openshift-dev-spaces/overview[*OpenShift Dev Spaces*,window=_blank] is a Kubernetes native workspace and IDE that is part of the OpenShift platform. This tool allows your platform team to offer a full fledged IDE that requires zero configuration and effort by your app developers.
+
+* You find and click on the *OpenShift Dev Spaces (VSCode)* link conveniently located in your Dashboard.
 
 image::13_Click_OpenShift_DevSpaces.png[]
 
@@ -213,16 +215,16 @@ image::100_view_build_Action.png[]]
 
 image::101_jenkins_login.png[]
 
-* You enter the user name {jenkins_user} and password {jenkins_password} to login
+* You enter the user name {adminuser} and password {password} to login
 * In the Jenkins Dashboard, you click on the *Open Blue Ocean* link in the left navigation menu.
 
 image::102_click_on_blue_ocean.png[]
 
 * You can now monitor the progress of the pipeline run you just executed from **RHDH**, and you can also expand each task to view the logs.
 
-image::103_blue_ocean_view.pngp[]
+image::103_blue_ocean_view.png[]
 
-NOTE: While Jenkins Blue Ocean provides rich visualisation and might be familiar to many engineers, Red Hat Developer Hub is designed to be the central location for CI visibility. Once you've confirmed everything is wired correctly, you’ll rarely need to leave the RHDH interface again.
+NOTE: While Jenkins Blue Ocean provides rich vitalization and might be familiar to many engineers, Red Hat Developer Hub is designed to be the central location for CI visibility. Once you've confirmed everything is wired correctly, you’ll rarely need to leave the RHDH interface again.
 
 * Once the pipeline run execution is complete, you switch back to the *CI* view in RHDH and, to your satisfaction, the CI view reflects the same completed status.
 * You then select the *Image Registry* tab from the upper menu,
@@ -243,7 +245,7 @@ image::88_Docs_View.png[]
 
 '''
 
-=== Chapter 1 - Summary
+=== Chapter 1: Summary
 
 Our story unfolds with a bright-eyed developer starting his new role, welcomed by the innovative environment of the *Red Hat Developer Hub (RHDH)*. This *Internal Developer Portal (IDP)*, with its *Software Templates* streamlined and automated his onboarding process. The software template offered a self-service approach to project initiation, enabling our developer to quickly dive into his task, without the overhead of configuring the underlying technology of the development environment.
 
