@@ -34,17 +34,18 @@ image::127_select_tekton_template.png[]
 * You follow the same steps like before to sign your code. Click on the *Hamburger button* (three horizontal bars) on the top left of your screen and select *Terminal -> New Terminal*
 
 run the following command to add your changes to staging:
-+
+
 [source, role="execute"]
 ----
 git add .
 ----
 * Run the next command to commit your changes:
-+
+
 [source, role="execute"]
 ----
 git commit -m "Doc Update"
 ----
+
 * You will again receive the error message that states *error opening browser: exec: "xdg-open": executable file not found in $PATH*.  
 * Copy and paste the url into a new browser tab/window and hit enter.
 
@@ -64,14 +65,13 @@ image::92_Gitsign_Verification_Code.png[]
 ----
 Enter verification code:
 ----
-+
 
 * If successful, you should receive a successful commit message:
-+
+
 image::93_Gitsign_Commit_Signed.png[]
 
 * Push the code to the repository with the below command:
-+
+
 [source, role="execute"]
 ----
 git push
