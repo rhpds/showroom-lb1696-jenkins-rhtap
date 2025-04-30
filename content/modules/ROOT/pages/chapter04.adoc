@@ -1,11 +1,11 @@
 
 = Bonus Lab: Building a Trusted Pipeline with OpenShift Pipelines and Tekton
 
-* This bonus exercilabse follows the same journey you completed with Secure Software Template, however this time you will use **Tekton**, the cloud native engine that backs **OpenShift Pipelines**.  
+* This bonus lab follows the same journey you completed with Secure Software Template, however this time you will use **Tekton**, the cloud native engine that backs **OpenShift Pipelines** instead of Jenkins.  
 
 * The steps are identical, you will create build and deploy resources, sign all artifacts, generate an SBOM, and let **Red Hat Advanced Cluster Security (ACS)** enforce your policies.  
 
-*Along the way you will note the few places where a Tekton pipeline feels different from Jenkins.
+* Along the way you will notice the key places where a Tekton pipeline differs from Jenkins, thanks to the Tekton plugin’s tighter integration with Red Hat security tools.
 
 '''
 
@@ -155,3 +155,5 @@ You have now secured a Quarkus service using two different CI engines.
 * **Tekton** delivers the same stages as native Kubernetes custom resources.
 
 Every downstream step, from cosign signatures, to SBOM generation, to ACS policy enforcement, remains unchanged, proving that the security controls you built are portable across pipeline tooling.
+
+Whether your teams prefer Jenkins for its plugin ecosystem or Tekton for its Kubernetes‑native workflow, the guardrails you implemented guarantee that every workload reaches production with the same cryptographic assurance, supply‑chain transparency, and policy‑driven compliance.

@@ -22,6 +22,12 @@ NOTE: It may take the application a few minutes to start after the script comple
 
 image::29_Deploy_Insecure_Application.png[]
 
+* You switch back to **RHDH** and select the **Topology** view tab."
+
+* You click the route linked to the **insecured-app** pod to open the application in a new browser tab.
+
+image::128_insecureapp_Topology_View.png[]
+
 * But, oh no!
 * To your disbelief, the application has been compromised, now infected with a ransomware virus.
 * How could this have possibly happened?
