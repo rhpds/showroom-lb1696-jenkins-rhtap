@@ -1,89 +1,157 @@
 
-= Bonus Chapter: Securing a Quarkus Service Software Supply Chain (Tekton)
+= Bonus Lab: Building a Trusted Pipeline with OpenShift Pipelines and Tekton
 
-This bonus exercise follows the same journey you completed with the Jenkins based templates, however this time you will use **Tekton**, the cloud native engine that backs **OpenShift Pipelines**.  
-The objective is identical, you will create build and deploy resources, sign all artifacts, generate an SBOM, and let **Red Hat Advanced Cluster Security (ACS)** enforce your policies.  
-Along the way you will note the few places where a Tekton pipeline feels different from Jenkins.
+* This bonus exercilabse follows the same journey you completed with Secure Software Template, however this time you will use **Tekton**, the cloud native engine that backs **OpenShift Pipelines**.  
+
+* The steps are identical, you will create build and deploy resources, sign all artifacts, generate an SBOM, and let **Red Hat Advanced Cluster Security (ACS)** enforce your policies.  
+
+*Along the way you will note the few places where a Tekton pipeline feels different from Jenkins.
 
 '''
 
 == 1. Launch the “Securing a Quarkus Service Software Supply Chain (Tekton)” template
 
-. In the **Red Hat Developer Hub** catalog search for *Securing a Quarkus Service Software Supply Chain (Tekton)*.  
-  image::120_select_tekton_template.png[]
-. Click **Choose** then **Next** to open the parameter screen.  
-  image::121_template_parameters.png[]
-. Accept the default namespace, then click **Create**.  
-  As before RHDH scaffolds a source repository, OpenShift resources, and a CI pipeline, but this time the pipeline is a **Tekton Pipeline** object rather than a Jenkins job.
+* In **Red Hat Developer Hub**, click **Create** in the left navigation menu and select the *Securing a Quarkus Service Software Supply Chain (Tekton)* template.  
 
-'''
+image::127_select_tekton_template.png[]
 
-== 2. Examine the generated Tekton resources
+* As you step through the forms for the Tekton software template, you notice that they are identical to the Jenkins template. You accept the defaults and click **Create**.
 
-. Switch to the OpenShift **Developer ➜ Pipelines** view and select the new pipeline named *quarkus‑svc‑supply‑chain*.  
-  image::122_openshift_pipelines_list.png[]
-. Notice the **Pipeline**, **Tasks**, and **PipelineRuns** custom resources.  
-  In Jenkins you saw these stages inside Blue Ocean, here they are native Kubernetes objects that OpenShift renders in the console.
+* Once the software template completes execution, you click on the *Open Component in Catalog* link.
 
-TIP: Tekton pipelines are defined as YAML and stored with your source just like application code.  This enables pull‑request reviews and Git history for the CI definition itself.
+== 2. Update your code in OpenShift Dev Spaces and trigger the pipeline
 
-'''
+* You launch your IDE by clicking on the *OpenShift Dev Spaces (VSCode)* link.
 
-== 3. Trigger the pipeline
+* *OpenShift Dev Spaces* then begins creating your workspace, just like before.
 
-. In the **Pipeline** details click **Start**, accept the defaults, and press **Start** again.  
-  OpenShift immediately creates a **PipelineRun** and one **TaskRun** per step.  
-  image::123_start_pipeline_run.png[]
-. Follow the live logs directly in the console.  
-  You will recognise the same stages you saw in Jenkins, for example *Clone Repository*, *Build Image*, *Sign Image*, and *Generate SBOM*.
+* After waiting a few minutes for *OpenShift Dev Spaces* to finish setting up your workspace, you start updating the documentation.
 
-Key difference:  
-* Jenkins streamed logs from a single pod while Tekton creates a fresh pod for each **TaskRun**.  This improves isolation and lets Kubernetes schedule each step independently.
+* You expand the docs folder and open the markdown file *index.md*.
 
-'''
+* At the document's end, you add: "Secure Pipeline powered by OpenShift Pipelines and Tekton."
 
-== 4. Publishing Cosign keys to Vault
+* You follow the same steps like before to sign your code. Click on the *Hamburger button* (three horizontal bars) on the top left of your screen and select *Terminal -> New Terminal*
 
-The template already generated a `cosign.pub` and private key in the *signing‑secrets* Kubernetes secret, the same as the Jenkins variant.
-
-. Run the helper script in the development terminal to copy the keys to Vault  
+run the following command to add your changes to staging:
 +
-[source,role="execute"]
+[source, role="execute"]
 ----
-./create-vault-entries.sh
+git add .
 ----
-. Verify that the Vault path now holds both `cosign.pub` and `cosign.key`.  
-  image::124_vault_keys.png[]
+* Run the next command to commit your changes:
++
+[source, role="execute"]
+----
+git commit -m "Doc Update"
+----
+* You will again receive the error message that states *error opening browser: exec: "xdg-open": executable file not found in $PATH*.  
+* Copy and paste the url into a new browser tab/window and hit enter.
 
-No changes are required here, Tekton and Jenkins both refer to the same secret when they sign images.
+image::90_Gitsign_Commit_Message.png[]
 
-'''
+* The browser will prompt you for your credentials.  Enter {user} for the *username* and {password} for the *password*.
 
-== 5. Verifying the SBOM and signatures
+image::91_Gitsign_Credentials_Prompt.png[]
 
-. After the **PipelineRun** completes, expand the *Generate SBOM* task and download `bom.cdx.json`.  
-  image::125_task_generate_sbom.png[]
-. Upload the SBOM to Dependency‑Track as shown in Chapter 2.  
-  The value is identical, centralized visibility, continuous CVE watch, and audit evidence.
+* You will then be redirected to another page that will present a verification code.  Copy this code into your clipboard.
 
-'''
+image::92_Gitsign_Verification_Code.png[]
 
-== 6. ACS policy enforcement remains identical
+* Return to *Dev Spaces* and paste this code into the waiting prompt in the *VS Code* terminal.
++
+[source, role="execute"]
+----
+Enter verification code:
+----
++
 
-Because the container registry, cosign public key, and ACS policies are cluster wide, no additional ACS configuration is needed for the Tekton pipeline.
+* If successful, you should receive a successful commit message:
++
+image::93_Gitsign_Commit_Signed.png[]
 
-. Deploy the resulting image to QA.  
-  ACS verifies the cosign signature and the SBOM attestation.  
-  image::126_acs_violation_check.png[]
-. Confirm the deployment turns green, showing that the trusted supply chain passed every gate.
+* Push the code to the repository with the below command:
++
+[source, role="execute"]
+----
+git push
+----
 
-'''
+* This action sets the build pipeline based on OpenShift Pipelines into motion.
+* You switch back to the *Developer Hub* and select the *CI tab* from the top menu, to show the team that pipeline execution is in progress.
+
+image::49_Expand_Secure_Pipeline.png[]
+
+==== Task 1: Verify Commit
+
+* "Once again we start by ensuring the source code modifications were made by a trusted source," you explain.
+* You then click on the task *verify-commit* and pull up the logs.
+
+image::51_Click_On_Verify_Commit.png[]
+
+* "Here in the log, you can see the user we used and the comment we provided when we made the last code change.”
+* "The *verify-commit* task executes the command link:https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work[*git verify-commit*,window=_blank] to verify that the signature is valid, before the pipeline moves to the next task." you point out.
+
+image::52_Verify_Commit_Log.png[]
+
+==== Task 2: Scan Source
+
+* "Then we run a static code analysis using *SonarQube* as we did in the Jenkins Pipeline. 
+
+image::53_Scan_Source_Task.png[]
+
+=== Task 3: Build and Sign Image
+
+* "Similar to the Jenkins pipeline, the *build-sign-image* task is responsible for building a container image based on your verified source code. It then generates the *Software Bill of Materials (SBOM)* and pushes it to our *Red Hat Quay* registry upon successful completion of this task," you explain.
+
+image::56_Build_Sign_Image.png[]
+
+=== Task 4: Image Scan
+
+* "Let's switch back to our pipeline view in *RHDH*, and look at the tasks performed by link:glossary.html#acs[*Red Hat Advanced Cluster Security (ACS)*,window=_blank]," you suggest.
+* "The *acs-image-scan* task performs an image scan to identify known vulnerabilities within the container image. It compares the image components against known vulnerability databases, uncovering any CVEs (Common Vulnerabilities and Exposures) that might compromise the container."
+
+image::60_ACS_Image_Scan_Task.png[]
+
+* You notice not only that the Tekton pipeline is more visually clear, but also that, thanks to its deep integration with other Red Hat components, you can access reports in a much more seamless manner.
+* "We can review the report generated by *ACS*." you note, as you click on the *Output* icon under *ACTIONS*.
+
+image::61_Click_Output.png[]
+
+* "Here you can see that we have 3 critical vulnerabilities, but what's great is that we also receive recommendations to upgrade to the version where those vulnerabilities are addressed."
+
+image::62_Image_Scan_Result.png[]
+
+=== Task 5: ACS Image Check
+
+* You switch back to the pipeline view as you explain: "*ACS* doesn't stop at scanning; it can also assess whether the image adheres to predefined rules by performing an image check".
+* "The *image-scan-check* task evaluates the container image against policies and compliance standards. This includes not running as root, using approved base images, or avoiding prohibited software packages, for example."
+
+image::63_ACS_Image_Check_Task.png[]
+
+* "Once again, we can view the analysis results," you say, clicking on the *Output* icon under *ACTIONS* and then selecting the *Image Check* tab.
+* "In this report, you can see all the violations that *ACS* detected and the recommended remediation actions."
+
+image::64_Image_Check_Result.png[]
+
+=== Task 6: Export SBOM
+
+image::65_Scan_Export_SBOM_Task.png[]
+
+* You then demonstrate how to access the generated *SBOM* by clicking the link that's readily available in your pipeline view.
+
+image::57_SBOM_Link.png[]
+
+* After you click you immediately see the generated SBOM.
+
+image::66_SBOM.png[]
+
 
 == Chapter Summary
 
 You have now secured a Quarkus service using two different CI engines.
 
-* **Jenkins** integrates with RHDH through a classic job and Blue Ocean view.  
-* **Tekton** delivers the same stages as native Kubernetes custom resources that appear in the OpenShift Pipelines console.
+* **Jenkins** integrates with RHDH through a classic CI engine. 
+* **Tekton** delivers the same stages as native Kubernetes custom resources.
 
 Every downstream step, from cosign signatures, to SBOM generation, to ACS policy enforcement, remains unchanged, proving that the security controls you built are portable across pipeline tooling.

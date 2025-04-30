@@ -116,10 +116,6 @@ image::13_Click_OpenShift_DevSpaces.png[]
 
 image::14_Login_With_OpenShift.png[]
 
-* Then, you choose the Single Sign-On option by clicking the *rhsso* button
-
-image::15_Login_RHSSO.png[]
-
 * You then enter your username and password as follows:
 ** *Username*: {user}
 ** *Password*: {password}
@@ -215,7 +211,7 @@ image::100_view_build_Action.png[]]
 
 image::101_jenkins_login.png[]
 
-* You enter the user name {jenkins_user} and password {jenkins_password} to login
+* You enter the user name {adminuser} and password {password} to login
 * In the Jenkins Dashboard, you click on the *Open Blue Ocean* link in the left navigation menu.
 
 image::102_click_on_blue_ocean.png[]

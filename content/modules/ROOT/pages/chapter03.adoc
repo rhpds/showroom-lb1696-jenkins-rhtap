@@ -142,7 +142,7 @@ image::115_Jenkins__Verify_Commit_Log.png[]
 * I've setup a task called *scan* task, we utilize a tool called link:https://www.sonarsource.com/products/sonarqube[*SonarQube*,window=_blank] to analyze the source code and provide reports based on its quality.
 * "We can view the scan results from the pipeline logs as we did before, or we could log in to *SonarQube* to get an in-depth report."
 * "Let's look at the *SonarQube* report this time," you decide.
-* To access *SonarQube*, you use the following link: https://sonarqube-sonarqube.{OPENSHIFT_CLUSTER_INGRESS_DOMAIN} and log in with your credentials, username: {adminuser} and password: {password}.
+* To access *SonarQube*, you use the following https://sonarqube-sonarqube.{OPENSHIFT_CLUSTER_INGRESS_DOMAIN}[*URL*,window=_blank]  and log in with your credentials, **username:** {adminuser} and **password**: {password}.
 * You click on the project link in the *SonarQube* Dashboard.
 * "Good news! Our application has passed the validation test by *SonarQube*," you observe.
 
@@ -173,7 +173,19 @@ image::119_Jenkins_Upload_SBOM_To_CycloneDX.png[]
 
 image::120_Jenkins_Upload_SBOM_To_TPA.png[]
 
-* To access *Trusted Profile Analyzer (TPA)*, you use the following link: https://sso-trusted-profile-analyzer.{OPENSHIFT_CLUSTER_INGRESS_DOMAIN} and log in with your credentials, username: {adminuser} and password: {password}.
+* To access *Trusted Profile Analyzer (TPA)*, you use the following https://console-trusted-profile-analyzer.{OPENSHIFT_CLUSTER_INGRESS_DOMAIN}[*URL*,window=_blank] and log in with your credentials, **username**: {adminuser} and **password**: {password}.
+
+* "You can view the vulnerabilities and recommended remediation inside the SBOM we just uploaded to **Trusted Profile Analyzer (TPA)**," you explain, clicking **Search** in the left navigation menu.
+
+image::121_Search_TPA.png[]
+
+* In the results table, click the **secured-app** link at the top. "The first entry in the list is the SBOM for our **secured-app** application," you point out.
+
+image::122_Results_TPA.png[]
+
+* You switch to the **Dependency Analytics Report** tab as ypu explain, "This view lists every discovered security issue and the remediation that Trusted Profile Analyzer suggests."
+
+image::123_Dependency_Analytics_TPA.png[]
 
 === Task 6: ACS Image Check
 
@@ -192,7 +204,7 @@ image::117_Jenkins_ACS_Image_Scan_Task.png[]
 
 * Addressing the QA engineer, you begin, “Now, I'm going to show you how to validate that an image is signed before deploying it for testing.”
 * “You'll use the link:glossary.html#ec[*Enterprise Contract CLI (ec)*,window=_blank] along with *Cosign* to first check the original image from the insecure application. I've prepared a script specifically for this purpose.”
-* You execute the command in the terminal:
+* You execute the following command in the terminal:
 +
 [source, role="execute"]
 ----
@@ -213,7 +225,7 @@ image::67_Validate_Insecure_Image.png[]
 image::79_EC_Validation_Success.png[]
 
 * "We can also test our *0-Trusted Signature Policy*, by deploying both images to *OpenShift*, first we'll test the policy against the insecure image.
-* You execute the command to deploy the insecure image in the QA environment terminal:
+* You execute the following command to deploy the insecure image:
 +
 [source, role="execute"]
 ----
@@ -221,14 +233,25 @@ image::79_EC_Validation_Success.png[]
 ----
 * "The policy does its job and stops us from deploying the insecure application."
 
+image::124_zero_trust_policy.png[]
 
-* You then execute the command to deploy the image built by the secure pipeline in the QA environment terminal:
+* You then execute the  following command to deploy the image built by the secure pipeline:
 +
 [source, role="execute"]
 ----
 ./deploy-app.sh secured
 ----
-* "This time the deployment is successful and you can proceed to test this application and promote to production with confidence.", you assure the QA Engineer.
+* "This time the deployment is successful and you can proceed to test this application with confidence.", you assure the QA Engineer.
+
+* You switch back to **RHDH** and select the **Topology** view tab, saying, "This view lets us visualize every pod deployed in our OpenShift project."
+
+* You click the route linked to the **secured-app** pod to open the application in a new browser tab.
+
+image::125_Topology_View.png[]
+
+* "As you can see, the application is up, ready for testing, and fully protected by all the guardrails we added to our pipeline," you remark with confidence.
+
+image::126_secured_app.png[]
 
 === Workshop - Summary
 

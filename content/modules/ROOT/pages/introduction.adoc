@@ -52,7 +52,7 @@ Two Software Templates are pre-configured in Red Hat Developer Hub (RHDH): a non
 
 ==== Part 1: Exploring the Non-Secure Pipeline
 
-* *Builder Team*: Participants deploy an application using the non-secure GPT, identifying typical security oversights.
+* *Builder Team*: Participants deploy an application using the non-secure software template, identifying typical security oversights.
 * *QA Team*: Participants deploy the unsecured image, identify vulnerabilities, and observe the consequences of bypassing security checks.
 
 ==== Part 2: Transitioning to the Secure Pipeline

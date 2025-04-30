@@ -34,13 +34,15 @@ image::31_Ransomeware.png[]
 
 === Installing the Guard Rails
 
-* In the aftermath of discovering a critical vulnerability during QA testing, the organization convenes a post-mortem to establish a more secure development process. You, a Red Hat consultant with expertise in supply chain security, join the meeting alongside the developers, QA engineers, platform engineers, and security leads.
+* In the aftermath of discovering a critical vulnerability during QA testing, the organization convenes a post-mortem to establish a more secure development process. 
+
+* You, a Red Hat consultant with expertise in supply chain security, join the meeting alongside the developers, QA engineers, platform engineers, and security leads.
 
 * You begin by addressing the group: "Thank you for having me. I understand that a malicious component slipped through into your QA environment."
 
 * The *QA engineer* nods in agreement: "Yes, I ran my usual tests, but the application turned out to be compromised. I was shocked and immediately reported the issue to our security team."
 
-* The *security engineer* adds: "We isolated the environment and reviewed logs and build artifacts. It appears the culprit was an unverified library that made it into our pipeline.
+* The *security engineer* adds: "We isolated the environment and reviewed logs and build artifacts. It appears the culprit was an unverified library that made it into our pipeline."
 
 * "Right," you reply. "In scenarios like this, it’s often not one person’s fault, but a gap in the controls we put in place. We need to strengthen your software supply chain in a way that prevents these incidents from happening again. Let me walk you through the key security practices we will put in place."
 
@@ -83,9 +85,9 @@ image::78_Initialize_Cosign.png[]
 === 3. Generating Software Bill of Materials (SBOM)
 
 * "We'll go a step further and create an attested *Software Bill of Materials (SBOM)*."
-* *Developer*: What is an *SBOM*?
+* *Developer*: "What is an *SBOM*?"
 * "Think of an *SBOM* as a complete list of ingredients in your application. It details all the open-source components and dependencies used to build your software," you explain.
-* *Developer*: How does that help with Security?
+* *Developer*: "How does that help with Security?"
 * "Excellent question!  Having an *SBOM* with attestation is crucial. Let's say a known vulnerability is discovered in one of the open-source components used in your application."
 * "With an attested *SBOM*, you can quickly identify which versions of your application are affected and prioritize patching. *Attestation* ensures the *SBOM* itself hasn't been tampered with, providing confidence in its accuracy." you add.
 
@@ -94,9 +96,7 @@ image::78_Initialize_Cosign.png[]
 * *Security Engineer*:  "Okay, but how can we enforce policies that stop the deployment of images with known malicious libraries?"
 * "Ah, yes. I remember that you struggled quite a bit with the link:https://en.wikipedia.org/wiki/Log4Shell[*Log4Shell*,window=_blank] vulnerability a few years back."
 * "We will include steps in the pipeline to perform both image scans and image checks against known CVEs and your organization's policies. This way, we ensure that the images are clear of known vulnerabilities and that our policies are enforced during the build and deployment stages," you answer.
-* "In fact, let me log in to link:glossary.html#acs[*Red Hat Advanced Cluster Security (ACS)*,window=_blank] now and show you what those policies look like," you say as you open the ACS Console using this link: https://central-stackrox.{OPENSHIFT_CLUSTER_INGRESS_DOMAIN} and log in with your credentials, username: {adminuser} and password: {password}.
-
-NOTE: The browser will warn you about a certificate issue when you first access the RHACS console. Ignore this warning and continue to the site.
+* "In fact, let me log in to link:glossary.html#acs[*Red Hat Advanced Cluster Security (ACS)*,window=_blank] now and show you what those policies look like," you say as you open the ACS Console using this https://central-stackrox.{OPENSHIFT_CLUSTER_INGRESS_DOMAIN}[*URL*,window=_blank] and log in with your credentials, **username**: {adminuser} and **password**: {password}.
 
 image::80_rhacs_login.png[]
 
@@ -150,7 +150,7 @@ image::86_configure_new_integration.png[]
 
 NOTE: For convenience, there is already a policy in ACS called *0-Trusted Signature Policy* that checks an image for a valid signature.
 
-* "All we need to do is enable this policy and configure it to use the *cosign integration* we just created," you explain to the team as you enable the policy.
+* "All we need to do is enable the policy *0-Trusted Signature Policy* and configure it to use the *cosign integration* we just created," you explain to the team as you enable the policy.
 
 . You select *Policy Management* from the left menu.
 
