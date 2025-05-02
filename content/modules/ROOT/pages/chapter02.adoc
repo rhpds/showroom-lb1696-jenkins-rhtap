@@ -102,7 +102,7 @@ image::78_Initialize_Cosign.png[]
 * *Security Engineer*:  "Okay, but how can we enforce policies that stop the deployment of images with known malicious libraries?"
 * "Ah, yes. I remember that you struggled quite a bit with the link:https://en.wikipedia.org/wiki/Log4Shell[*Log4Shell*,window=_blank] vulnerability a few years back."
 * "We will include steps in the pipeline to perform both image scans and image checks against known CVEs and your organization's policies. This way, we ensure that the images are clear of known vulnerabilities and that our policies are enforced during the build and deployment stages," you answer.
-* "In fact, let me log in to link:glossary.html#acs[*Red Hat Advanced Cluster Security (ACS)*,window=_blank] now and show you what those policies look like," you say as you open the ACS Console using this https://central-stackrox.{OPENSHIFT_CLUSTER_INGRESS_DOMAIN}[*URL*,window=_blank] and log in with your credentials, **username**: {adminuser} and **password**: {password}.
+* "In fact, let me log in to link:glossary.html#acs[*Red Hat Advanced Cluster Security (ACS)*,window=_blank] now and show you what those policies look like," you say as you open the ACS Console using this https://central-stackrox.{OPENSHIFT_CLUSTER_INGRESS_DOMAIN}[*URL*,window=_blank] and log in with your credentials, **username**: `{adminuser}` and **password**: `{password}`.
 
 image::80_rhacs_login.png[]
 

@@ -25,8 +25,8 @@ TIP: Throughout this guide, you'll find links to a link:glossary.html[*glossary*
 image::1_Authenticate.png[]
 
 * Now, it's time to enter your username and password as detailed below:
-** *Username*: {user}
-** *Password*: {password}
+** *Username*: `{user}`
+** *Password*: `{password}`
 * After inputting your credentials, you click the *Sign in* button.
 
 image::2_Gitlab_Authenticate.png[]
@@ -117,8 +117,8 @@ image::13_Click_OpenShift_DevSpaces.png[]
 image::14_Login_With_OpenShift.png[]
 
 * You then enter your username and password as follows:
-** *Username*: {user}
-** *Password*: {password}
+** *Username*: `{user}`
+** *Password*: `{password}`
 * After inputting your credentials, you click the *Sign in* button.
 
 * You authorize *OpenShift Dev Spaces* to access your account by clicking the *Allow selected permissions* button.
@@ -211,7 +211,7 @@ image::100_view_build_Action.png[]]
 
 image::101_jenkins_login.png[]
 
-* You enter the user name {adminuser} and password {password} to login
+* You enter the user name `{adminuser}` and password `{password}` to login
 * In the Jenkins Dashboard, you click on the *Open Blue Ocean* link in the left navigation menu.
 
 image::102_click_on_blue_ocean.png[]
