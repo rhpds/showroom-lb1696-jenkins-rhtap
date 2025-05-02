@@ -177,19 +177,18 @@ image::66_SBOM.png[]
 
 [source, role="execute"]
 ----
-./deploy-app.sh secured
+./deploy-app.sh sec-tkn
 ----
 
 * You switch back to **RHDH**, navigate to the **Topology** view tab, and locate the deployed pod just as you did earlier.
 
 * You click the route linked to the **secured-app** pod, which opens the application in a new browser tab.
 
-image::125_Topology_View.png[]
+image::129_secureapp_tek_Topology_View.png[]
 
 * "As you can see, the application is up and ready for testing," you explain.  
 * "What’s even more important is that the developer didn’t need to worry about the underlying CI/CD tooling. All they needed to know was that once they committed code, the pipeline would securely build, sign, and publish the image to the registry—enforcing every guardrail and policy the organization has put in place."
 
-image::126_secured_app.png[]
 
 == Chapter Summary
 

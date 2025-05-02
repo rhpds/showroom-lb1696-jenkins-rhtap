@@ -173,7 +173,7 @@ image::119_Jenkins_Upload_SBOM_To_CycloneDX.png[]
 
 image::120_Jenkins_Upload_SBOM_To_TPA.png[]
 
-* To access *Trusted Profile Analyzer (TPA)*, you use the following https://console-trusted-profile-analyzer.{OPENSHIFT_CLUSTER_INGRESS_DOMAIN}[*URL*,window=_blank] and log in with your credentials, **username**: `{adminuser}` and **password**:`{password}`.
+* To access *Trusted Profile Analyzer (TPA)*, you use the following https://console-trusted-profile-analyzer.{OPENSHIFT_CLUSTER_INGRESS_DOMAIN}[*URL*,window=_blank] and log in with your credentials, **username**: `{adminuser}` and **password**: `{password}`.
 
 * "You can view the vulnerabilities and recommended remediation inside the SBOM we just uploaded to **Trusted Profile Analyzer (TPA)**," you explain, clicking **Search** in the left navigation menu.
 
@@ -243,7 +243,7 @@ image::124_zero_trust_policy.png[]
 ----
 * "This time the deployment is successful and you can proceed to test this application with confidence.", you assure the QA Engineer.
 
-* You switch back to **RHDH** and select the **Topology** view tab, saying, "This view lets us visualize every pod deployed in our OpenShift project."
+* You switch back to **RHDH** and select the **Topology** view tab.
 
 * You click the route linked to the **secured-app** pod to open the application in a new browser tab.
 
