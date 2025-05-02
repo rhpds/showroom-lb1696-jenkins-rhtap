@@ -11,7 +11,32 @@
 
 == 1. Launch the “Securing a Quarkus Service Software Supply Chain (Tekton)” template
 
-* In **Red Hat Developer Hub**, click **Create** in the left navigation menu and select the *Securing a Quarkus Service Software Supply Chain (Tekton)* template.  
+* "Before we launch the new software template, let’s configure *Tekton Chains* to sign our container images," you explain, as you enter the following command in the terminal:
+
+[source, role="execute"]
+----
+cd
+cat <<EOF >> tekton-config.yaml
+apiVersion: operator.tekton.dev/v1alpha1
+kind: TektonConfig
+metadata:
+  name: config
+spec:
+  addon: {}
+  chain:
+    artifacts.oci.storage: oci
+    artifacts.taskrun.format: in-toto
+    artifacts.taskrun.storage: oci
+    artifacts.pipelinerun.format: in-toto
+    artifacts.pipelinerun.storage: oci
+    transparency.enabled: true
+    transparency.url: http://rekor-server.trusted-artifact-signer.svc
+  config: {}
+EOF
+oc patch TektonConfig config --type='merge' --patch "$(cat tekton-config.yaml)"
+----
+
+* With Tekton Chains now configured, you return to **Red Hat Developer Hub**, click **Create** in the left navigation menu, and select the *Securing a Quarkus Service Software Supply Chain (Tekton)* template.  
 
 image::127_select_tekton_template.png[]
 
@@ -146,6 +171,25 @@ image::57_SBOM_Link.png[]
 
 image::66_SBOM.png[]
 
+== 3. Deploy and Test the secured image built with Tekton pipeline
+
+* You execute the following command to deploy the image built by the secure pipeline:
+
+[source, role="execute"]
+----
+./deploy-app.sh secured
+----
+
+* You switch back to **RHDH**, navigate to the **Topology** view tab, and locate the deployed pod just as you did earlier.
+
+* You click the route linked to the **secured-app** pod, which opens the application in a new browser tab.
+
+image::125_Topology_View.png[]
+
+* "As you can see, the application is up and ready for testing," you explain.  
+* "What’s even more important is that the developer didn’t need to worry about the underlying CI/CD tooling. All they needed to know was that once they committed code, the pipeline would securely build, sign, and publish the image to the registry—enforcing every guardrail and policy the organization has put in place."
+
+image::126_secured_app.png[]
 
 == Chapter Summary
 
