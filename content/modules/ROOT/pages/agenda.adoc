@@ -12,3 +12,6 @@ Understand the importance of integrating security guard rails in the software de
 
 == Chapter 3: Red Hat Trusted Application Pipeline to the Rescue
 Demonstrate the Red Hat Trusted Application Pipeline (RHTAP) role in providing a Trusted Software Supply Chain (TSSC).
+
+== Bonus Lab: Building a Trusted Pipeline with OpenShift Pipelines and Tekton  
+Reinforce software supply chain security using Tekton and OpenShift Pipelines while highlighting the portability of guardrails across CI platforms.
