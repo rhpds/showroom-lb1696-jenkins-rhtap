@@ -16,9 +16,7 @@
 ./deploy-app.sh insecured
 ----
 
-* As soon as the script completes its run and the application is deployed, you proceed to copy the application's URL and paste it in your browser, eager to start testing the application.
-
-NOTE: It may take the application a few minutes to start after the script completes.
+* As soon as the script completes its run, it will take a few minutes for the application to start up.  The URL for the application will be shown on completion of the script.
 
 image::29_Deploy_Insecure_Application.png[]
 
