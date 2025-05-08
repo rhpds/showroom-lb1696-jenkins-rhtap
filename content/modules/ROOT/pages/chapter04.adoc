@@ -1,7 +1,7 @@
 
 = Bonus Lab: Building a Trusted Pipeline with OpenShift Pipelines and Tekton
 
-* This bonus lab follows the same journey you completed with Secure Software Template, however this time you will use **Tekton**, the cloud native engine that backs **OpenShift Pipelines** instead of Jenkins.  
+* This bonus lab follows the same journey you completed with Secure Software Template, however this time you will use **Tekton**, the cloud native engine that backs link:glossary.html#pipeline[*OpenShift Pipelines*,window=_blank] instead of Jenkins.  
 
 * The steps are identical, you will create build and deploy resources, sign all artifacts, generate an SBOM, and let **Red Hat Advanced Cluster Security (ACS)** enforce your policies.  
 
@@ -131,7 +131,22 @@ image::53_Scan_Source_Task.png[]
 
 image::56_Build_Sign_Image.png[]
 
-=== Task 4: Image Scan
+=== Task 4 & 5: Upload SBOM to cyclonedx repo and Trusted Profile Analyzer (TPA)
+
+image::65_Scan_Export_SBOM_Task.png[]
+
+* Once the *SBOM* has been generated, it is uploaded to the organisation’s CycloneDX repository and the Trusted Profile Analyzer (TPA) in parallel.
+* You then demonstrate how to access the generated *SBOM* by clicking the link that's readily available in your pipeline view.
+
+image::57_SBOM_Link.png[]
+
+* After you click you immediately see the generated SBOM.
+
+image::66_SBOM.png[]
+
+* You can also access the SBOM and the generated report through the Trusted Profile Analyzer dashboard, just like we did with the Jenkins software template.
+
+=== Task 6: Image Scan
 
 * "Let's switch back to our pipeline view in *RHDH*, and look at the tasks performed by link:glossary.html#acs[*Red Hat Advanced Cluster Security (ACS)*,window=_blank]," you suggest.
 * "The *acs-image-scan* task performs an image scan to identify known vulnerabilities within the container image. It compares the image components against known vulnerability databases, uncovering any CVEs (Common Vulnerabilities and Exposures) that might compromise the container."
@@ -147,7 +162,7 @@ image::61_Click_Output.png[]
 
 image::62_Image_Scan_Result.png[]
 
-=== Task 5: ACS Image Check
+=== Task 7: ACS Image Check
 
 * You switch back to the pipeline view as you explain: "*ACS* doesn't stop at scanning; it can also assess whether the image adheres to predefined rules by performing an image check".
 * "The *image-scan-check* task evaluates the container image against policies and compliance standards. This includes not running as root, using approved base images, or avoiding prohibited software packages, for example."
@@ -159,17 +174,7 @@ image::63_ACS_Image_Check_Task.png[]
 
 image::64_Image_Check_Result.png[]
 
-=== Task 6: Export SBOM
 
-image::65_Scan_Export_SBOM_Task.png[]
-
-* You then demonstrate how to access the generated *SBOM* by clicking the link that's readily available in your pipeline view.
-
-image::57_SBOM_Link.png[]
-
-* After you click you immediately see the generated SBOM.
-
-image::66_SBOM.png[]
 
 == 3. Deploy and Test the secured image built with Tekton pipeline
 

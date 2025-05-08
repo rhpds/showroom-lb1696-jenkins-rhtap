@@ -16,7 +16,7 @@
 ./deploy-app.sh insecured
 ----
 
-* As soon as the script completes its run, it will take a few minutes for the application to start up.  The URL for the application will be shown on completion of the script.
+* The application may take a few minutes to start up. The URL will be displayed in the terminal once the script has finished running..
 
 image::29_Deploy_Insecure_Application.png[]
 
@@ -145,8 +145,8 @@ cat cosign.pub
 image::108_cat_cosign_pub.png[]
 
 * You begin configuring the new integration as follows:
-. You enter *cosign* for the *Integration name*,
-. You then expand the *Cosign public keys* field and click on *Add new public key*, to set the *Public key name* as cosign.pub,
+. You enter `cosign` for the *Integration name*,
+. You then expand the *Cosign public keys* field and click on *Add new public key*, to set the *Public key name* as `cosign.pub`,
 . and for the *Public key value* you use the public key you just copied from the terminal
 . Finally, you click the *Save* button.
 
