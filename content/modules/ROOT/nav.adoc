@@ -6,7 +6,7 @@
 
 * xref:chapter02.adoc[Chapter 2: Tightrope Walking without a Net]
 
-* xref:chapter03.adoc[Chapter 3: Red Hat Trusted Application Pipeline to the Rescue]
+* xref:chapter03.adoc[Chapter 3: Red Hat Advanced Developer Suite to the Rescue]
 
 * xref:chapter04.adoc[Bonus Lab: Building a Trusted Pipeline with OpenShift Pipelines and Tekton]
 

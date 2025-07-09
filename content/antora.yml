@@ -6,7 +6,7 @@ nav:
 
 asciidoc:
   attributes:
-    lab_name: "Secure CI/CD Pipeline Transformation with Jenkins and Red Hat’s Trusted Application Pipeline"
+    lab_name: "Secure CI/CD Pipeline Transformation with Jenkins and Red Hat’s Advanced Developer Suite"
     release-version: master
     page-pagination: true
     openshift_url: https://
@@ -26,6 +26,6 @@ asciidoc:
     page-links:
     - url: https://redhat.com
       text: Red Hat
-  
- 
+
+
     sonarqube_url: https://sonarqube-sonarqube.apps.cluster-9bk75.9bk75.sandbox4782.opentlc.com

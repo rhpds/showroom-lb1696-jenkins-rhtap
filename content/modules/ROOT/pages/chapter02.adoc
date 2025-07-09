@@ -38,7 +38,7 @@ image::31_Ransomeware.png[]
 
 === Installing the Guard Rails
 
-* In the aftermath of discovering a critical vulnerability during QA testing, the organization convenes a post-mortem to establish a more secure development process. 
+* In the aftermath of discovering a critical vulnerability during QA testing, the organization convenes a post-mortem to establish a more secure development process.
 
 * You, a Red Hat consultant with expertise in supply chain security, join the meeting alongside the developers, QA engineers, platform engineers, and security leads.
 
@@ -139,7 +139,7 @@ image::85_rhacs_new_integration.png[]
 
 [source, role="execute"]
 ----
-cat cosign.pub 
+cat cosign.pub
 ----
 
 image::108_cat_cosign_pub.png[]
@@ -183,11 +183,11 @@ image::110_enable_policy.png[]
 
 * "All done. ACS will now enforce this policy in the build stage of our application."
 * *Security Engineer*:  "That sounds comprehensive. Implementing these measures will definitely strengthen our security posture."
-* "Excellent. Let me prepare the necessary setup and then I will demonstrate our solution based on link:glossary.html#rhtap[*Red Hat Trusted Application Pipeline (RHTAP)*,window=_blank] in action."
-* "*RHTAP* provides prebuilt pipelines with automated security checks, aiming to achieve the highest level of security, link:glossary.html#slsa[*SLSA*,window=_blank] Level 3, for built artifacts and offers the capabilities I just explained."
+* "Excellent. Let me prepare the necessary setup and then I will demonstrate our solution based on link:glossary.html#rhads[*Red Hat Advanced Developer Suite (RHADS)*,window=_blank] in action."
+* "*RHADS* provides prebuilt pipelines with automated security checks, aiming to achieve the highest level of security, link:glossary.html#slsa[*SLSA*,window=_blank] Level 3, for built artifacts and offers the capabilities I just explained."
 
 === Chapter 2 - Summary
 
 As the baton passed to the QA engineer for testing, the story took a dramatic turn. The deployed application, instead of showcasing the fruits of their labor, revealed a critical vulnerability, it was infected with ransomware. This revelation abruptly interrupted the testing process and cast a shadow over the software supply chain's security, sparking concerns about vulnerability and exposure.
 
-The next chapter of our story will showcase *Red Hat Trusted Application Pipeline (RHTAP)* in action. We will explore how integrating these security measures into the build pipelines and deployment process can safeguard our software supply chain against the ever-present specter of cyber threats.
+The next chapter of our story will showcase *Red Hat Advanced Developer Suite (RHADS)* in action. We will explore how integrating these security measures into the build pipelines and deployment process can safeguard our software supply chain against the ever-present specter of cyber threats.

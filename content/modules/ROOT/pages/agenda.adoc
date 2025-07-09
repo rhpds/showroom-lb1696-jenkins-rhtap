@@ -10,8 +10,8 @@ Introduction to the role of Internal Developer Portals in enhancing developer on
 == Chapter 2: Tightrope Walking without a Net
 Understand the importance of integrating security guard rails in the software delivery process.
 
-== Chapter 3: Red Hat Trusted Application Pipeline to the Rescue
-Demonstrate the Red Hat Trusted Application Pipeline (RHTAP) role in providing a Trusted Software Supply Chain (TSSC).
+== Chapter 3: Red Hat Advanced Developer Suite to the Rescue
+Demonstrate the Red Hat Advanced Developer Suite (RHADS) role in providing a Trusted Software Supply Chain (TSSC).
 
-== Bonus Lab: Building a Trusted Pipeline with OpenShift Pipelines and Tekton  
+== Bonus Lab: Building a Trusted Pipeline with OpenShift Pipelines and Tekton
 Reinforce software supply chain security using Tekton and OpenShift Pipelines while highlighting the portability of guardrails across CI platforms.

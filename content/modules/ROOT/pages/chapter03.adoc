@@ -1,6 +1,6 @@
-== Chapter 3:  Red Hat Trusted Application Pipeline to the Rescue
+== Chapter 3:  Red Hat Advanced Developer Suite to the Rescue
 
-* In the final chapter of our story, you demonstrate to the team how the *Red Hat Trusted Application Pipeline (RHTAP)* and Red Hat security tools can effectively tackle their security concerns, equipping the organization with a *Trusted Software Supply Chain*.
+* In the final chapter of our story, you demonstrate to the team how the *Red Hat Advanced Developer Suite (RHADS)* and Red Hat security tools can effectively tackle their security concerns, equipping the organization with a *Trusted Software Supply Chain*.
 
 '''
 
@@ -162,7 +162,7 @@ image::59_Generated_Artifacts_Registery.png[]
 
 === Task 4: Upload SBOM to Repository
 
-* Once the *SBOM* has been generated, the next step is to upload it to your organization's CycloneDX repository. 
+* Once the *SBOM* has been generated, the next step is to upload it to your organization's CycloneDX repository.
 * "The *SBOM* now sits in a single catalogue that every team can query, storing each SBOM with its build number and signature gives auditors a clear trail that proves provenance, verifies licensing obligations, and shows when components were updated or removed," you explain.
 
 image::119_Jenkins_Upload_SBOM_To_CycloneDX.png[]
@@ -217,7 +217,7 @@ image::67_Validate_Insecure_Image.png[]
 +
 [source, role="execute"]
 ----
-./validate-image.sh secured 
+./validate-image.sh secured
 ----
 
 * "Obviously, the validation is successful with the secure image.” you conclude, pointing at the success result in the terminal.
@@ -256,6 +256,6 @@ image::126_secured_app.png[]
 === Workshop - Summary
 
 As we close the curtains on this workshop, it’s important to reflect on the journey we’ve embarked on together.
-Throughout this experience, you've stepped into the shoes of developers, QA engineers, and security professionals, confronting head-on the hurdles that each role faces. More importantly, you've seen firsthand how the Red Hat Developer Hub (RHDH) and the Red Hat Trusted Application Pipeline (RHTAP) can transform these challenges into stepping stones for innovation and a solid foundation for building applications in a *Trusted Software Supply Chain*.
+Throughout this experience, you've stepped into the shoes of developers, QA engineers, and security professionals, confronting head-on the hurdles that each role faces. More importantly, you've seen firsthand how the Red Hat Developer Hub (RHDH) and the Red Hat Advanced Developer Suite (RHADS) can transform these challenges into stepping stones for innovation and a solid foundation for building applications in a *Trusted Software Supply Chain*.
 Thank you for joining us on this journey. May the knowledge you’ve gained empower you to become a beacon of innovation and security in your organization. Here's to your success in crafting a future built on innovation and security!
 

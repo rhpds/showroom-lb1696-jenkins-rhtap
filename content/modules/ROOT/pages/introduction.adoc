@@ -8,7 +8,7 @@ Welcome to an engaging session where integrating security into the development a
 
 Participants will journey through the transformation from a non-secure to a secure development pipeline, underlining the practical advantages of incorporating security tools such as The Update Framework + Fulcio + Sigstore (TAS), Red Hat Advanced Cluster Security (ACS), and SonarQube into their Red Hat OpenShift workflows.
 
-This workshop will take you through the Software Development Lifecycle (SDLC). Throughout this journey, you'll step into the roles of developers, quality assurance engineers, and security engineers, experiencing firsthand the challenges these personas face. Moreover, you'll see how our solution, the Red Hat Trusted Application Pipeline (RHTAP), addresses these challenges. Our story unfolds over three chapters.
+This workshop will take you through the Software Development Lifecycle (SDLC). Throughout this journey, you'll step into the roles of developers, quality assurance engineers, and security engineers, experiencing firsthand the challenges these personas face. Moreover, you'll see how our solution, the Red Hat Advanced Developer Suite (RHADS), addresses these challenges. Our story unfolds over three chapters.
 
 === Chapter 1: A Day in the Life of a New Developer
 
@@ -18,9 +18,9 @@ You will begin by stepping into the shoes of a new developer eager to start writ
 
 The story progresses as you don the hat of a Quality Assurance Engineer, uncovering the risks associated with providing developers with the tools to create great code without the necessary security guard rails to safeguard the organization against security threats.
 
-=== Chapter 3: Red Hat Trusted Application Pipeline to the Rescue
+=== Chapter 3: Red Hat Advanced Developer Suite to the Rescue
 
-In our story's final chapter, you play the role of a Red Hat Consultant who demonstrates to the team the capabilities of *the Red Hat Trusted Application Pipeline (RHTAP)*, showcasing how it can meet its security challenges without compromising developer productivity.
+In our story's final chapter, you play the role of a Red Hat Consultant who demonstrates to the team the capabilities of *the Red Hat Advanced Developer Suite (RHADS)*, showcasing how it can meet its security challenges without compromising developer productivity.
 
 == Workshop Challenge Overview
 
@@ -40,9 +40,9 @@ A presentation of essential security tools:
 * *Red Hat Advanced Cluster Security (ACS)*: Explained as a solution for securing Kubernetes environments, focusing on vulnerability management and policy enforcement.
 * *SonarQube*: Introduced as a tool for continuous analysis of code quality and security.
 
-=== Integration into Red Hat Trusted Application Pipeline (RH TAP)
+=== Integration into Red Hat Advanced Developer Suite (RH ADS)
 
-Discussion on the integration of these security tools within RH TAP to establish a cohesive and secure application development and deployment process using Red Hat OpenShift.
+Discussion on the integration of these security tools within RH ADS to establish a cohesive and secure application development and deployment process using Red Hat OpenShift.
 
 == Hands-on Activity (1 hr 15 mins)
 
