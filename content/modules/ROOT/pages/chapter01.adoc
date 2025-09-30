@@ -18,7 +18,7 @@ TIP: Throughout this guide, you'll find links to a link:glossary.html[*glossary*
 === Logging into Red Hat Developer Hub (RHDH)
 
 * Eager to check out the *RHDH*, you quickly follow the instructions from your welcome email.
-* You use this link:rhdh_url[*URL*,window=_blank] to log into *RHDH*.
+* You use this link:https://{rhdh_url}[*URL*,window=_blank] to log into *RHDH*.
 * Next, you click on the *GitLab* button to start the authentication process.
 
 
