@@ -17,10 +17,8 @@ TIP: Throughout this guide, you'll find links to a link:glossary.html[*glossary*
 
 === Logging into Red Hat Developer Hub (RHDH)
 
-{rhdh_url}
-
 * Eager to check out the *RHDH*, you quickly follow the instructions from your welcome email.
-* You use this link:https://backstage-backstage.apps.cluster-{ guid }.{ guid }{ subdomain_base_suffix }[*URL*,window=_blank] to log into *RHDH*.
+* You use this link:{rhdh_url}[link,window=_blank]  to log into *RHDH*.
 * Next, you click on the *GitLab* button to start the authentication process.
 
 
